@@ -1,0 +1,105 @@
+.homeElement {
+    width: 100%;
+    height: 100%;
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    position: relative;
+    box-sizing: border-box;
+}
+
+.homeElementContainer {
+    position: relative;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+.homeElementContainerImageContainer {
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+}
+
+.homeElementContainerImageContainerImage {
+    width: 100%;
+    height: auto;
+}
+
+.homeElementContainerTitle {
+    position: absolute;
+    z-index: 10;
+    right: 0;
+    bottom: 0;
+    padding-left: 15px;
+    padding-top: 5px;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    background-color: #0A0B0A;
+    box-sizing: border-box;
+    border-top-left-radius: 15px;
+}
+
+.homeElementContainerTitleContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.homeElementContainerTitleContainerIconContainerIcon {
+    width: 16px;
+    height: 16px;
+    color: #EFE7D2;
+}
+
+.homeElementContainerTitleContainerIcon {
+    width: 32px;
+    height: 32px;
+    border: 1px solid #32322D;
+    background-color: #111211;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 4px;
+}
+
+.homeElementContainerTitleContainerText {
+    color: #EFE7D2;
+    font-size: 22px;
+    text-transform: uppercase;
+    font-weight: 100;
+    letter-spacing: 2px;
+    position: relative;
+}
+
+.homeElementContainerTitleContainerText::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: #EFE7D2;
+    transition: width 0.3s ease-in-out;
+}
+
+.homeElementContainerTitle:hover .homeElementContainerTitleContainerText::after {
+    width: 100%;
+}
+
+.homeElementContainerTitleContainerText:hover::after {
+    width: 0; 
+}
+
+.homeElementContainer {
+    position: relative;
+}

@@ -1,0 +1,181 @@
+.home {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    background-color: #000000;
+    justify-content: center;
+    align-items: center;
+}
+
+.homeContainer {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    padding-top: 10px; 
+    padding-bottom: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    gap: 10px;
+}
+
+.homeContainerLeft {
+    display: flex;
+    flex: 3.2;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.homeContainerLeftContainer {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden; 
+}
+
+.homeContainerLeftContainerTitle {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    padding-left: 60px;
+    padding-bottom: 20px;
+    z-index: 10;
+}
+
+.homeContainerLeftContainerTitleContainerTextOne,
+.homeContainerLeftContainerTitleContainerTextTwo {
+    font-size: 122px;
+    color: #EFE7D2;
+    font-weight: 100;
+    text-shadow: 
+        -1px -1px 0 #000,
+        1px -1px 0 #000,
+        -1px 1px 0 #000,
+        1px 1px 0 #000;
+}
+
+.homeContainerLeftContainerTitleContainerTextTwo {
+    margin-top: -20px
+}
+
+.homeContainerRight {
+    display: flex;
+    flex: 1;
+    width: 100%;
+    height: 100%;
+}
+
+.homeContainerRightContainer {
+    width: 100%;
+    height: 100%;
+}
+
+.homeContainerRightContainerDiv {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    flex-grow: 1;
+    overflow: hidden;
+}
+
+.homeContainerLeftContainerImage {
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+}
+
+.homeContainerLeftContainerImageContainer {
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+    z-index: 10;
+    position: relative;
+}
+
+.homeContainerLeftContainerImageContainer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+}
+
+.homeContainerLeftContainerImageContainerImage {
+    width: 100%;
+    height: auto;
+    position: relative;
+    z-index: 0;
+}
+
+.homeContainerLeftContainerSocialMedia {
+    position: absolute;
+    z-index: 10;
+    background-color: #0A0B0A;
+    bottom: 0;
+    right: 0;
+    padding-left: 10px;
+    padding-top: 10px;
+    width: 164px;
+    height: 76px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.homeContainerLeftContainerSocialMediaContainer {
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+    padding-bottom: 10px;
+    padding-right: 10px;
+    justify-content: center;
+    align-items: center;
+}
+
+.homeContainerLeftContainerSocialMediaContainerInstagramContainerIcon,
+.homeContainerLeftContainerSocialMediaContainerFacebookContainerIcon,
+.homeContainerLeftContainerSocialMediaContainerTwitterContainerIcon {
+    color: #EFE7D2;
+    width: 18px;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1px;
+}
+
+.homeContainerLeftContainerSocialMediaContainerInstagram,
+.homeContainerLeftContainerSocialMediaContainerFacebook,
+.homeContainerLeftContainerSocialMediaContainerTwitter {
+    width: 36px;
+    height: 35px;
+    border-radius: 50%;
+    background-color: #111211;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid #32322D;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+.homeContainerLeftContainerSocialMediaContainerInstagram:hover,
+.homeContainerLeftContainerSocialMediaContainerFacebook:hover,
+.homeContainerLeftContainerSocialMediaContainerTwitter:hover {
+    transform: scale(1.07);
+    display: flex;
+}
