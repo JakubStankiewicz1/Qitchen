@@ -37,6 +37,13 @@ import diamondIcon from "./diamondIcon.png";
 import backgroundImage from "./backgroundImage.png";
 
 import aboutImageOne from "./aboutImageOne.png";
+import aboutImageTwo from "./aboutImageTwo.png";
+import aboutImageThree from "./aboutImageThree.png";
+
+import aboutStarIcon from "./aboutStarIcon.png";
+
+import leftArrow from "./leftArrow.png";
+import rightArrow from "./rightArrow.png";
 
 export default {
     homeImage,
@@ -69,4 +76,9 @@ export default {
     diamondIcon,
     backgroundImage,
     aboutImageOne,
+    aboutImageTwo,
+    aboutImageThree,
+    aboutStarIcon,
+    leftArrow,
+    rightArrow,
 }

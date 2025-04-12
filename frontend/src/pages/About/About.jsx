@@ -47,7 +47,7 @@ const About = () => {
                                     </div>
 
                                     <div className="aboutContainerRightContainerFirstContainerLeftContainerBottom">
-                                        <p className="aboutContainerRightContainerFirstContainerLeftContainerBottomText">
+                                        <p className="aboutContainerRightContainerFirstContainerLeftContainerBottomText inter">
                                             Where culinary craftsmanship meets modern elegance. Indulge in the finest sushi, expertly curated to elevate your dining experience.
                                         </p>
                                     </div>
@@ -57,7 +57,7 @@ const About = () => {
                             {/* Right Part */}
                             <div className="aboutContainerRightContainerFirstContainerRight">
                                 <div className="aboutContainerRightContainerFirstContainerRightContainer">
-
+                                    <img src={assets.aboutImageTwo} alt="" className='aboutContainerRightContainerFirstContainerRightContainerImage' />
                                 </div>
                             </div>
                         </div>
@@ -67,13 +67,106 @@ const About = () => {
                     <div className="aboutContainerRightContainerSecond">
                         <div className="aboutContainerRightContainerSecondContainer">
                             {/* Element */}
-                            <div className="aboutContainerRightContainerSecondContainerElement"></div>
+                            <div className="aboutContainerRightContainerSecondContainerElement">
+                                <div className="aboutContainerRightContainerSecondContainerElementContainer">
+                                    {/* Top Part */}
+                                    <div className="aboutContainerRightContainerSecondContainerElementContainerTop">
+                                        <div className="aboutContainerRightContainerSecondContainerElementContainerTopContainer">
+                                            <img src={assets.aboutStarIcon} alt="" className="aboutContainerRightContainerSecondContainerElementContainerTopContainerImage" />
+                                            <img src={assets.aboutStarIcon} alt="" className="aboutContainerRightContainerSecondContainerElementContainerTopContainerImage" />
+                                            <img src={assets.aboutStarIcon} alt="" className="aboutContainerRightContainerSecondContainerElementContainerTopContainerImage" />
+                                            <img src={assets.aboutStarIcon} alt="" className="aboutContainerRightContainerSecondContainerElementContainerTopContainerImage" />
+                                            <img src={assets.aboutStarIcon} alt="" className="aboutContainerRightContainerSecondContainerElementContainerTopContainerImage" />
+                                        </div>
+                                    </div>
+
+                                    {/* Middle Part */}
+                                    <div className="aboutContainerRightContainerSecondContainerElementContainerMiddle">
+                                        <div className="aboutContainerRightContainerSecondContainerElementContainerMiddleContainer">
+                                            <p className="aboutContainerRightContainerSecondContainerElementContainerMiddleContainerText">
+                                                Trip advisor
+                                            </p>
+                                        </div>
+                                    </div>
+
+                                    {/* Bottom Part */}
+                                    <div className="aboutContainerRightContainerSecondContainerElementContainerBottom">
+                                        <div className="aboutContainerRightContainerSecondContainerElementContainerBottomContainer">
+                                            <p className="aboutContainerRightContainerSecondContainerElementContainerBottomContainerText inter">
+                                                Best steak hosue prague
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
 
                             {/* Element */}
-                            <div className="aboutContainerRightContainerSecondContainerElement"></div>
+                            <div className="aboutContainerRightContainerSecondContainerElement">
+                                <div className="aboutContainerRightContainerSecondContainerElementContainer">
+                                    {/* Top Part */}
+                                    <div className="aboutContainerRightContainerSecondContainerElementContainerTop">
+                                        <div className="aboutContainerRightContainerSecondContainerElementContainerTopContainer">
+                                            <img src={assets.aboutStarIcon} alt="" className="aboutContainerRightContainerSecondContainerElementContainerTopContainerImage" />
+                                            <img src={assets.aboutStarIcon} alt="" className="aboutContainerRightContainerSecondContainerElementContainerTopContainerImage" />
+                                            <img src={assets.aboutStarIcon} alt="" className="aboutContainerRightContainerSecondContainerElementContainerTopContainerImage" />
+                                            <img src={assets.aboutStarIcon} alt="" className="aboutContainerRightContainerSecondContainerElementContainerTopContainerImage" />
+                                            <img src={assets.aboutStarIcon} alt="" className="aboutContainerRightContainerSecondContainerElementContainerTopContainerImage" />
+                                        </div>
+                                    </div>
+
+                                    {/* Middle Part */}
+                                    <div className="aboutContainerRightContainerSecondContainerElementContainerMiddle">
+                                        <div className="aboutContainerRightContainerSecondContainerElementContainerMiddleContainer">
+                                            <p className="aboutContainerRightContainerSecondContainerElementContainerMiddleContainerText">
+                                                Michelin Guide
+                                            </p>
+                                        </div>
+                                    </div>
+
+                                    {/* Bottom Part */}
+                                    <div className="aboutContainerRightContainerSecondContainerElementContainerBottom">
+                                        <div className="aboutContainerRightContainerSecondContainerElementContainerBottomContainer">
+                                            <p className="aboutContainerRightContainerSecondContainerElementContainerBottomContainerText inter">
+                                            Best Steak House Prague
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
 
                             {/* Element */}
-                            <div className="aboutContainerRightContainerSecondContainerElement"></div>
+                            <div className="aboutContainerRightContainerSecondContainerElement">
+                                <div className="aboutContainerRightContainerSecondContainerElementContainer">
+                                    {/* Top Part */}
+                                    <div className="aboutContainerRightContainerSecondContainerElementContainerTop">
+                                        <div className="aboutContainerRightContainerSecondContainerElementContainerTopContainer">
+                                            <img src={assets.aboutStarIcon} alt="" className="aboutContainerRightContainerSecondContainerElementContainerTopContainerImage" />
+                                            <img src={assets.aboutStarIcon} alt="" className="aboutContainerRightContainerSecondContainerElementContainerTopContainerImage" />
+                                            <img src={assets.aboutStarIcon} alt="" className="aboutContainerRightContainerSecondContainerElementContainerTopContainerImage" />
+                                            <img src={assets.aboutStarIcon} alt="" className="aboutContainerRightContainerSecondContainerTopContainerImage" />
+                                            <img src={assets.aboutStarIcon} alt="" className="aboutContainerRightContainerSecondContainerElementContainerTopContainerImage" />
+                                        </div>
+                                    </div>
+
+                                    {/* Middle Part */}
+                                    <div className="aboutContainerRightContainerSecondContainerElementContainerMiddle">
+                                        <div className="aboutContainerRightContainerSecondContainerElementContainerMiddleContainer">
+                                            <p className="aboutContainerRightContainerSecondContainerElementContainerMiddleContainerText">
+                                                Star Dining
+                                            </p>
+                                        </div>
+                                    </div>
+
+                                    {/* Bottom Part */}
+                                    <div className="aboutContainerRightContainerSecondContainerElementContainerBottom">
+                                        <div className="aboutContainerRightContainerSecondContainerElementContainerBottomContainer">
+                                            <p className="aboutContainerRightContainerSecondContainerElementContainerBottomContainerText inter">
+                                                Best steak hosue prague
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
 
@@ -81,17 +174,82 @@ const About = () => {
                     <div className="aboutContainerRightContainerThird">
                         <div className="aboutContainerRightContainerThirdContainer">
                             {/* Left Part */}
-                            <div className="aboutContainerRightContainerThirdContainerLeft"></div>
+                            <div className="aboutContainerRightContainerThirdContainerLeft">
+                                <div className="aboutContainerRightContainerThirdContainerLeftContainer">
+                                    <img src={assets.aboutImageThree} alt="" className="aboutContainerRightContainerThirdContainerLeftContainerImage" />
+                                </div>
+                            </div>
 
                             {/* Right Part */}
-                            <div className="aboutContainerRightContainerThirdContainerRight"></div>
+                            <div className="aboutContainerRightContainerThirdContainerRight">
+                                <div className="aboutContainerRightContainerThirdContainerRightContainer">
+                                    {/* Top Part */}
+                                    <div className="aboutContainerRightContainerThirdContainerRightContainerTop">
+                                        <div className="aboutContainerRightContainerThirdContainerRightContainerTopContainer">
+                                            <div className="aboutContainerRightContainerThirdContainerRightContainerTopContainerLeft">
+                                                <div className="aboutContainerRightContainerThirdContainerRightContainerTopContainerLeftContainer">
+                                                    <img src={assets.leftArrow} alt="" className="aboutContainerRightContainerThirdContainerRightContainerTopContainerLeftContainerImage" />
+                                                </div>
+                                            </div>
+
+                                            <div className="aboutContainerRightContainerThirdContainerRightContainerTopContainerMiddle">
+                                                <p className="aboutContainerRightContainerThirdContainerRightContainerTopContainerMiddleText">
+                                                    Our story
+                                                </p>
+                                            </div>
+
+                                            <div className="aboutContainerRightContainerThirdContainerRightContainerTopContainerRight">
+                                                <div className="aboutContainerRightContainerThirdContainerRightContainerTopContainerRightContainer">
+                                                    <img src={assets.rightArrow} alt="" className="aboutContainerRightContainerThirdContainerRightContainerTopContainerRightContainerImage" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    {/* Bottom Part */}
+                                    <div className="aboutContainerRightContainerThirdContainerRightContainerBottom">
+                                        <p className="aboutContainerRightContainerThirdContainerRightContainerBottomText inter">
+                                            Founded with a passion for culinary excellence, Qitchen's journey began in the heart of Prague. Over years, it evolved into a haven for sushi enthusiasts, celebrated for its artful mastery and devotion to redefining gastronomy.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
 
                     {/* Fourth Part */}
                     <div className="aboutContainerRightContainerFourth">
                         <div className="aboutContainerRightContainerFourthContainer">
-                            
+                            {/* First Part */}
+                            <div className="aboutContainerRightContainerFourthContainerFirst">
+                                <p className="aboutContainerRightContainerFourthContainerFirstText inter">
+                                    By Kuba Stankiewicz
+                                </p>
+                            </div>
+
+                            {/* Second Part */}
+                            <div className="aboutContainerRightContainerFourthContainerSecond">
+                                <img src={assets.diamondIcon} alt="" className='aboutContainerRightContainerFourthContainerSecondIcon' />
+                            </div>
+
+                            {/* Third Part */}
+                            <div className="aboutContainerRightContainerFourthContainerThird">
+                                <p className="aboutContainerRightContainerFourthContainerThirdText inter">
+                                    Licensing
+                                </p>
+                            </div>
+
+                            {/* Fourth Part */}
+                            <div className="aboutContainerRightContainerFourthContainerFourth">
+                                <img src={assets.diamondIcon} alt="" className='aboutContainerRightContainerFourthContainerFourthIcon' />
+                            </div>
+
+                            {/* Fifth Part */}
+                            <div className="aboutContainerRightContainerFourthContainerFifth">
+                                <p className="aboutContainerRightContainerFourthContainerFifthText inter">
+                                    Styleguide
+                                </p>
+                            </div>
                         </div>
                     </div>
 
