@@ -1,0 +1,70 @@
+.menuProductElement {
+    /* background-color: red; */
+    /* width: 80%;
+    margin-left: auto;
+    margin-right: auto; */
+    /* width: 100%; */
+    /* height: 100%; */
+}
+
+.menuProductElementContainer {
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: darkred;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 20px;
+}
+
+.menuProductElementContainerLeft {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+.menuProductElementContainerLeftContainerImage {
+    width: 150px;
+    height: auto;
+}
+
+.menuProductElementContainerRightContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10px;
+}
+
+.menuProductElementContainerRightContainerTopContainer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    gap: 10px;
+}
+
+.menuProductElementContainerRightContainerTopContainerDots {
+    flex-grow: 1;
+    height: 1px;
+    width: 26px;
+    background: repeating-linear-gradient(
+        to right,
+        #32322D,
+        #32322D 1px,
+        transparent 1px,
+        transparent 3px
+    );
+    align-self: flex-end;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.menuProductElementContainerRightContainerTopContainerRight {
+    margin-left: auto;
+}

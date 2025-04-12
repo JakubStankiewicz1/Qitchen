@@ -4,11 +4,6 @@
     z-index: 100;
     margin-left: 40px;
     margin-top: 40px;
-    /* margin-left: auto; */
-    /* margin-right: auto; */
-    /* padding-left: 5px; */
-    /* padding-right: 5px; */
-    /* padding-top: 5px; */
 }
 
 .navbarContainer {
@@ -25,37 +20,9 @@
     align-items: center;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 .navbarContainerFirst {
     width: 41px;
     height: 41px;
-    /* background-color: lightcoral; */
     border: 1px solid #32322D;
     border-radius: 15px;
     background-color: #111211;
@@ -91,8 +58,6 @@
     height: 1px;
     transform: rotate(45deg);
     transition: all 0.3s ease-in-out;
-    /* margin-top: 5px */
-    /* margin-top: 5px */
 }
 
 .navbarContainerFirstContainerDivThreeOpen {
@@ -103,10 +68,7 @@
     height: 1px;
     transform: rotate(-45deg);
     transition: all 0.3s ease-in-out;
-    /* margin-top: -5px; */
-    /* margin-top: 5px */
     transition: all 0.3s ease-in-out;
-
 }
 
 .navbarContainerFirstContainerDivTwoOpen {
@@ -187,10 +149,6 @@
     letter-spacing: 2px;
     position: relative;
 }
-
-/* .navbarContainerDropdownMenuContainerSecondContainerText:hover {
-    text-decoration: underline;
-} */
 
 .navbarContainerDropdownMenuContainerSecondContainerText::after,
 .navbarContainerDropdownMenuContainerThirdContainerText::after,

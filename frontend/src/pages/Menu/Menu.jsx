@@ -2,6 +2,8 @@ import React from 'react';
 import "./menu.css";
 import assets from '../../assets/assets';
 import { NavLink } from 'react-router-dom';
+import MenuTitle from '../../components/MenuTitle/MenuTitle';
+import MenuProductElement from '../../components/MenuProductElement/MenuProductElement';
 
 const Menu = () => {
   return (
@@ -76,10 +78,18 @@ const Menu = () => {
                     </div>
 
                     {/* Second Part */}
-                    <div className="menuContainerRightContainerTopContainerSecond"></div>
+                    <div className="menuContainerRightContainerTopContainerSecond">
+                      <div className="menuContainerRightContainerTopContainerSecondContainer">
+                        <MenuTitle title={"Maki"} />
+                      </div>
+                    </div>
 
                     {/* Third Part */}
-                    <div className="menuContainerRightContainerTopContainerThird"></div>
+                    <div className="menuContainerRightContainerTopContainerThird">
+                      <div className="menuContainerRightContainerTopContainerThirdContainer">
+                        <MenuProductElement image={assets.volcanoDelight} title={"Volcano delight"} icon={assets.leafIcon} price={"12"} description={"Creamy crab salad, avocado, and cucumber rolled inside, topped with spicy tuna and drizzled with fiery sriracha sauce."} />
+                      </div>
+                    </div>
 
                     {/* Fourth Part */}
                     <div className="menuContainerRightContainerTopContainerFourth"></div>

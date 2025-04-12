@@ -1,0 +1,39 @@
+.menuTitle {
+    /* background-color: lightcoral; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 40px;
+}
+
+.menuTitleContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+
+}
+
+.menuTitleMiddleContainerText {
+    color: #EFE7D2;
+    font-size: 28px;
+    font-weight: 400;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+}
+
+.menuTitleLeft {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* margin-right: 10px; */
+}
+
+.menuTitleLeftContainerImage,
+.menuTitleRightContainerImage {
+    width: 61.31px;
+    height: auto;
+
+}
