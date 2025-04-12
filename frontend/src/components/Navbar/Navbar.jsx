@@ -58,7 +58,7 @@ const Navbar = () => {
             </NavLink>
         </div>
 
-        <div className="navbarContainerDropdownMenu">
+        <div className={isOpen ? 'navbarContainerDropdownMenuOpen' : 'navbarContainerDropdownMenuClosed'}>
                 <div className="navbarContainerDropdownMenuContainer">
                     {/* First Part */}
                     <div className="navbarContainerDropdownMenuContainerFirst">

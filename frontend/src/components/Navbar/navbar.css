@@ -115,17 +115,48 @@
     margin-bottom: -5px;
 }
 
-.navbarContainerDropdownMenu {
+.navbarContainerDropdownMenuOpen {
     opacity: 1;
+    display: block;
     position: absolute;
     z-index: 1000;
     background-color: #0A0B0A;
     margin-top: 75px;
     width: 300px;
+    height: 280px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    animation: dropdownFadeSlideIn 0.4s ease-in-out;
+}
+
+@keyframes dropdownFadeSlideIn {
+    0% {
+        opacity: 0; 
+        transform: translateY(-20px); 
+    }
+    100% {
+        opacity: 1; 
+        transform: translateY(0); 
+    }
+}
+
+.navbarContainerDropdownMenuClosed {
+    opacity: 0;
+    display: none;
+    animation: dropdownFadeSlideOut 0.4s ease-in-out; 
+}
+
+@keyframes dropdownFadeSlideOut {
+    0% {
+        opacity: 1;
+        transform: translateY(0); 
+    }
+    100% {
+        opacity: 0; 
+        transform: translateY(-20px); 
+    }
 }
 
 .navbarContainerDropdownMenuContainer {
@@ -133,6 +164,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    gap: 15px
 }
 
 .navbarContainerDropdownMenuContainerSecond,
@@ -149,14 +181,43 @@
 .navbarContainerDropdownMenuContainerFifthContainerText,
 .navbarContainerDropdownMenuContainerSixthContainerText {
     color: #EFE7D2;
-    font-size: 20px;
+    font-size: 22px;
     font-weight: 500;
     text-transform: uppercase;
     letter-spacing: 2px;
+    position: relative;
 }
 
+/* .navbarContainerDropdownMenuContainerSecondContainerText:hover {
+    text-decoration: underline;
+} */
 
+.navbarContainerDropdownMenuContainerSecondContainerText::after,
+.navbarContainerDropdownMenuContainerThirdContainerText::after,
+.navbarContainerDropdownMenuContainerFourthContainerText::after,
+.navbarContainerDropdownMenuContainerFifthContainerText::after,
+.navbarContainerDropdownMenuContainerSixthContainerText::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: #EFE7D2;
+    transition: width 0.3s ease-in-out;
+}
 
+.navbarContainerDropdownMenuContainerSecondContainerText:hover::after,
+.navbarContainerDropdownMenuContainerThirdContainerText:hover::after,
+.navbarContainerDropdownMenuContainerFourthContainerText:hover::after,
+.navbarContainerDropdownMenuContainerFifthContainerText:hover::after,
+.navbarContainerDropdownMenuContainerSixthContainerText:hover::after {
+    width: 100%;
+}
+
+.navbarContainerDropdownMenuContainerFirst {
+    margin-bottom: -15px;
+}
 
 
 
