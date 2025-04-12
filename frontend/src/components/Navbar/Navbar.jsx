@@ -31,7 +31,7 @@ const Navbar = () => {
             </div>
 
             {/* Third Element */}
-            <NavLink className="navbarContainerThird">
+            <NavLink to="/menu" className="navbarContainerThird">
                 <div className="navbarContainerThirdContainer">
                     <p className="navbarContainerThirdContainerText inter">
                         Menu
