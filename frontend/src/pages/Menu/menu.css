@@ -23,7 +23,7 @@
 }
 
 .menuContainerLeft {
-    border: 1px solid #fff;
+    /* border: 1px solid #fff; */
     display: flex;
     flex: 1;
     position: sticky;
@@ -95,15 +95,29 @@
 }
 
 .menuContainerRightContainerTop {
-    border: 1px solid #fff;
+    border: 1px solid #31312D;
     /* height: 100px; */
     width: 100%;
+    border-radius: 16px;
+    padding-bottom: 20px;
 }
 
 .menuContainerRightContainerBottom {
     border: 1px solid #fff;
     height: 100px;
     width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    
+    border: 1px solid #31312D;
+    /* height: 100px; */
+    /* width: 100%; */
+    border-radius: 16px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    /* padding-bottom: 20px; */
 }
 
 .menuContainerLeftContainerTitle {
@@ -154,6 +168,13 @@
     padding-top: 5px;
     padding-bottom: 5px;
     border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+.menuContainerRightContainerTopContainerFirstContainerNavLink:hover {
+    background-color: #31312D;
+    /* transition: 0.3s; */
 }
 
 .menuContainerRightContainerTopContainerFirstContainerNavLinkContainerDivText {
@@ -163,3 +184,30 @@
     text-transform: uppercase;
     letter-spacing: 0.5px;
 }
+
+.menuContainerRightContainerBottomContainer {
+    display: flex;
+    flex-direction: row;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.menuContainerRightContainerBottomContainerFirstContainerText,
+.menuContainerRightContainerBottomContainerSecondContainerText,
+.menuContainerRightContainerBottomContainerThirdContainerText {
+    color: #EFE7D2;
+    font-size: 12px;
+    font-weight: 200;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.menuContainerRightContainerBottomContainerDiamond {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+/* .menuContainerRightContainerBottomContainerDiamondIcon {
+    width: 8px;
+    height: auto;
+} */

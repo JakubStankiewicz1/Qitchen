@@ -22,13 +22,13 @@ const Navbar = () => {
 
 
             {/* Second Element */}
-            <div className="navbarContainerSecond">
+            <NavLink to="/" className="navbarContainerSecond">
                 <div className="navbarContainerSecondContainer">
                     <p className="navbarContainerSecondContainerText">
                         Qitchen
                     </p>
                 </div>
-            </div>
+            </NavLink>
 
             {/* Third Element */}
             <NavLink to="/menu" className="navbarContainerThird">

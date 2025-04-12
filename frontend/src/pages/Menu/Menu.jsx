@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import "./menu.css";
 import assets from '../../assets/assets';
 import { NavLink } from 'react-router-dom';
@@ -6,6 +6,14 @@ import MenuTitle from '../../components/MenuTitle/MenuTitle';
 import MenuProductElement from '../../components/MenuProductElement/MenuProductElement';
 
 const Menu = () => {
+  const makiRef = useRef(null);
+  const uramakiRef = useRef(null);
+  const specialRollsRef = useRef(null);
+
+  const scrollToSection = (ref) => {
+    ref.current.scrollIntoView({ behavior: 'smooth' });
+  };
+
   return (
     <div className="menu">
         <div className="menuContainer">
@@ -41,7 +49,10 @@ const Menu = () => {
                       <div className="menuContainerRightContainerTopContainerFirstContainer">
 
                         {/* NavLink Element */}
-                        <NavLink to="/" className="menuContainerRightContainerTopContainerFirstContainerNavLink">
+                        <div 
+                          className="menuContainerRightContainerTopContainerFirstContainerNavLink"
+                          onClick={() => scrollToSection(makiRef)}
+                        >
                           <div className="menuContainerRightContainerTopContainerFirstContainerNavLinkContainer">
                             <div className="menuContainerRightContainerTopContainerFirstContainerNavLinkContainerDiv">
                               <p className="menuContainerRightContainerTopContainerFirstContainerNavLinkContainerDivText inter">
@@ -49,10 +60,13 @@ const Menu = () => {
                               </p>
                             </div>
                           </div>
-                        </NavLink>
+                        </div>
 
                         {/* NavLink Element */}
-                        <NavLink to="/" className="menuContainerRightContainerTopContainerFirstContainerNavLink">
+                        <div 
+                          className="menuContainerRightContainerTopContainerFirstContainerNavLink"
+                          onClick={() => scrollToSection(uramakiRef)}
+                        >
                           <div className="menuContainerRightContainerTopContainerFirstContainerNavLinkContainer">
                             <div className="menuContainerRightContainerTopContainerFirstContainerNavLinkContainerDiv">
                               <p className="menuContainerRightContainerTopContainerFirstContainerNavLinkContainerDivText inter">
@@ -60,10 +74,13 @@ const Menu = () => {
                               </p>
                             </div>
                           </div>
-                        </NavLink>
+                        </div>
 
                         {/* NavLink Element */}
-                        <NavLink to="/" className="menuContainerRightContainerTopContainerFirstContainerNavLink">
+                        <div 
+                          className="menuContainerRightContainerTopContainerFirstContainerNavLink"
+                          onClick={() => scrollToSection(specialRollsRef)}
+                        >
                           <div className="menuContainerRightContainerTopContainerFirstContainerNavLinkContainer">
                             <div className="menuContainerRightContainerTopContainerFirstContainerNavLinkContainerDiv">
                               <p className="menuContainerRightContainerTopContainerFirstContainerNavLinkContainerDivText inter">
@@ -71,14 +88,14 @@ const Menu = () => {
                               </p>
                             </div>
                           </div>
-                        </NavLink>
+                        </div>
 
 
                       </div>
                     </div>
 
                     {/* Second Part */}
-                    <div className="menuContainerRightContainerTopContainerSecond">
+                    <div className="menuContainerRightContainerTopContainerSecond" ref={makiRef}>
                       <div className="menuContainerRightContainerTopContainerSecondContainer">
                         <MenuTitle title={"Maki"} />
                       </div>
@@ -95,7 +112,7 @@ const Menu = () => {
                     </div>
 
                     {/* Fourth Part */}
-                    <div className="menuContainerRightContainerTopContainerFourth">
+                    <div className="menuContainerRightContainerTopContainerFourth" ref={uramakiRef}>
                       <div className="menuContainerRightContainerTopContainerFourthContainer">
                         <MenuTitle title={"Uramaki"} />
                       </div>
@@ -115,7 +132,7 @@ const Menu = () => {
                     </div>
 
                     {/* Sixth Part */}
-                    <div className="menuContainerRightContainerTopContainerSixth">
+                    <div className="menuContainerRightContainerTopContainerSixth" ref={specialRollsRef}>
                       <div className="menuContainerRightContainerTopContainerSixthContainer">
                         <MenuTitle title={"Special Rolls"} />
                       </div>
@@ -139,13 +156,41 @@ const Menu = () => {
                 <div className="menuContainerRightContainerBottom">
                   <div className="menuContainerRightContainerBottomContainer">
                     {/* First Part */}
-                    <div className="menuContainerRightContainerBottomContainerFirst"></div>
+                    <div className="menuContainerRightContainerBottomContainerFirst">
+                      <div className="menuContainerRightContainerBottomContainerFirstContainer">
+                        <p className="menuContainerRightContainerBottomContainerFirstContainerText inter">
+                          By Kuba Stankiewicz
+                        </p>
+                      </div>
+                    </div>
+
+                    {/* Diamond Icon */}
+                    <div className="menuContainerRightContainerBottomContainerDiamond">
+                      <img src={assets.diamondIcon} alt="" className="menuContainerRightContainerBottomContainerDiamondIcon" />
+                    </div>
 
                     {/* Second Part */}
-                    <div className="menuContainerRightContainerBottomContainerSecond"></div>
+                    <div className="menuContainerRightContainerBottomContainerSecond">
+                      <div className="menuContainerRightContainerBottomContainerSecondContainer">
+                        <p className="menuContainerRightContainerBottomContainerSecondContainerText inter">
+                          Licensing
+                        </p>
+                      </div>
+                    </div>
+
+                    {/* Diamond Icon */}
+                    <div className="menuContainerRightContainerBottomContainerDiamond">
+                      <img src={assets.diamondIcon} alt="" className="menuContainerRightContainerBottomContainerDiamondIcon" />
+                    </div>
 
                     {/* Third Part */}
-                    <div className="menuContainerRightContainerBottomContainerThird"></div>
+                    <div className="menuContainerRightContainerBottomContainerThird">
+                      <div className="menuContainerRightContainerBottomContainerThirdContainer">
+                        <p className="menuContainerRightContainerBottomContainerThirdContainerText inter">
+                          Styleguide
+                        </p>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>

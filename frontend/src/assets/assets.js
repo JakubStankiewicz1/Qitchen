@@ -32,6 +32,8 @@ import EternalEllEnchantment from "./eternalEeelEnchantment.png";
 
 import backgroundGridImage from "./backgroundGrid.jpg";
 
+import diamondIcon from "./diamondIcon.png";
+
 export default {
     homeImage,
     houseElementImageOne,
@@ -60,4 +62,5 @@ export default {
     pacificFirecrackerImage,
     EternalEllEnchantment,
     backgroundGridImage,
+    diamondIcon,
 }
