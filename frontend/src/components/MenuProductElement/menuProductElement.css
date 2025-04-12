@@ -11,7 +11,7 @@
     width: 90%;
     margin-left: auto;
     margin-right: auto;
-    background-color: darkred;
+    /* background-color: darkred; */
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -23,14 +23,21 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 100%;
+    height: auto;
+}
+
+.menuProductElementContainerLeftContainer {
+    display: flex;
     justify-content: center;
     align-items: center;
+    height: auto;
+    background-color: transparent;
 }
 
 .menuProductElementContainerLeftContainerImage {
     width: 150px;
     height: auto;
+    display: block;
 }
 
 .menuProductElementContainerRightContainer {
@@ -52,14 +59,16 @@
 .menuProductElementContainerRightContainerTopContainerDots {
     flex-grow: 1;
     height: 1px;
-    width: 26px;
+    /* width: 3px; */
     background: repeating-linear-gradient(
         to right,
-        #32322D,
-        #32322D 1px,
-        transparent 1px,
-        transparent 3px
+        #32322D 0px,
+        #32322D 5px,
+        transparent 5px,
+        transparent 7px
     );
+    /* background-color: #fff; */
+    /* gap: 5px */
     align-self: flex-end;
     margin-left: 10px;
     margin-right: 10px;
@@ -67,4 +76,32 @@
 
 .menuProductElementContainerRightContainerTopContainerRight {
     margin-left: auto;
+}
+
+.menuProductElementContainerRightContainerTopLeftText {
+    color: #EFE7D2;
+    font-size: 22px;
+    font-weight: 200;
+    letter-spacing: 0.2px;
+    text-transform: uppercase;
+}
+
+.menuProductElementContainerRightContainerTopContainerRightContainerText {
+    color: #EFE7D2;
+    font-size: 22px;
+    font-weight: 200;
+    letter-spacing: 0.2px;
+    text-transform: uppercase;
+}
+
+.menuProductElementContainerRightContainerBottomContainerText {
+    font-size: 14px;
+    font-weight: 300;
+    color: #AEACA7;
+    /* letter-spacing: 0.5px */
+}
+
+.menuProductElementContainerRightContainerTopContainerIconContainerIcon {
+    width: 16px;
+    height: auto;
 }

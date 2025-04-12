@@ -51,7 +51,7 @@ const MenuProductElement = ({ image, title, icon, price, description }) => {
                     {/* Bottom Part */}
                     <div className="menuProductElementContainerRightContainerBottom">
                         <div className="menuProductElementContainerRightContainerBottomContainer">
-                            <p className="menuProductElementContainerRightContainerBottomContainerText">
+                            <p className="menuProductElementContainerRightContainerBottomContainerText inter">
                                 {description}
                             </p>
                         </div>

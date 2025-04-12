@@ -6,6 +6,7 @@
     background-color: #0B0C0C;
     width: 100%;
     height: 100vh;
+    overflow: hidden;
 }
 
 .menuContainer {
@@ -18,12 +19,14 @@
     padding-left: 10px;
     padding-right: 10px;
     padding-bottom: 10px;
+    
 }
 
 .menuContainerLeft {
     border: 1px solid #fff;
     display: flex;
     flex: 1;
+    position: sticky;
 }
 
 .menuContainerLeftContainerImage {
@@ -71,6 +74,12 @@
     flex: 1;
     width: 100%;
     height: 100%;
+    overflow-y: scroll;
+    scrollbar-width: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .menuContainerRightContainer {
@@ -79,6 +88,10 @@
     gap: 10px;
     width: 100%;
     height: 100%;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    align-items: center;
 }
 
 .menuContainerRightContainerTop {
