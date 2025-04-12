@@ -95,7 +95,7 @@ const Navbar = () => {
                     </NavLink>
 
                     {/* Fifth Part */}
-                    <NavLink className="navbarContainerDropdownMenuContainerFifth">
+                    <NavLink to="/contact" className="navbarContainerDropdownMenuContainerFifth">
                         <div className="navbarContainerDropdownMenuContainerFifthContainer">
                             <p className="navbarContainerDropdownMenuContainerFifthContainerText">
                                 Contact
