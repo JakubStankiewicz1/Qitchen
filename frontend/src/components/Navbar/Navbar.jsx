@@ -40,7 +40,7 @@ const Navbar = () => {
             </NavLink>
 
             {/* Fourth Element */}
-            <NavLink className="navbarContainerFourth">
+            <NavLink to="/about" className="navbarContainerFourth">
                 <div className="navbarContainerFourthContainer">
                     <p className="navbarContainerFourthContainerText inter">
                         About
