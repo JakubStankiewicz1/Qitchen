@@ -34,6 +34,10 @@ import backgroundGridImage from "./backgroundGrid.jpg";
 
 import diamondIcon from "./diamondIcon.png";
 
+import backgroundImage from "./backgroundImage.png";
+
+import aboutImageOne from "./aboutImageOne.png";
+
 export default {
     homeImage,
     houseElementImageOne,
@@ -61,6 +65,8 @@ export default {
     TruffleIndlugenceImage,
     pacificFirecrackerImage,
     EternalEllEnchantment,
-    backgroundGridImage,
+    // backgroundGridImage,
     diamondIcon,
+    backgroundImage,
+    aboutImageOne,
 }
