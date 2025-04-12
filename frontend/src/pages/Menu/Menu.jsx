@@ -42,7 +42,7 @@ const Menu = () => {
                         <NavLink to="/" className="menuContainerRightContainerTopContainerFirstContainerNavLink">
                           <div className="menuContainerRightContainerTopContainerFirstContainerNavLinkContainer">
                             <div className="menuContainerRightContainerTopContainerFirstContainerNavLinkContainerDiv">
-                              <p className="menuContainerRightContainerTopContainerFirstContainerNavLinkContainerDivText">
+                              <p className="menuContainerRightContainerTopContainerFirstContainerNavLinkContainerDivText inter">
                                 Maki
                               </p>
                             </div>
@@ -53,7 +53,7 @@ const Menu = () => {
                         <NavLink to="/" className="menuContainerRightContainerTopContainerFirstContainerNavLink">
                           <div className="menuContainerRightContainerTopContainerFirstContainerNavLinkContainer">
                             <div className="menuContainerRightContainerTopContainerFirstContainerNavLinkContainerDiv">
-                              <p className="menuContainerRightContainerTopContainerFirstContainerNavLinkContainerDivText">
+                              <p className="menuContainerRightContainerTopContainerFirstContainerNavLinkContainerDivText inter">
                                 Uramaki
                               </p>
                             </div>
@@ -64,7 +64,7 @@ const Menu = () => {
                         <NavLink to="/" className="menuContainerRightContainerTopContainerFirstContainerNavLink">
                           <div className="menuContainerRightContainerTopContainerFirstContainerNavLinkContainer">
                             <div className="menuContainerRightContainerTopContainerFirstContainerNavLinkContainerDiv">
-                              <p className="menuContainerRightContainerTopContainerFirstContainerNavLinkContainerDivText">
+                              <p className="menuContainerRightContainerTopContainerFirstContainerNavLinkContainerDivText inter">
                                 Special rolls
                               </p>
                             </div>
