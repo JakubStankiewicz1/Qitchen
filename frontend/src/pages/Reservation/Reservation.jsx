@@ -1,8 +1,36 @@
-import React from 'react';
+import React, { useState, useRef } from 'react';
 import "./reservation.css";
 import assets from '../../assets/assets';
+import { IoClose } from "react-icons/io5";
 
 const Reservation = () => {
+    const [openGuests, setOpenGuests] = useState(false);
+    const [guests, setGuests] = useState(null);
+    const [customGuests, setCustomGuests] = useState("");
+    const modalRef = useRef(null);
+
+    const handleGuestSelection = (value) => {
+        if (value === "custom") {
+            setGuests(null);
+        } else {
+            setGuests(value);
+            setOpenGuests(false);
+        }
+    };
+
+    const handleCustomGuestSubmit = () => {
+        if (customGuests) {
+            setGuests(customGuests);
+            setOpenGuests(false);
+        }
+    };
+
+    const handleOutsideClick = (e) => {
+        if (modalRef.current && !modalRef.current.contains(e.target)) {
+            setOpenGuests(false);
+        }
+    };
+    
   return (
     <div className="reservation">
         <div className="reservationContainer">
@@ -79,8 +107,99 @@ const Reservation = () => {
                                     </div>
                                 </div>
 
+
+
+
+
+
+
+
+
+
+
+
+
+
                                 {/* Third Part */}
-                                <div className="reservationContainerDivRightContainerTopContainerThird"></div>
+                                <div className="reservationContainerDivRightContainerTopContainerThird">
+                                    <div className="reservationContainerDivRightContainerTopContainerThirdContainer">
+                                        {/* First Part */}
+                                        <div className="reservationContainerDivRightContainerTopContainerThirdContainerFirst">
+                                            <div className="reservationContainerDivRightContainerTopContainerThirdContainerFirstContainer">
+                                                <input type="text" className='reservationContainerDivRightContainerTopContainerThirdContainerFirstContainerInput' placeholder='Name' />
+                                            </div>
+                                        </div>
+
+                                        {/* Second Part */}
+                                        <div className="reservationContainerDivRightContainerTopContainerThirdContainerSecond">
+                                            <div className="reservationContainerDivRightContainerTopContainerThirdContainerSecondContainer">
+                                                <input type="text" className='reservationContainerDivRightContainerTopContainerThirdContainerSecondContainerInput' placeholder='Phone Number' />
+                                            </div>
+                                        </div>
+
+                                        {/* Third Part */}
+                                        <div className="reservationContainerDivRightContainerTopContainerThirdContainerThird">
+                                            <div className="reservationContainerDivRightContainerTopContainerThirdContainerThirdContainer">
+                                                <input type="text" className='reservationContainerDivRightContainerTopContainerThirdContainerThirdContainerInput' placeholder='Email' />
+                                            </div>
+                                        </div>
+
+                                        {/* Fourth Part */}
+                                        <div className="reservationContainerDivRightContainerTopContainerThirdContainerFourth">
+                                            <div className="reservationContainerDivRightContainerTopContainerThirdContainerFourthContainer">
+                                                {/* Left Part */}
+                                                <div className="reservationContainerDivRightContainerTopContainerThirdContainerFourthContainerLeft" onClick={() => setOpenGuests(true)}>
+                                                    <div className="reservationContainerDivRightContainerTopContainerThirdContainerFourthContainerLeftContainer">
+                                                        <p className="reservationContainerDivRightContainerTopContainerThirdContainerFourthContainerLeftContainerText inter">
+                                                            Guests: {guests || "Select"}
+                                                        </p>
+                                                    </div>
+                                                </div>
+
+                                                {/* Middle Part */}
+                                                <div className="reservationContainerDivRightContainerTopContainerThirdContainerFourthContainerMiddle">
+                                                    <div className="reservationContainerDivRightContainerTopContainerThirdContainerFourthContainerMiddleContainer">
+                                                        <p className="reservationContainerDivRightContainerTopContainerThirdContainerFourthContainerMiddleContainerText inter">
+                                                            Date
+                                                        </p>
+                                                    </div>
+                                                </div>
+
+                                                {/* Right Part */}
+                                                <div className="reservationContainerDivRightContainerTopContainerThirdContainerFourthContainerRight">
+                                                    <div className="reservationContainerDivRightContainerTopContainerThirdContainerFourthContainerRightContainer">
+                                                        <p className="reservationContainerDivRightContainerTopContainerThirdContainerFourthContainerRightContainerText inter">
+                                                            Time
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        {/* Fifth Part */}
+                                        <div className="reservationContainerDivRightContainerTopContainerThirdContainerFifth">
+                                            <div className="reservationContainerDivRightContainerTopContainerThirdContainerFifthContainer">
+                                                <p className="reservationContainerDivRightContainerTopContainerThirdContainerFifthContainerText inter">
+                                                    Reserve
+                                                </p>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
                             </div>
                         </div>
 
@@ -121,6 +240,54 @@ const Reservation = () => {
                         </div>
 
                     </div>
+
+                    {
+                        openGuests
+                        ? <div className="openGuests" onClick={handleOutsideClick}>
+                            <div className="openGuestsModal" ref={modalRef}>
+                                <div className="openGuestsCloseIcon" onClick={() => setOpenGuests(false)}>
+                                    <IoClose className='openGuestsCloseIconImage' />
+                                </div>
+                                <div className="openGuestsContainer">
+                                    {[1, 2, 3, 4, 5, 6, 7, 8].map((num) => (
+                                        <div
+                                            key={num}
+                                            className="openGuestsOption inter"
+                                            onClick={() => handleGuestSelection(num)}
+                                        >
+                                            {num}
+                                        </div>
+                                    ))}
+                                    <div
+                                        className="openGuestsOption"
+                                        onClick={() => handleGuestSelection("custom")}
+                                    >
+                                        8+
+                                    </div>
+                                    {/* {guests === null && (
+                                        <input
+                                            type="number"
+                                            className="openGuestsInput"
+                                            placeholder="Enter number of guests"
+                                            value={customGuests}
+                                            onChange={(e) => setCustomGuests(e.target.value)}
+                                        />
+                                    )} */}
+                                </div>
+                                <div className="openGuestsModalBtn">
+                                    <button className="openGuestsClose" onClick={handleCustomGuestSubmit}>
+                                        <p className="openGuestsCloseText">
+                                            Confirm
+                                        </p>
+                                    </button>
+                                </div>
+                                {/* <button className="openGuestsClose" onClick={handleCustomGuestSubmit}>
+                                    Confirm
+                                </button> */}
+                            </div>
+                        </div>
+                        : null
+                    }
                 </div>
 
 
