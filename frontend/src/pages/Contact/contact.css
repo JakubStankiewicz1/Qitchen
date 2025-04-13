@@ -39,7 +39,6 @@
 .contactContainerDivLeft {
     width: 100%;
     height: 100%;
-    /* border: 1px solid #fff; */
     display: flex;
     flex: 1;
     position: relative;
@@ -107,7 +106,6 @@
 .contactContainerDivRight {
     width: 100%;
     height: 100%;
-    /* border: 1px solid #fff; */
     display: flex;
     flex: 1;
 }
@@ -115,16 +113,54 @@
 .contactContainerDivRightContainer {
     display: flex;
     flex-direction: column;
-    /* justify-content: center; */
     align-items: center;
     width: 100%;
     height: 100%;
     gap: 10px;
 }
 
-.contactContainerDivRightContainerFirst {
+.contactContainerDivRightContainerFirst,
+.contactContainerDivRightContainerSecond {
+    flex: 1 1 0;
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     width: 100%;
-    /* background-color: red; */
+}
+
+.contactContainerDivRightContainerThird {
+    flex: 0 0 auto;
+    max-height: 61px;
+    min-height: 50px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #2D2D29;
+    border-radius: 16px;
+    padding: 10px;
+    width: 100%;
+    margin-top: auto;
+}
+
+.contactContainerDivRightContainerFirstContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.contactContainerDivRightContainerFirstContainer,
+.contactContainerDivRightContainerSecondContainer {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
     height: 100%;
 }
 
@@ -132,14 +168,12 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    /* align-items: center; */
     width: 100%;
     height: 100%;
     gap: 10px;
 }
 
 .contactContainerDivRightContainerFirstContainerLeft {
-    /* background-color: yellow;/ */
     width: 100%;
     height: 100%;
     border: 1px solid #31312D;
@@ -148,7 +182,6 @@
 }
 
 .contactContainerDivRightContainerFirstContainerLeftBottom {
-    /* position: absolute; */
     width: 100%;
     bottom: 20px;
     position: absolute;
@@ -196,7 +229,6 @@
 }
 
 .contactContainerDivRightContainerFirstContainerRight {
-    /* background-color: blue; */
     width: 100%;
     height: 100%;
     display: flex;
@@ -214,7 +246,6 @@
     justify-content: center;
     align-items: center;
     width: 100%;
-    /* gap: 10px; */
 }
 
 .contactContainerDivRightContainerFirstContainer {
@@ -231,7 +262,6 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    /* background-color: #1a1a1a; */
     border-radius: 16px;
     overflow: hidden;
 }
@@ -255,13 +285,12 @@
 }
 
 .contactImage {
-    width: calc(50% - 5px); /* Adjust for 10px gap */
+    width: calc(50% - 5px);
     height: auto;
     object-fit: cover;
     border-radius: 8px;
 }
 
-/* Ensure the left and right sections have equal dimensions */
 .contactContainerDivRightContainerFirstContainerLeft,
 .contactContainerDivRightContainerFirstContainerRight {
     height: 100%;
@@ -269,7 +298,6 @@
 
 .contactContainerDivRightContainerSecond {
     width: 100%;
-    /* background-color: green; */
     height: 100%
 }
 
@@ -284,7 +312,6 @@
 }
 
 .contactContainerDivRightContainerSecondContainerLeft {
-    /* background-color: yellow; */
     width: 100%;
     height: 100%;
     position: relative;
@@ -307,7 +334,6 @@
     align-items: center;
     background-color: rgba(0, 0, 0, 0.5);
     z-index: 10;
-    /* position: relative; */
 }
 
 .contactContainerDivRightContainerSecondContainerLeftContainerImageImg {
@@ -342,14 +368,12 @@
 }
 
 .contactContainerDivRightContainerSecondContainerRight {
-    /* background-color: blue; */
     width: 100%;
     height: 100%;
 }
 
 
 .contactContainerDivRightContainerFirstContainerLeftTop {
-    /* margin-top: 20px; */
     top: 0;
     width: 100%;
     position: absolute;
@@ -377,26 +401,18 @@
 
 .contactContainerDivRightContainerThird {
     width: 100%;
-    /* height: 250px; */
-    display: flex;
     justify-content: center;
     align-items: center;
-    /* gap: 10px; */
     padding-top: 10px;
     padding-bottom: 10px;
     border: 1px solid #2D2D29;
     width: 100%;
-    display: flex;
-    flex: 1;
     height: 100%;
     border-radius: 16px;
     justify-content: center;
     align-items: center;
     max-height: 61px;
     min-height: 50px;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
 }
 
 .contactContainerDivRightContainerThirdThird {
@@ -441,7 +457,6 @@
     font-weight: 200;
     text-transform: uppercase;
     letter-spacing: 0.5px;
-    /* gap: 20px; */
 }
 
 .contactContainerDivRightContainerSecondContainerLeftContainerDivContainer {
@@ -470,10 +485,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    /* padding-left: 10px; */
 }
-
-
 
 .contactContainerDivRightContainerSecondContainerRightContainer {
     width: 100%;
@@ -487,27 +499,67 @@
     position: relative;
 }
 
-
-
-
-
-
-.contactContainerDivRightContainerSecondContainerRightContainerTopContainerMiddleText {
-    color: #EFE7D2;
-    font-size: 16px;
-    font-weight: 200;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
+.contactContainerDivRightContainerSecondContainerRightContainerBottom {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    padding-bottom: 20px;
+    gap: 10px;
 }
 
-.contactContainerDivRightContainerSecondContainerRightContainerBottom {
+.contactContainerDivRightContainerSecondContainerRightContainerBottomContainer {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    gap: 30px;
+}
+
+.contactContainerDivRightContainerSecondContainerRightContainerBottomContainerFirst,
+.contactContainerDivRightContainerSecondContainerRightContainerBottomContainerSecond,
+.contactContainerDivRightContainerSecondContainerRightContainerBottomContainerThird,
+.contactContainerDivRightContainerSecondContainerRightContainerBottomContainerFourth {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    height: 100%;
-    /* gap: 10px; */
+}
+
+.contactContainerDivRightContainerSecondContainerRightContainerBottomContainerFirst {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.contactContainerDivRightContainerSecondContainerRightContainerTopContainerMiddleText {
+    color: #EFE7D2;
+    font-size: 22px;
+    text-transform: uppercase;
+    font-weight: 400;
+}
+
+.contactContainerDivRightContainerSecondContainerRightContainerTopContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.contactContainerDivRightContainerSecondContainerRightContainerBottomContainerFirstRight {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: end;
+    gap: 5px;
 }
 
 .contactContainerDivRightContainerSecondContainerRightContainerBottomContainerFirstLeftText,
@@ -519,6 +571,38 @@
 .contactContainerDivRightContainerSecondContainerRightContainerBottomContainerThirdRightText,
 .contactContainerDivRightContainerSecondContainerRightContainerBottomContainerFourthLeftText {
     color: #EFE7D2;
-    font-size: 15px;
-    font-weight: 400;
+    font-size: 13px;
+    font-weight: 200;
+}
+
+.contactContainerDivRightContainerSecondContainerRightContainerBottomContainerFirstLeftText,
+.contactContainerDivRightContainerSecondContainerRightContainerBottomContainerSecondLeftText,
+.contactContainerDivRightContainerSecondContainerRightContainerBottomContainerThirdLeftText,
+.contactContainerDivRightContainerSecondContainerRightContainerBottomContainerFourthLeftText {
+    text-transform: uppercase;
+}
+
+.contactContainerDivRightContainerSecondContainerRightContainerBottomContainerFourth {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+.contactContainerDivRightContainerSecondContainerRightContainerBottomContainerFourthRight {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.contactContainerDivRightContainerSecondContainerRightContainerBottomContainerFourthRightFacebook,
+.contactContainerDivRightContainerSecondContainerRightContainerBottomContainerFourthRightInstagramIcon,
+.contactContainerDivRightContainerSecondContainerRightContainerBottomContainerFourthRightTwitterIcon {
+    color: #EFE7D2;
+    width: 20px;
+    height: auto;
 }
