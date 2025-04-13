@@ -45,6 +45,8 @@ import aboutStarIcon from "./aboutStarIcon.png";
 import leftArrow from "./leftArrow.png";
 import rightArrow from "./rightArrow.png";
 
+import contactImageOne from "./contactImageOne.png";
+
 export default {
     homeImage,
     houseElementImageOne,
@@ -81,4 +83,5 @@ export default {
     aboutStarIcon,
     leftArrow,
     rightArrow,
+    contactImageOne,
 }

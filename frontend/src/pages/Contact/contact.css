@@ -25,3 +25,29 @@
     padding-bottom: 10px;
     gap: 10px;
 }
+
+.contactContainerDiv {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+}
+
+.contactContainerDivLeft {
+    width: 100%;
+    height: 100%;
+    border: 1px solid #fff;
+    display: flex;
+    flex: 1;
+}
+
+.contactContainerDivRight {
+    width: 100%;
+    height: 100%;
+    border: 1px solid #fff;
+    display: flex;
+    flex: 1;
+}
