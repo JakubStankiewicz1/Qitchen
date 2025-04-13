@@ -4,6 +4,7 @@ import assets from '../../assets/assets';
 import { IoClose, IoArrowBack } from "react-icons/io5";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import axios from 'axios'; // Import axios for API calls
 
 const Reservation = () => {
     const [openGuests, setOpenGuests] = useState(false);
@@ -19,6 +20,9 @@ const Reservation = () => {
     const [tempHour, setTempHour] = useState(null);
     const [selectedMinute, setSelectedMinute] = useState(null);
     const [tempMinute, setTempMinute] = useState(null);
+    const [name, setName] = useState("");
+    const [phoneNumber, setPhoneNumber] = useState("");
+    const [email, setEmail] = useState("");
     const modalRef = useRef(null);
 
     const handleGuestSelection = (value) => {
@@ -77,6 +81,31 @@ const Reservation = () => {
 
     const generateMinuteSlots = () => {
         return ["00", "15", "30", "45"];
+    };
+
+    const handleReservationSubmit = async () => {
+        if (!name || !phoneNumber || !email || !guests || !selectedDate || !selectedHour || !selectedMinute) {
+            alert("Please fill in all fields.");
+            return;
+        }
+
+        const reservationData = {
+            name,
+            email,
+            phoneNumber,
+            numberOfGuests: guests,
+            reservationTime: `${selectedDate.toISOString().split('T')[0]}T${selectedHour}:${selectedMinute}:00`,
+            tableType: guests <= 2 ? "2-person" : "3-person"
+        };
+
+        try {
+            const response = await axios.post("http://localhost:8081/api/reservations", reservationData);
+            alert("Reservation created successfully!");
+            console.log(response.data);
+        } catch (error) {
+            console.error("Error creating reservation:", error);
+            alert("Failed to create reservation. Please try again.");
+        }
     };
 
     return (
@@ -145,21 +174,39 @@ const Reservation = () => {
                                             {/* First Part */}
                                             <div className="reservationContainerDivRightContainerTopContainerThirdContainerFirst">
                                                 <div className="reservationContainerDivRightContainerTopContainerThirdContainerFirstContainer">
-                                                    <input type="text" className='reservationContainerDivRightContainerTopContainerThirdContainerFirstContainerInput' placeholder='Name' />
+                                                    <input
+                                                        type="text"
+                                                        className='reservationContainerDivRightContainerTopContainerThirdContainerFirstContainerInput'
+                                                        placeholder='Name'
+                                                        value={name}
+                                                        onChange={(e) => setName(e.target.value)}
+                                                    />
                                                 </div>
                                             </div>
 
                                             {/* Second Part */}
                                             <div className="reservationContainerDivRightContainerTopContainerThirdContainerSecond">
                                                 <div className="reservationContainerDivRightContainerTopContainerThirdContainerSecondContainer">
-                                                    <input type="text" className='reservationContainerDivRightContainerTopContainerThirdContainerSecondContainerInput' placeholder='Phone Number' />
+                                                    <input
+                                                        type="text"
+                                                        className='reservationContainerDivRightContainerTopContainerThirdContainerSecondContainerInput'
+                                                        placeholder='Phone Number'
+                                                        value={phoneNumber}
+                                                        onChange={(e) => setPhoneNumber(e.target.value)}
+                                                    />
                                                 </div>
                                             </div>
 
                                             {/* Third Part */}
                                             <div className="reservationContainerDivRightContainerTopContainerThirdContainerThird">
                                                 <div className="reservationContainerDivRightContainerTopContainerThirdContainerThirdContainer">
-                                                    <input type="text" className='reservationContainerDivRightContainerTopContainerThirdContainerThirdContainerInput' placeholder='Email' />
+                                                    <input
+                                                        type="text"
+                                                        className='reservationContainerDivRightContainerTopContainerThirdContainerThirdContainerInput'
+                                                        placeholder='Email'
+                                                        value={email}
+                                                        onChange={(e) => setEmail(e.target.value)}
+                                                    />
                                                 </div>
                                             </div>
 
@@ -197,7 +244,10 @@ const Reservation = () => {
 
                                             {/* Fifth Part */}
                                             <div className="reservationContainerDivRightContainerTopContainerThirdContainerFifth">
-                                                <div className="reservationContainerDivRightContainerTopContainerThirdContainerFifthContainer">
+                                                <div
+                                                    className="reservationContainerDivRightContainerTopContainerThirdContainerFifthContainer"
+                                                    onClick={handleReservationSubmit}
+                                                >
                                                     <p className="reservationContainerDivRightContainerTopContainerThirdContainerFifthContainerText inter">
                                                         Reserve
                                                     </p>
