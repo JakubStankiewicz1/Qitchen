@@ -46,6 +46,11 @@ import leftArrow from "./leftArrow.png";
 import rightArrow from "./rightArrow.png";
 
 import contactImageOne from "./contactImageOne.png";
+import contactImageTwo from "./contactImageTwo.png";
+import contactImageThree from "./contactImageThree.png";
+import contactImageFour from "./contactImageFour.png";
+
+import contactImageFive from "./contactImageFive.png";
 
 export default {
     homeImage,
@@ -84,4 +89,8 @@ export default {
     leftArrow,
     rightArrow,
     contactImageOne,
+    contactImageTwo,
+    contactImageThree,
+    contactImageFour,
+    contactImageFive,
 }

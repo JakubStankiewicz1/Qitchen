@@ -39,15 +39,486 @@
 .contactContainerDivLeft {
     width: 100%;
     height: 100%;
-    border: 1px solid #fff;
+    /* border: 1px solid #fff; */
     display: flex;
     flex: 1;
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+}
+
+.contactContainerDivLeftContainer {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.contactContainerDivLeftContainerImage {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 10;
+    position: relative;
+}
+
+.contactContainerDivLeftContainerImage::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 5;
+}
+
+.contactContainerDivLeftContainerImageContainerImage {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    object-fit: cover;
+}
+
+.contactContainerDivLeftContainerTitle {
+    position: absolute;
+    z-index: 10;
+    bottom: 50px;
+    left: 50px;
+}
+
+.contactContainerDivLeftContainerTitleContainerText {
+    color: #EFE7D2;
+    font-size: 70px;
+    text-transform: uppercase;
+    font-weight: 100;
+    letter-spacing: 2px;
+    position: relative;
 }
 
 .contactContainerDivRight {
     width: 100%;
     height: 100%;
-    border: 1px solid #fff;
+    /* border: 1px solid #fff; */
     display: flex;
     flex: 1;
+}
+
+.contactContainerDivRightContainer {
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    gap: 10px;
+}
+
+.contactContainerDivRightContainerFirst {
+    width: 100%;
+    /* background-color: red; */
+    height: 100%;
+}
+
+.contactContainerDivRightContainerFirstContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    /* align-items: center; */
+    width: 100%;
+    height: 100%;
+    gap: 10px;
+}
+
+.contactContainerDivRightContainerFirstContainerLeft {
+    /* background-color: yellow;/ */
+    width: 100%;
+    height: 100%;
+    border: 1px solid #31312D;
+    border-radius: 16px;
+    position: relative;
+}
+
+.contactContainerDivRightContainerFirstContainerLeftBottom {
+    /* position: absolute; */
+    width: 100%;
+    bottom: 20px;
+    position: absolute;
+}
+
+.contactContainerDivRightContainerFirstContainerLeftBottomContainer {
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    gap: 10px;
+}
+
+.contactContainerDivRightContainerFirstContainerLeftBottomContainerElement {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.contactContainerDivRightContainerFirstContainerLeftBottomContainerElementContainer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.contactContainerDivRightContainerFirstContainerLeftBottomContainerElementContainerDots {
+    flex-grow: 1;
+    height: 1px;
+    display: flex;
+    align-self: flex-end;
+    background: repeating-linear-gradient(
+        to right,
+        #32322D 0px,
+        #32322D 5px,
+        transparent 5px,
+        transparent 7px
+    );
+}
+
+.contactContainerDivRightContainerFirstContainerLeftBottomContainerElementContainerTextOne,
+.contactContainerDivRightContainerFirstContainerLeftBottomContainerElementContainerTextTwo {
+    color: #EFE7D2;
+    font-size: 16px;
+    font-weight: 100;
+    text-transform: uppercase;
+}
+
+.contactContainerDivRightContainerFirstContainerRight {
+    /* background-color: blue; */
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.contactContainerDivRightContainerFirstContainerRightTop,
+.contactContainerDivRightContainerFirstContainerRightBottom,
+.contactContainerDivRightContainerFirstContainerRightBottomContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    /* gap: 10px; */
+}
+
+.contactContainerDivRightContainerFirstContainer {
+    display: flex;
+    gap: 10px;
+    width: 100%;
+    height: 100%;
+}
+
+.contactContainerDivRightContainerFirstContainerLeft,
+.contactContainerDivRightContainerFirstContainerRight {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* background-color: #1a1a1a; */
+    border-radius: 16px;
+    overflow: hidden;
+}
+
+.contactContainerDivRightContainerFirstContainerLeftContent {
+    width: 90%;
+    height: 90%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.contactContainerDivRightContainerFirstContainerRightTop,
+.contactContainerDivRightContainerFirstContainerRightBottom {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.contactImage {
+    width: calc(50% - 5px); /* Adjust for 10px gap */
+    height: auto;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+/* Ensure the left and right sections have equal dimensions */
+.contactContainerDivRightContainerFirstContainerLeft,
+.contactContainerDivRightContainerFirstContainerRight {
+    height: 100%;
+}
+
+.contactContainerDivRightContainerSecond {
+    width: 100%;
+    /* background-color: green; */
+    height: 100%
+}
+
+.contactContainerDivRightContainerSecondContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    gap: 10px;
+}
+
+.contactContainerDivRightContainerSecondContainerLeft {
+    /* background-color: yellow; */
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.contactContainerDivRightContainerSecondContainerLeftContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+.contactContainerDivRightContainerSecondContainerLeftContainerImage {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 10;
+    /* position: relative; */
+}
+
+.contactContainerDivRightContainerSecondContainerLeftContainerImageImg {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    object-fit: cover;
+    border-radius: 16px;
+    overflow: hidden;
+}
+
+.contactContainerDivRightContainerSecondContainerLeftContainerDiv {
+    position: absolute;
+    background-color: #0A0B0A;
+    z-index: 15;
+    bottom: 0;
+    right: 0;
+    border-bottom-right-radius: 16px;
+    border-top-left-radius: 10px;
+    padding-left: 20px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.contactContainerDivRightContainerSecondContainerLeftContainerDivContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.contactContainerDivRightContainerSecondContainerRight {
+    /* background-color: blue; */
+    width: 100%;
+    height: 100%;
+}
+
+
+.contactContainerDivRightContainerFirstContainerLeftTop {
+    /* margin-top: 20px; */
+    top: 0;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    padding-top: 20px;
+}
+
+.contactContainerDivRightContainerFirstContainerLeftTopContainer {
+    gap: 10px;
+}
+
+.contactContainerDivRightContainerFirstContainerLeftTopContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.contactContainerDivRightContainerFirstContainerLeftTopContainerText {
+    color: #EFE7D2;
+    font-size: 22px;
+    text-transform: uppercase;
+    font-weight: 400;
+}
+
+.contactContainerDivRightContainerThird {
+    width: 100%;
+    /* height: 250px; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* gap: 10px; */
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border: 1px solid #2D2D29;
+    width: 100%;
+    display: flex;
+    flex: 1;
+    height: 100%;
+    border-radius: 16px;
+    justify-content: center;
+    align-items: center;
+    max-height: 61px;
+    min-height: 50px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.contactContainerDivRightContainerThirdThird {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+}
+
+
+.contactContainerDivRightContainerThirdThirdFirstText,
+.contactContainerDivRightContainerThirdThirdThirdText,
+.contactContainerDivRightContainerThirdThirdFifthText {
+    color: #EFE7D2;
+    font-size: 12px;
+    font-weight: 200;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.contactContainerDivRightContainerThirdThirdSecondImage,
+.contactContainerDivRightContainerThirdThirdFourthImage {
+    width: 14px;
+    height: auto;
+}
+
+
+.contactContainerDivRightContainerThirdThirdSecond,
+.contactContainerDivRightContainerThirdThirdFourth {
+    padding-left: 10px;
+    padding-right: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.contactContainerDivRightContainerSecondContainerLeftContainerDivText {
+    color: #EFE7D2;
+    font-size: 16px;
+    font-weight: 200;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    /* gap: 20px; */
+}
+
+.contactContainerDivRightContainerSecondContainerLeftContainerDivContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.contactContainerDivRightContainerSecondContainerLeftContainerDivContainerDiv {
+    border: 1px solid #32322D;
+    background-color: #111211;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30px;
+    height: 30px;
+}
+
+.contactContainerDivRightContainerSecondContainerLeftContainerDivContainerDivIcon {
+    color: #EFE7D2;
+    width: 16px;
+    height: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* padding-left: 10px; */
+}
+
+
+
+.contactContainerDivRightContainerSecondContainerRightContainer {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #2D2D29;
+    border-radius: 16px;
+    position: relative;
+}
+
+
+
+
+
+
+.contactContainerDivRightContainerSecondContainerRightContainerTopContainerMiddleText {
+    color: #EFE7D2;
+    font-size: 16px;
+    font-weight: 200;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.contactContainerDivRightContainerSecondContainerRightContainerBottom {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    /* gap: 10px; */
+}
+
+.contactContainerDivRightContainerSecondContainerRightContainerBottomContainerFirstLeftText,
+.contactContainerDivRightContainerSecondContainerRightContainerBottomContainerFirstRightTextOne,
+.contactContainerDivRightContainerSecondContainerRightContainerBottomContainerFirstRightTextTwo,
+.contactContainerDivRightContainerSecondContainerRightContainerBottomContainerSecondLeftText,
+.contactContainerDivRightContainerSecondContainerRightContainerBottomContainerSecondRightText,
+.contactContainerDivRightContainerSecondContainerRightContainerBottomContainerThirdLeftText,
+.contactContainerDivRightContainerSecondContainerRightContainerBottomContainerThirdRightText,
+.contactContainerDivRightContainerSecondContainerRightContainerBottomContainerFourthLeftText {
+    color: #EFE7D2;
+    font-size: 15px;
+    font-weight: 400;
 }
