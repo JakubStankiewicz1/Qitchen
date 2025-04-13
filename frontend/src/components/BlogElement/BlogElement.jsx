@@ -2,9 +2,11 @@ import React from 'react';
 import "./blogElement.css";
 import assets from '../../assets/assets';
 
+import { NavLink } from 'react-router-dom';
+
 const BlogElement = ({ image, date, title, text }) => {
   return (
-    <div className="blogElement">
+    <NavLink className="blogElement">
         <div className="blogElementContainer">
 
             {/* Left Part */}
@@ -31,7 +33,7 @@ const BlogElement = ({ image, date, title, text }) => {
             </div>
 
         </div>
-    </div>
+    </NavLink>
   )
 }
 

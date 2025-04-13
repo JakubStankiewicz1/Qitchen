@@ -34,7 +34,6 @@ const Blog = () => {
                 {/* Right Part */}
                 <div className="blogContainerRight">
                     <div className="blogContainerRightContainer">
-
                         {/* Top Part */}
                         <div className="blogContainerRightContainerTop">
                             <div className="blogContainerRightContainerTopContainer">
@@ -58,6 +57,10 @@ const Blog = () => {
                         {/* Bottom Part */}
                         <div className="blogContainerRightContainerBottom">
                             <div className="blogContainerRightContainerBottomContainer">
+                                <BlogElement image={assets.blogImageTwo} date={"24th Aug 2023"} title={"How Qitchen Redefines Flavor Harmony in Every Bite"} text={"Experience an orchestra of tastes as Qitchen's sushi unveils a symphony of perfectly balanced flavors."} />
+                                <BlogElement image={assets.blogImageTwo} date={"24th Aug 2023"} title={"How Qitchen Redefines Flavor Harmony in Every Bite"} text={"Experience an orchestra of tastes as Qitchen's sushi unveils a symphony of perfectly balanced flavors."} />
+                                <BlogElement image={assets.blogImageTwo} date={"24th Aug 2023"} title={"How Qitchen Redefines Flavor Harmony in Every Bite"} text={"Experience an orchestra of tastes as Qitchen's sushi unveils a symphony of perfectly balanced flavors."} />
+                                <BlogElement image={assets.blogImageTwo} date={"24th Aug 2023"} title={"How Qitchen Redefines Flavor Harmony in Every Bite"} text={"Experience an orchestra of tastes as Qitchen's sushi unveils a symphony of perfectly balanced flavors."} />
                                 <BlogElement image={assets.blogImageTwo} date={"24th Aug 2023"} title={"How Qitchen Redefines Flavor Harmony in Every Bite"} text={"Experience an orchestra of tastes as Qitchen's sushi unveils a symphony of perfectly balanced flavors."} />
                             </div>
                         </div>
