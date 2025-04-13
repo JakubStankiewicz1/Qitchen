@@ -6,23 +6,24 @@ import { IoClose } from "react-icons/io5";
 const Reservation = () => {
     const [openGuests, setOpenGuests] = useState(false);
     const [guests, setGuests] = useState(null);
+    const [selectedGuest, setSelectedGuest] = useState(null);
     const [customGuests, setCustomGuests] = useState("");
     const modalRef = useRef(null);
 
     const handleGuestSelection = (value) => {
-        if (value === "custom") {
-            setGuests(null);
-        } else {
-            setGuests(value);
-            setOpenGuests(false);
+        setSelectedGuest(value);
+        if (value !== "custom") {
+            setCustomGuests("");
         }
     };
 
     const handleCustomGuestSubmit = () => {
-        if (customGuests) {
+        if (selectedGuest === "custom" && customGuests) {
             setGuests(customGuests);
-            setOpenGuests(false);
+        } else if (selectedGuest !== "custom") {
+            setGuests(selectedGuest);
         }
+        setOpenGuests(false);
     };
 
     const handleOutsideClick = (e) => {
@@ -252,28 +253,30 @@ const Reservation = () => {
                                     {[1, 2, 3, 4, 5, 6, 7, 8].map((num) => (
                                         <div
                                             key={num}
-                                            className="openGuestsOption inter"
+                                            className={`openGuestsOption inter ${selectedGuest === num ? 'active' : ''}`}
                                             onClick={() => handleGuestSelection(num)}
                                         >
                                             {num}
                                         </div>
                                     ))}
                                     <div
-                                        className="openGuestsOption"
+                                        className={`openGuestsOption ${selectedGuest === "custom" ? 'active' : ''}`}
                                         onClick={() => handleGuestSelection("custom")}
                                     >
-                                        8+
+                                        9+
                                     </div>
-                                    {/* {guests === null && (
-                                        <input
-                                            type="number"
-                                            className="openGuestsInput"
-                                            placeholder="Enter number of guests"
-                                            value={customGuests}
-                                            onChange={(e) => setCustomGuests(e.target.value)}
-                                        />
-                                    )} */}
                                 </div>
+                                {selectedGuest === "custom" && (
+                                    <input
+                                        type="number"
+                                        className="openGuestsInput"
+                                        placeholder="Enter number of guests"
+                                        value={customGuests}
+                                        onChange={(e) => setCustomGuests(e.target.value)}
+                                        min="9"
+                                        max="20"
+                                    />
+                                )}
                                 <div className="openGuestsModalBtn">
                                     <button className="openGuestsClose" onClick={handleCustomGuestSubmit}>
                                         <p className="openGuestsCloseText">
@@ -281,9 +284,6 @@ const Reservation = () => {
                                         </p>
                                     </button>
                                 </div>
-                                {/* <button className="openGuestsClose" onClick={handleCustomGuestSubmit}>
-                                    Confirm
-                                </button> */}
                             </div>
                         </div>
                         : null
