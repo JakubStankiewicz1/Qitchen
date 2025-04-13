@@ -52,6 +52,17 @@ import contactImageFour from "./contactImageFour.png";
 
 import contactImageFive from "./contactImageFive.png";
 
+import blogImageOne from "./blogImageOne.png";
+
+
+
+import blogImageTwo from "./blogImageTwo.png";
+import blogImageThree from "./blogImageThree.png";
+import blogImageFour from "./blogImageFour.png";
+import blogImageFive from "./blogImageFive.png";
+import blogImageSix from "./blogImageSix.png";
+
+
 export default {
     homeImage,
     houseElementImageOne,
@@ -93,4 +104,10 @@ export default {
     contactImageThree,
     contactImageFour,
     contactImageFive,
+    blogImageOne,
+    blogImageTwo,
+    blogImageThree,
+    blogImageFour,
+    blogImageFive,
+    blogImageSix,
 }
