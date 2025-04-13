@@ -391,10 +391,24 @@
     justify-content: center;
     align-items: center;
     z-index: 50;
-    background-color: rgba(0, 0, 0, 0.85); /* Darker background */
+    background-color: rgba(0, 0, 0, 0.85);
     border-radius: 16px;
     padding: 20px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* Add subtle shadow */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+.openGuestsTime {
+    position: absolute;
+    width: calc(50% - 15px);
+    height: calc(100% - 20px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 50;
+    background-color: rgba(0, 0, 0, 0.85);
+    border-radius: 16px;
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
 }
 
 .openGuestsModal {
@@ -402,15 +416,35 @@
 }
 
 .openGuestsModal {
-    background-color: rgba(15, 15, 15, 0.95); /* Slightly darker modal */
-    border: 1px solid #444; /* Softer border color */
+    background-color: rgba(15, 15, 15, 0.95);
+    border: 1px solid #444;
     border-radius: 16px;
     padding: 20px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.7); /* Add shadow for depth */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.7);
+}
+
+.openGuestsModalTime {
+    background-color: rgba(15, 15, 15, 0.95);
+    border: 1px solid #444;
+    border-radius: 16px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.7);
+    width: 60%;
+}
+
+.openGuestsModalTimeDiv {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
 }
 
 .openGuestsCloseIcon {
@@ -433,41 +467,55 @@
 
 .openGuestsCloseIconImage:hover {
     color: #D4C8A8;
-    transform: scale(1.1); /* Slight zoom effect */
+    transform: scale(1.1);
+}
+
+.openGuestsBackIcon {
+    top: 10px;
+    left: 10px;
+    cursor: pointer;
+    color: #EFE7D2;
+    background-color: transparent;
+    width: 30px;
+    height: auto;
+    transition: color 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+.openGuestsBackIcon:hover {
+    color: #D4C8A8;
+    transform: scale(1.1);
+}
+
+.openGuestsBackIconImage {
+    width: 30px;
+    height: auto;
 }
 
 .openGuestsContainer {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     justify-items: center;
-    gap: 0;
-    margin-top: 20px;
     gap: 10px;
+    margin-top: 20px;
 }
 
 .openGuestsOption {
-    width: 50px;
+    width: 70px;
     height: 50px;
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 1px solid #444; /* Softer border */
+    border: 1px solid #444;
     border-radius: 10px;
-    background-color: rgba(0, 0, 0, 0.4); /* Slightly darker background */
+    background-color: rgba(0, 0, 0, 0.4);
     color: #EFE7D2;
     cursor: pointer;
     transition: background-color 0.3s ease-in-out, border-color 0.3s ease-in-out, transform 0.3s ease-in-out;
 }
 
-.openGuestsOption:hover {
-    background-color: rgba(255, 255, 255, 0.1);
-    border-color: #EFE7D2;
-    transform: scale(1.1); /* Slight zoom effect */
-}
-
 .openGuestsOption.active {
     border: 2px solid #EFE7D2;
-    background-color: rgba(255, 255, 255, 0.15); /* Slightly brighter for active */
+    background-color: rgba(255, 255, 255, 0.15);
 }
 
 .openGuestsOption:last-child {
@@ -483,7 +531,6 @@
 }
 
 .openGuestsClose {
-    /* width: 150px; Adjusted width for better alignment */
     width: 100%;
     height: 40px;
     cursor: pointer;
@@ -497,12 +544,22 @@
     outline: none;
 }
 
+.openGuestsClose.disabled {
+    background-color: #555;
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
 .openGuestsCloseText {
     color: #0A0B0A;
     font-size: 16px;
     font-weight: 400;
     text-transform: uppercase;
     letter-spacing: 0.3px;
+}
+
+.openGuestsClose:hover:not(.disabled) {
+    background-color: #D4C8A8;
 }
 
 .openGuestsClose:hover {
@@ -524,16 +581,16 @@
 }
 
 .react-datepicker {
-    border: 1px solid #444; /* Softer border */
+    border: 1px solid #444;
     border-radius: 10px;
-    background-color: rgba(15, 15, 15, 0.95); /* Darker background */
+    background-color: rgba(15, 15, 15, 0.95);
     color: #EFE7D2;
     padding: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.7); /* Add shadow for depth */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.7);
 }
 
 .react-datepicker__header {
-    background-color: rgba(20, 20, 20, 0.9); /* Darker header */
+    background-color: rgba(20, 20, 20, 0.9);
     border-bottom: 1px solid #444;
 }
 
@@ -541,7 +598,7 @@
 .react-datepicker__day,
 .react-datepicker__time-name {
     color: #EFE7D2;
-    font-weight: 500; /* Slightly bolder text */
+    font-weight: 500;
 }
 
 .react-datepicker__day--disabled {
@@ -552,7 +609,7 @@
 .react-datepicker__day--selected {
     background-color: #EFE7D2;
     color: #0A0B0A;
-    font-weight: 600; /* Bolder for selected day */
+    font-weight: 600;
 }
 
 .openGuestsModalDatePicker {
@@ -561,4 +618,25 @@
 
 .openGuestsCloseIconTwo {
     margin-bottom: 20px;
+}
+
+.openGuestsModal {
+    display: flex;
+}
+
+.openGuestsContainerTime {
+    display: grid;
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+
+.openGuestsContainerHour {
+    gap: 10px;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
 }

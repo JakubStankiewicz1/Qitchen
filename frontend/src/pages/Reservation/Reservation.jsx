@@ -1,18 +1,24 @@
 import React, { useState, useRef } from 'react';
 import "./reservation.css";
 import assets from '../../assets/assets';
-import { IoClose } from "react-icons/io5";
+import { IoClose, IoArrowBack } from "react-icons/io5";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 
 const Reservation = () => {
     const [openGuests, setOpenGuests] = useState(false);
     const [openDatePicker, setOpenDatePicker] = useState(false);
+    const [openHourPicker, setOpenHourPicker] = useState(false);
+    const [openMinutePicker, setOpenMinutePicker] = useState(false);
     const [guests, setGuests] = useState(null);
     const [selectedGuest, setSelectedGuest] = useState(null);
     const [customGuests, setCustomGuests] = useState("");
     const [selectedDate, setSelectedDate] = useState(null);
-    const [tempDate, setTempDate] = useState(null); // Temporary date for confirmation
+    const [tempDate, setTempDate] = useState(null);
+    const [selectedHour, setSelectedHour] = useState(null);
+    const [tempHour, setTempHour] = useState(null);
+    const [selectedMinute, setSelectedMinute] = useState(null);
+    const [tempMinute, setTempMinute] = useState(null);
     const modalRef = useRef(null);
 
     const handleGuestSelection = (value) => {
@@ -35,16 +41,42 @@ const Reservation = () => {
         if (modalRef.current && !modalRef.current.contains(e.target)) {
             setOpenGuests(false);
             setOpenDatePicker(false);
+            setOpenHourPicker(false);
+            setOpenMinutePicker(false);
         }
     };
 
     const handleDateSelection = (date) => {
-        setTempDate(date); // Save the selected date temporarily
+        setTempDate(date);
     };
 
     const handleDateConfirm = () => {
-        setSelectedDate(tempDate); // Save the confirmed date
+        setSelectedDate(tempDate);
         setOpenDatePicker(false);
+    };
+
+    const handleHourSelection = (hour) => {
+        setTempHour(hour);
+        setOpenHourPicker(false);
+        setOpenMinutePicker(true);
+    };
+
+    const handleMinuteSelection = (minute) => {
+        setTempMinute(minute);
+    };
+
+    const handleTimeConfirm = () => {
+        setSelectedHour(tempHour);
+        setSelectedMinute(tempMinute);
+        setOpenMinutePicker(false);
+    };
+
+    const generateHourSlots = () => {
+        return Array.from({ length: 12 }, (_, i) => 10 + i);
+    };
+
+    const generateMinuteSlots = () => {
+        return ["00", "15", "30", "45"];
     };
 
     return (
@@ -153,10 +185,10 @@ const Reservation = () => {
                                                     </div>
 
                                                     {/* Right Part */}
-                                                    <div className="reservationContainerDivRightContainerTopContainerThirdContainerFourthContainerRight">
+                                                    <div className="reservationContainerDivRightContainerTopContainerThirdContainerFourthContainerRight" onClick={() => setOpenHourPicker(true)}>
                                                         <div className="reservationContainerDivRightContainerTopContainerThirdContainerFourthContainerRightContainer">
                                                             <p className="reservationContainerDivRightContainerTopContainerThirdContainerFourthContainerRightContainerText inter">
-                                                                Time
+                                                                Time: {selectedHour && selectedMinute ? `${selectedHour}:${selectedMinute}` : "Select"}
                                                             </p>
                                                         </div>
                                                     </div>
@@ -268,6 +300,78 @@ const Reservation = () => {
                                     />
                                     <div className="openGuestsModalBtn">
                                         <button className="openGuestsClose" onClick={handleDateConfirm}>
+                                            <p className="openGuestsCloseText">
+                                                Confirm
+                                            </p>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        )}
+
+                        {/* Hour Picker Modal */}
+                        {openHourPicker && (
+                            <div className="openGuestsTime" onClick={handleOutsideClick}>
+                                <div className="openGuestsModalTime" ref={modalRef}>
+                                    <div className="openGuestsCloseIcon openGuestsCloseIconTwo" onClick={() => setOpenHourPicker(false)}>
+                                        <IoClose className='openGuestsCloseIconImage' />
+                                    </div>
+                                    <div className="openGuestsContainerHour">
+                                        {generateHourSlots().map((hour) => (
+                                            <div
+                                                key={hour}
+                                                className={`openGuestsOption inter ${tempHour === hour ? 'active' : ''}`}
+                                                onClick={() => setTempHour(hour)}
+                                            >
+                                                {hour}:00
+                                            </div>
+                                        ))}
+                                    </div>
+
+                                    <div className="openGuestsModalBtn">
+                                        <button
+                                            className={`openGuestsClose ${tempHour ? '' : 'disabled'}`}
+                                            onClick={() => {
+                                                if (tempHour) {
+                                                    setOpenHourPicker(false);
+                                                    setOpenMinutePicker(true);
+                                                }
+                                            }}
+                                        >
+                                            <p className="openGuestsCloseText">
+                                                Continue
+                                            </p>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        )}
+
+                        {/* Minute Picker Modal */}
+                        {openMinutePicker && (
+                            <div className="openGuestsTime" onClick={handleOutsideClick}>
+                                <div className="openGuestsModalTime" ref={modalRef}>
+                                    <div className="openGuestsModalTimeDiv">
+                                        <div className="openGuestsBackIcon" onClick={() => { setOpenMinutePicker(false); setOpenHourPicker(true); }}>
+                                            <IoArrowBack className="openGuestsBackIconImage" />
+                                        </div>
+                                        <div className="openGuestsCloseIcon openGuestsCloseIconTwo" onClick={() => setOpenMinutePicker(false)}>
+                                            <IoClose className='openGuestsCloseIconImage' />
+                                        </div>
+                                    </div>
+                                    <div className="openGuestsContainerTime">
+                                        {generateMinuteSlots().map((minute) => (
+                                            <div
+                                                key={minute}
+                                                className={`openGuestsOption inter ${tempMinute === minute ? 'active' : ''}`}
+                                                onClick={() => handleMinuteSelection(minute)}
+                                            >
+                                                {tempHour}:{minute}
+                                            </div>
+                                        ))}
+                                    </div>
+                                    <div className="openGuestsModalBtn">
+                                        <button className="openGuestsClose" onClick={handleTimeConfirm}>
                                             <p className="openGuestsCloseText">
                                                 Confirm
                                             </p>
