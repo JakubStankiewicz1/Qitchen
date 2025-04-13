@@ -77,7 +77,7 @@ const Navbar = () => {
                     </NavLink>
 
                     {/* Third Part */}
-                    <NavLink className="navbarContainerDropdownMenuContainerThird">
+                    <NavLink to="/reservation" className="navbarContainerDropdownMenuContainerThird">
                         <div className="navbarContainerDropdownMenuContainerThirdContainer">
                             <p className="navbarContainerDropdownMenuContainerThirdContainerText">
                                 Reservation
