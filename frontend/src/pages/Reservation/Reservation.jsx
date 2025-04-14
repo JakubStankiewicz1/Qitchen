@@ -4,7 +4,9 @@ import assets from '../../assets/assets';
 import { IoClose, IoArrowBack } from "react-icons/io5";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-import axios from 'axios'; // Import axios for API calls
+import axios from 'axios';
+import { toast } from 'react-toastify';
+import Loading from '../../components/Loading/Loading';
 
 const Reservation = () => {
     const [openGuests, setOpenGuests] = useState(false);
@@ -23,6 +25,7 @@ const Reservation = () => {
     const [name, setName] = useState("");
     const [phoneNumber, setPhoneNumber] = useState("");
     const [email, setEmail] = useState("");
+    const [isLoading, setIsLoading] = useState(false);
     const modalRef = useRef(null);
 
     const handleGuestSelection = (value) => {
@@ -85,7 +88,7 @@ const Reservation = () => {
 
     const handleReservationSubmit = async () => {
         if (!name || !phoneNumber || !email || !guests || !selectedDate || !selectedHour || !selectedMinute) {
-            alert("Please fill in all fields.");
+            toast.error("Please fill in all fields.");
             return;
         }
 
@@ -98,18 +101,22 @@ const Reservation = () => {
             tableType: guests <= 2 ? "2-person" : "3-person"
         };
 
+        setIsLoading(true);
         try {
             const response = await axios.post("http://localhost:8081/api/reservations", reservationData);
-            alert("Reservation created successfully!");
+            toast.success("Reservation created successfully!");
             console.log(response.data);
         } catch (error) {
             console.error("Error creating reservation:", error);
-            alert("Failed to create reservation. Please try again.");
+            toast.error("Failed to create reservation. Please try again.");
+        } finally {
+            setIsLoading(false);
         }
     };
 
     return (
         <div className="reservation">
+            {isLoading && <Loading />}
             <div className="reservationContainer">
                 <div className="reservationContainerDiv">
                     {/* Left Part */}

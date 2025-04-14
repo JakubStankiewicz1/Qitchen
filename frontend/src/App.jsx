@@ -11,6 +11,9 @@ import Blog from './pages/Blog/Blog';
 import Reservation from './pages/Reservation/Reservation';
 import Confirmation from './pages/Confirmation/Confirmation';
 
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css'; // Import Toastify CSS
+
 const App = () => {
   return (
     <>
@@ -24,6 +27,8 @@ const App = () => {
         <Route path="/reservation" element={<Reservation />} />
         <Route path="/confirmation" element={<Confirmation />} />
       </Routes>
+      
+      <ToastContainer position="top-right" autoClose={3000} hideProgressBar={false} newestOnTop={false} closeOnClick pauseOnFocusLoss draggable pauseOnHover />
     </>
   );
 };

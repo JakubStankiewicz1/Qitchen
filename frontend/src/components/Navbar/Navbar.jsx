@@ -33,7 +33,7 @@ const Navbar = () => {
             {/* Third Element */}
             <NavLink to="/menu" className="navbarContainerThird" onClick={() => setIsOpen(false)}>
                 <div className="navbarContainerThirdContainer">
-                    <p className="navbarContainerThirdContainerText inter">
+                    <p className="navbarContainerThirdContainerText inter active">
                         Menu
                     </p>
                 </div>
