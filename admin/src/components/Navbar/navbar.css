@@ -1,5 +1,4 @@
 .navbar {
-    /* background-color: rgb(149, 6, 6, 0.96); */
     width: 270px;
     height: 100%;
     z-index: 1000;
@@ -16,7 +15,6 @@
 .navbarContainerFirst {
     display: flex;
     justify-content: center;
-    /* padding */
     padding-top: 10px;
     padding-bottom: 10px;
 
@@ -27,7 +25,6 @@
     font-size: 34px;
     font-weight: 500;
     text-align: center;
-    /* margin-top: 10px; */
     letter-spacing: 2px;;
 }
 
@@ -58,7 +55,6 @@
 .navbarContainerSecondContainerLeft {
     border: 2px solid #32322D;
     background-color: #111211;
-    /* padding: 5px; */
     width: 40px;
     height: 40px;
     border-radius: 50%;
@@ -73,12 +69,15 @@
     height: auto;
 }
 
+.navbarContainerSecondContainerRight {
+    text-decoration: none;
+}
+
 .navbarContainerSecondContainerRightContainerText {
     color: #EFE7D2;
     font-size: 16px;
     font-weight: 200;
     text-align: center;
-    /* margin-top: 10px; */
     letter-spacing: 0.4px;;
 }
 
@@ -93,4 +92,8 @@
     font-weight: 400;
     text-transform: uppercase;
     letter-spacing: 0.4px;
+}
+
+.navbarContainerFourth {
+    margin-top: 10px;
 }

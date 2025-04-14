@@ -1,0 +1,101 @@
+.reservations {
+  color: white;
+  width: 96%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px;
+}
+
+.reservationsContainerText {
+  font-size: 38px;
+  font-weight: 400;
+  letter-spacing: 1px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.reservationsContainerBottomTableThreadName,
+.reservationsContainerBottomTableThreadEmail,
+.reservationsContainerBottomTableThreadPhone,
+.reservationsContainerBottomTableThreadGuests,
+.reservationsContainerBottomTableThreadTime,
+.reservationsContainerBottomTableThreadTableType,
+.reservationsContainerBottomTableThreadActions {
+  color: #efe7d2;
+  font-size: 22px;
+  font-weight: 400;
+  text-align: flex-start;
+  letter-spacing: 0.4px;
+}
+
+th,
+td {
+  border: 2px solid #31312d;
+  padding: 8px;
+  text-align: left;
+}
+
+.reservationsContainerBottomTableBodyTrBtnContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.reservationsContainerBottomTableBodyTrName,
+.reservationsContainerBottomTableBodyTrEmail,
+.reservationsContainerBottomTableBodyTrPhoneNumber,
+.reservationsContainerBottomTableBodyTrNumberOfGuests,
+.reservationsContainerBottomTableBodyTrDate,
+.reservationsContainerBottomTableBodyTrTableType {
+  font-size: 15px;
+  font-weight: 350;
+  letter-spacing: 0.4px;
+}
+
+.reservationsContainerBottomTableBodyTrName {
+  text-transform: uppercase;
+}
+
+.reservationsContainerBottomTableBodyTrEdit {
+  background-color: #4caf50;
+  border-radius: 3px;
+  padding: 4px 10px;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  transition: all 0.3s ease-in-out;
+}
+
+.reservationsContainerBottomTableBodyTrEdit:hover {
+  background-color: #45a049;
+}
+
+.reservationsContainerBottomTableBodyTrEditText {
+  color: white;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.reservationsContainerBottomTableBodyTrDelete {
+  background-color: #f44336;
+  border-radius: 3px;
+  padding: 4px 10px;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  transition: all 0.3s ease-in-out;
+}
+
+.reservationsContainerBottomTableBodyTrDelete:hover {
+  background-color: #d32f2f;
+}
+
+.reservationsContainerBottomTableBodyTrDeleteText {
+  color: white;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}

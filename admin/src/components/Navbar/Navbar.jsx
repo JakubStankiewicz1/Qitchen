@@ -3,6 +3,7 @@ import "./navbar.css";
 import { FaHouse } from "react-icons/fa6";
 import NavbarFeatureElement from '../NavbarFeatureElement/NavbarFeatureElement';
 import assets from '../../assets/assets';
+import { NavLink } from 'react-router-dom';
 
 const Navbar = () => {
   return (
@@ -33,13 +34,13 @@ const Navbar = () => {
                     </div>
 
                     {/* Right Part */}
-                    <div className="navbarContainerSecondContainerRight">
+                    <NavLink to="/" className="navbarContainerSecondContainerRight">
                         <div className="navbarContainerSecondContainerRightContainer">
                             <p className="navbarContainerSecondContainerRightContainerText inter">
                                 Dashboards
                             </p>
                         </div>
-                    </div>
+                    </NavLink>
                 </div>
             </div>
 
