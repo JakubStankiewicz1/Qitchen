@@ -259,7 +259,6 @@
         background-color: transparent;
     }
 
-    /* Hide regular navbar elements */
     .navbarContainerSecond,
     .navbarContainerThird,
     .navbarContainerFourth,
@@ -271,15 +270,13 @@
         font-size: 20px;
     }
 
-    /* Remove black background around dropdown menu button */
     .navbarContainerFirst {
         background-color: transparent;
         border: none;
         position: relative;
-        z-index: 3000; /* Ensure the button stays above the menu */
+        z-index: 3000;
     }
 
-    /* Scrollable dropdown menu */
     .navbarContainerDropdownMenuOpen {
         position: fixed;
         top: 0;
@@ -293,13 +290,13 @@
         flex-direction: column;
         justify-content: flex-start;
         align-items: center;
-        overflow-y: auto; /* Enable scrolling */
+        overflow-y: auto;
         animation: fadeIn 0.3s ease-in-out;
     }
 
     .navbarContainerDropdownMenuContainer {
         gap: 25px;
-        padding: 20px 0; /* Add padding for better spacing */
+        padding: 20px 0;
     }
 
     .navbarContainerDropdownMenuContainerSecondContainerText,

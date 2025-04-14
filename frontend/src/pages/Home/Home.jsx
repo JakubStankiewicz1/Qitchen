@@ -67,9 +67,9 @@ const Home = () => {
             <div className="homeContainerRight">
                 <div className="homeContainerRightContainer">
                     <div className="homeContainerRightContainerDiv">
-                        <HomeElement image={assets.houseElementImageOne} text="Menu" link="/sushi" style={{ flex: 1 }} />
-                        <HomeElement image={assets.houseElementImageTwo} text="Reservation" link="/sushi" style={{ flex: 1 }} />
-                        <HomeElement image={assets.houseElementImageThree} text="Our Restaurant" link="/sushi" style={{ flex: 1 }} />
+                        <HomeElement image={assets.houseElementImageOne} text="Menu" link="/menu" style={{ flex: 1 }} />
+                        <HomeElement image={assets.houseElementImageTwo} text="Reservation" link="/reservation" style={{ flex: 1 }} />
+                        <HomeElement image={assets.houseElementImageThree} text="Our Restaurant" link="/about" style={{ flex: 1 }} />
                     </div>
                 </div>
             </div>
