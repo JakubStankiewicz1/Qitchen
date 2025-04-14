@@ -15,17 +15,28 @@ const Reservations = () => {
 
   const fetchReservations = async () => {
     try {
-      const response = await axios.get("http://localhost:8081/api/reservations");
+      const token = localStorage.getItem('token'); // Retrieve the JWT token from localStorage
+      const response = await axios.get("http://localhost:8081/api/reservations", {
+        headers: {
+          Authorization: `Bearer ${token}`, // Include the token in the Authorization header
+        },
+      });
       const confirmedReservations = response.data.filter(reservation => reservation.confirmed);
       setReservations(confirmedReservations);
     } catch (error) {
       console.error("Error fetching reservations:", error);
+      toast.error("Failed to fetch reservations. Please check your authentication.");
     }
   };
 
   const deleteReservation = async (id) => {
     try {
-      await axios.delete(`http://localhost:8081/api/reservations/${id}`);
+      const token = localStorage.getItem('token');
+      await axios.delete(`http://localhost:8081/api/reservations/${id}`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
       toast.success("Reservation deleted successfully!");
       fetchReservations();
     } catch (error) {

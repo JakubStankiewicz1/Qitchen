@@ -34,3 +34,8 @@
   height: 100%;
   overflow: auto;
 }
+
+.appContainerContent:only-child {
+  margin-left: 0;
+  width: 100%;
+}
