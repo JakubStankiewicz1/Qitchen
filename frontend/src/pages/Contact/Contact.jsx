@@ -32,8 +32,6 @@ const Contact = () => {
           <div className="contactContainerDivRight">
             <div className="contactContainerDivRightContainer">
 
-
-                
               {/* First Part */}
               <div className="contactContainerDivRightContainerFirst">
                 <div className="contactContainerDivRightContainerFirstContainer">
@@ -154,15 +152,11 @@ const Contact = () => {
                                 <div className="contactContainerDivRightContainerSecondContainerLeftContainerDivContainerDiv">
                                     <GoArrowRight className="contactContainerDivRightContainerSecondContainerLeftContainerDivContainerDivIcon" />
                                 </div>
-                                {/* <GoArrowRight className="homeElementContainerTitleContainerIconContainerIcon" /> */}
                             </div>
                             
                         </div>
                     </div>
                   </div>
-
-
-
 
                   <div className="contactContainerDivRightContainerSecondContainerRight">
                     <div className="contactContainerDivRightContainerSecondContainerRightContainer">

@@ -38,7 +38,6 @@ public class ReservationService {
         validateTableAvailability(reservation);
         Reservation savedReservation = reservationRepository.save(reservation);
 
-        // Generate confirmation link using the token
         String confirmationLink = "http://localhost:8081/api/reservations/confirm?token=" + savedReservation.getConfirmationToken();
         emailService.sendConfirmationEmail(reservation.getEmail(), confirmationLink);
 
@@ -68,7 +67,7 @@ public class ReservationService {
         }
 
         Reservation reservation = reservationOptional.get();
-        reservation.setConfirmed(true); // Update the confirmed field to true
+        reservation.setConfirmed(true);
         reservationRepository.save(reservation);
     }
 

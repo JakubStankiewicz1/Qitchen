@@ -18,9 +18,9 @@ const Login = () => {
         password,
       });
       const token = response.data.token;
-      localStorage.setItem('token', token); // Store the token in localStorage
+      localStorage.setItem('token', token);
       setIsAuthenticated(true);
-      navigate('/'); // Redirect to home after login
+      navigate('/');
     } catch (error) {
       console.error("Login failed:", error);
       alert('Invalid credentials');
@@ -29,28 +29,42 @@ const Login = () => {
 
   return (
     <div className="login">
-      <form className="loginForm" onSubmit={handleLogin}>
-        <h2>Admin Login</h2>
-        <label>
-          Username:
-          <input
-            type="text"
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
-            required
-          />
-        </label>
-        <label>
-          Password:
-          <input
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-          />
-        </label>
-        <button type="submit">Login</button>
-      </form>
+      <div className="loginContainer">
+        <form className="loginForm" onSubmit={handleLogin}>
+          <p className='loginFormTextOne'>Admin Login</p>
+          <label className="loginFormLabelOne">
+            <p className="loginFormTextOneTextTwo inter">
+              Username
+            </p>
+            <input
+              className="loginFormLabelOneInput"
+              type="text"
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
+              required
+            />
+          </label>
+          <label className="loginFormLabelTwo">
+            <p className="loginFormLabelTwoText inter">
+              Password
+            </p>
+            <input
+              className="loginFormLabelTwoInput"
+              type="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
+            />
+          </label>
+          <button type="submit" className="loginFormButton">
+            <p className="loginFormButtonText">
+              Login
+            </p>
+          </button>
+        </form>
+      </div>
+
+
     </div>
   );
 };

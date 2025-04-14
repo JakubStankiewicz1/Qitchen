@@ -18,12 +18,12 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
-            .cors() // Enable CORS
+            .cors()
             .and()
-            .csrf().disable() // Disable CSRF for simplicity
+            .csrf().disable()
             .authorizeHttpRequests()
-            .requestMatchers("/api/auth/login", "/api/reservations/**").permitAll() // Allow public access to login and reservations
-            .anyRequest().authenticated() // Protect other endpoints
+            .requestMatchers("/api/auth/login", "/api/reservations/**").permitAll()
+            .anyRequest().authenticated()
             .and()
             .addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter.class);
         return http.build();

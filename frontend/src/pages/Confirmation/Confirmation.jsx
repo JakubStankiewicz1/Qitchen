@@ -12,7 +12,6 @@ const Confirmation = () => {
                     <div className="confirmationIcon">
                         <FaStar className="confirmationContentIcon" />
                         <FaStar className="confirmationContentIcon" />
-                        {/* <img src={assets.successIcon} alt="Success" className="confirmationIconImage" /> */}
                         <p className="confirmationIconText">
                             Qitchen
                         </p>

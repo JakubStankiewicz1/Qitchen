@@ -13,7 +13,7 @@ import java.util.Date;
 public class JwtService {
 
     private final Key key = Keys.secretKeyFor(SignatureAlgorithm.HS256);
-    private final long expirationTime = 3600000; // 1 hour in milliseconds
+    private final long expirationTime = 3600000;
 
     public String generateToken(String username) {
         return Jwts.builder()

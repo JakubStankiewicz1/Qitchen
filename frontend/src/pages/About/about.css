@@ -28,7 +28,6 @@
 
 .aboutContainerLeft {
     display: flex;
-    /* border: 1px solid #fff; */
     flex: 5;
     position: relative;
     overflow: hidden;
@@ -77,18 +76,18 @@
 .aboutContainerRightContainer {
     display: flex;
     flex-direction: column;
-    height: 100%; /* Ensure it fits within 100vh */
+    height: 100%;
     gap: 10px;
-    overflow: hidden; /* Prevent overflow beyond 100vh */
+    overflow: hidden;
 }
 
 .aboutContainerRightContainerFirst,
 .aboutContainerRightContainerThird {
     width: 100%;
-    flex-basis: 36%; /* Allocate a fixed percentage of the parent's height */
+    flex-basis: 36%;
     display: flex;
     gap: 10px;
-    overflow: hidden; /* Prevent content overflow */
+    overflow: hidden;
 }
 
 .aboutContainerRightContainerFirstContainer,
@@ -122,7 +121,6 @@
     height: 100%;
     object-fit: cover;
     border-radius: 16px;
-    /* max-height: 320px; */
 }
 
 .aboutContainerRightContainerFirstContainer {
@@ -142,7 +140,6 @@
     width: 100%;
     height: 100%;
     border-radius: 16px;
-    /* width: 100%; */
 }
 
 .aboutContainerRightContainerFirstContainerRight {
@@ -150,8 +147,6 @@
     flex: 1;
     width: 100%;
     height: 100%;
-    /* width: 100%; */
-    /* max-height: 300px; */
 }
 
 .aboutContainerRightContainerFirstContainerRightContainer {
@@ -163,8 +158,6 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
-    /* position: absolute; */
-    /* width: 456px; */
     width: 100%;
     height: auto;
     border-radius: 16px;
@@ -174,10 +167,8 @@
 .aboutContainerRightContainerThirdContainerRightContainer {
     display: flex;
     flex-direction: column;
-    justify-content: space-between; /* Ensures spacing between top and bottom sections */
-    height: 100%; /* Ensures it takes the full height of the parent */
-    /* width: 100%; */
-    /* height: 100%; */
+    justify-content: space-between;
+    height: 100%;
     width: 80%;
     height: 80%;
     margin: auto;
@@ -212,13 +203,8 @@
     line-height: 20px;
 }
 
-
-
-
 .aboutContainerRightContainerSecond {
     width: 100%;
-    /* border: 1px solid red; */
-    /* : 200px; */
 }
 
 .aboutContainerRightContainerSecondContainer {
@@ -228,8 +214,6 @@
     gap: 10px;
     width: 100%;
     display: flex;
-    /* padding-top: 20px; Fixed padding */
-    /* padding-bottom: 20px; Fixed padding */
 }
 
 .aboutContainerRightContainerSecondContainerElement {
@@ -237,7 +221,7 @@
     width: 100%;
     display: flex;
     flex: 1;
-    height: auto; /* Height determined by content */
+    height: auto;
     border-radius: 16px;
     justify-content: center;
     align-items: center;
@@ -249,7 +233,6 @@
     justify-content: center;
     align-items: center;
     width: 100%;
-    /* height: 100%; */
     padding-top: 20px;
     padding-bottom: 20px;
 }
@@ -299,32 +282,24 @@
     gap: 1.5px;
 }
 
-/* .aboutContainerRightContainerSecondContainerElementContainerTopContainerImage {
-    width: 18px;
-    height: auto;
-} */
-
 .aboutContainerRightContainerFourth {
     width: 100%;
-    height: 250px; /* Adjust height to fit */
+    height: 250px;
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 10px; /* Maintain consistent gap */
+    gap: 10px;
     padding-top: 10px;
     padding-bottom: 10px;
-    /* padding */
 }
 
 .aboutContainerRightContainerFourthContainer {
     display: flex;
     flex-direction: row;
-    /* justify-content: space-between; */
     align-items: center;
     justify-content: center;
     width: 100%;
     height: 100%;
-    /* gap: 10px; Maintain consistent gap */
 }
 
 .aboutContainerRightContainerFourthContainerFirstText,
@@ -342,9 +317,6 @@
     object-fit: contain;
 }
 
-
-
-
 .aboutContainerRightContainerFourth {
     border: 1px solid #2D2D29;
     width: 100%;
@@ -361,8 +333,6 @@
     justify-content: center;
 }
 
-
-
 .aboutContainerRightContainerThirdContainerRightContainerTop {
     display: flex;
     width: 100%;
@@ -375,7 +345,6 @@
     flex-direction: row;
     justify-content: center;
     gap: 10px;
-    /* width: 100%; */
     align-items: center;
 }
 
@@ -386,9 +355,7 @@
     align-items: center;
     width: 100%;
     height: 100%;
-    /* gap: 10px; Maintain consistent gap */
 }
-
 
 .aboutContainerRightContainerFourthContainerFirstText,
 .aboutContainerRightContainerFourthContainerThirdText,
@@ -404,7 +371,7 @@
 .aboutContainerRightContainerFourthContainerFourthIcon {
     width: 14px;
     height: auto;
-    
+
 }
 
 .aboutContainerRightContainerFourthContainerSecond,

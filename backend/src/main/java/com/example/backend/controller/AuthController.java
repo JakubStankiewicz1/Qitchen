@@ -24,7 +24,6 @@ public class AuthController {
         String username = credentials.get("username");
         String password = credentials.get("password");
 
-        // Hash the hardcoded password for comparison
         String hashedPassword = passwordEncoder.encode("admin");
 
         if ("admin".equals(username) && passwordEncoder.matches(password, hashedPassword)) {

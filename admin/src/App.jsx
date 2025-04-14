@@ -14,13 +14,13 @@ const App = () => {
   useEffect(() => {
     const token = localStorage.getItem('token');
     if (token) {
-      setIsAuthenticated(true); // Automatically log in if a token exists
+      setIsAuthenticated(true);
     }
   }, []);
 
   const logout = () => {
-    localStorage.removeItem('token'); // Clear the token from localStorage
-    setIsAuthenticated(false); // Update authentication state
+    localStorage.removeItem('token');
+    setIsAuthenticated(false);
   };
 
   return (

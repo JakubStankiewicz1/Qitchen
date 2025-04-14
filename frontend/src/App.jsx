@@ -12,7 +12,7 @@ import Reservation from './pages/Reservation/Reservation';
 import Confirmation from './pages/Confirmation/Confirmation';
 
 import { ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css'; // Import Toastify CSS
+import 'react-toastify/dist/ReactToastify.css';
 
 const App = () => {
   return (

@@ -34,14 +34,12 @@ public class JwtFilter extends OncePerRequestFilter {
             if (jwtService.validateToken(token)) {
                 String username = jwtService.extractUsername(token);
 
-                // Create a UserDetails object with the username
                 UserDetails userDetails = User.builder()
                         .username(username)
-                        .password("") // No password needed for JWT validation
+                        .password("")
                         .authorities(Collections.emptyList())
                         .build();
 
-                // Create an Authentication object and set it in the SecurityContext
                 UsernamePasswordAuthenticationToken authentication =
                         new UsernamePasswordAuthenticationToken(userDetails, null, userDetails.getAuthorities());
                 SecurityContextHolder.getContext().setAuthentication(authentication);
