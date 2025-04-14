@@ -14,6 +14,7 @@ public class ReservationController {
 
     private final ReservationService reservationService;
 
+    // Fix the constructor syntax
     public ReservationController(ReservationService reservationService) {
         this.reservationService = reservationService;
     }
@@ -47,6 +48,6 @@ public class ReservationController {
     @GetMapping("/confirm")
     public RedirectView confirmReservation(@RequestParam String token) {
         reservationService.confirmReservation(token);
-        return new RedirectView("http://localhost:5173/confirmation");
+        return new RedirectView("http://localhost:5173/confirmation"); // Redirect to confirmation page
     }
 }

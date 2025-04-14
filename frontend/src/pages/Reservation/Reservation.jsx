@@ -103,7 +103,7 @@ const Reservation = () => {
 
         setIsLoading(true);
         try {
-            const response = await axios.post("http://localhost:8081/api/reservations", reservationData);
+            const response = await axios.post("http://localhost:8081/api/reservations", reservationData); // No Authorization header
             toast.success("Reservation created successfully!");
             console.log(response.data);
         } catch (error) {

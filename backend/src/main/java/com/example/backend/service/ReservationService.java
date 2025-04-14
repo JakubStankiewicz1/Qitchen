@@ -18,7 +18,6 @@ public class ReservationService {
     @Value("${spring.mail.username}")
     private String senderEmail;
 
-    // Konfiguracja dostępności stolików
     private final int TWO_PERSON_TABLES = 10;
     private final int THREE_PERSON_TABLES = 6;
 
@@ -69,7 +68,7 @@ public class ReservationService {
         }
 
         Reservation reservation = reservationOptional.get();
-        reservation.setConfirmed(true);
+        reservation.setConfirmed(true); // Update the confirmed field to true
         reservationRepository.save(reservation);
     }
 
