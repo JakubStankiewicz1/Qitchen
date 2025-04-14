@@ -2,6 +2,7 @@ package com.example.backend.controller;
 
 import com.example.backend.service.JwtService;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Map;
@@ -11,9 +12,11 @@ import java.util.Map;
 public class AuthController {
 
     private final JwtService jwtService;
+    private final BCryptPasswordEncoder passwordEncoder;
 
     public AuthController(JwtService jwtService) {
         this.jwtService = jwtService;
+        this.passwordEncoder = new BCryptPasswordEncoder();
     }
 
     @PostMapping("/login")
@@ -21,7 +24,10 @@ public class AuthController {
         String username = credentials.get("username");
         String password = credentials.get("password");
 
-        if ("admin".equals(username) && "admin".equals(password)) {
+        // Hash the hardcoded password for comparison
+        String hashedPassword = passwordEncoder.encode("admin");
+
+        if ("admin".equals(username) && passwordEncoder.matches(password, hashedPassword)) {
             String token = jwtService.generateToken(username);
             return ResponseEntity.ok(Map.of("token", token));
         } else {

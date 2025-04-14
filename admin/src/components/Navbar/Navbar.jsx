@@ -4,8 +4,11 @@ import { FaHouse } from "react-icons/fa6";
 import NavbarFeatureElement from '../NavbarFeatureElement/NavbarFeatureElement';
 import assets from '../../assets/assets';
 import { NavLink } from 'react-router-dom';
+import { useAuth } from '../../App';
 
 const Navbar = () => {
+  const { logout } = useAuth();
+
   return (
     <div className="navbar">
         <div className="navbarContainer">
@@ -63,6 +66,13 @@ const Navbar = () => {
                 <div className="navbarContainerFourthContainer">
                     <NavbarFeatureElement icon={assets.reservedIcon} text={"Reservations"} link={"/reservations"} />
                 </div>
+            </div>
+
+            {/* Logout Button */}
+            <div className="navbarContainerLogout">
+                <button className="logoutButton" onClick={logout}>
+                    Logout
+                </button>
             </div>
         </div>
     </div>

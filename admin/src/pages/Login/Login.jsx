@@ -20,7 +20,7 @@ const Login = () => {
       const token = response.data.token;
       localStorage.setItem('token', token); // Store the token in localStorage
       setIsAuthenticated(true);
-      navigate('/');
+      navigate('/'); // Redirect to home after login
     } catch (error) {
       console.error("Login failed:", error);
       alert('Invalid credentials');
