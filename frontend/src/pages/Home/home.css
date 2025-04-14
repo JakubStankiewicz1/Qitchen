@@ -181,3 +181,28 @@
     transform: scale(1.07);
     display: flex;
 }
+
+@media (max-width: 768px) {
+    .homeContainer {
+        flex-direction: column;
+        padding: 5px;
+    }
+
+    .homeContainerLeft,
+    .homeContainerRight {
+        flex: none;
+        width: 100%;
+    }
+
+    .homeContainerLeftContainerTitleContainerTextOne,
+    .homeContainerLeftContainerTitleContainerTextTwo {
+        font-size: 60px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .homeContainerLeftContainerTitleContainerTextOne,
+    .homeContainerLeftContainerTitleContainerTextTwo {
+        font-size: 140px;
+    }
+}

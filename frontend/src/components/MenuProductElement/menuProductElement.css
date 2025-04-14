@@ -98,3 +98,28 @@
     width: 16px;
     height: auto;
 }
+
+@media (max-width: 768px) {
+    .menuProductElementContainer {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .menuProductElementContainerLeftContainerImage {
+        width: 100px;
+    }
+
+    .menuProductElementContainerRightContainerTopLeftText {
+        font-size: 16px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .menuProductElementContainerLeftContainerImage {
+        width: 200px;
+    }
+
+    .menuProductElementContainerRightContainerTopLeftText {
+        font-size: 28px;
+    }
+}

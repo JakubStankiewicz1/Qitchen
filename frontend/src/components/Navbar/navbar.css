@@ -244,3 +244,84 @@
 .navbarContainerFifth:hover {
   background-color: #32322d;
 }
+
+@media (max-width: 768px) {
+    .navbar {
+        margin-left: 0;
+        margin-top: 0;
+        width: 100%;
+        background-color: transparent;
+    }
+
+    .navbarContainer {
+        flex-direction: column;
+        align-items: flex-start;
+        background-color: transparent;
+    }
+
+    /* Hide regular navbar elements */
+    .navbarContainerSecond,
+    .navbarContainerThird,
+    .navbarContainerFourth,
+    .navbarContainerFifth {
+        display: none;
+    }
+
+    .navbarContainerSecondContainerText {
+        font-size: 20px;
+    }
+
+    /* Remove black background around dropdown menu button */
+    .navbarContainerFirst {
+        background-color: transparent;
+        border: none;
+        position: relative;
+        z-index: 3000; /* Ensure the button stays above the menu */
+    }
+
+    /* Scrollable dropdown menu */
+    .navbarContainerDropdownMenuOpen {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: auto;
+        min-height: 100vh;
+        background-color: rgba(10, 11, 10, 0.95);
+        z-index: 2000;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        overflow-y: auto; /* Enable scrolling */
+        animation: fadeIn 0.3s ease-in-out;
+    }
+
+    .navbarContainerDropdownMenuContainer {
+        gap: 25px;
+        padding: 20px 0; /* Add padding for better spacing */
+    }
+
+    .navbarContainerDropdownMenuContainerSecondContainerText,
+    .navbarContainerDropdownMenuContainerThirdContainerText,
+    .navbarContainerDropdownMenuContainerFourthContainerText,
+    .navbarContainerDropdownMenuContainerFifthContainerText,
+    .navbarContainerDropdownMenuContainerSixthContainerText {
+        font-size: 28px;
+    }
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@media (min-width: 1200px) {
+    .navbarContainerSecondContainerText {
+        font-size: 36px;
+    }
+}

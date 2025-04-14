@@ -606,3 +606,26 @@
     width: 20px;
     height: auto;
 }
+
+@media (max-width: 768px) {
+    .contactContainer {
+        flex-direction: column;
+        padding: 5px;
+    }
+
+    .contactContainerDivLeft,
+    .contactContainerDivRight {
+        flex: none;
+        width: 100%;
+    }
+
+    .contactContainerDivLeftContainerTitleContainerText {
+        font-size: 40px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .contactContainerDivLeftContainerTitleContainerText {
+        font-size: 80px;
+    }
+}

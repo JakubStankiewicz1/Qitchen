@@ -186,3 +186,34 @@
     padding-left: 10px;
     padding-right: 10px;
 }
+
+@media (max-width: 768px) {
+    .menuContainer {
+        flex-direction: column;
+        padding: 5px;
+    }
+
+    .menuContainerLeft,
+    .menuContainerRight {
+        flex: none;
+        width: 100%;
+    }
+
+    .menuContainerLeftContainerTitleContainerText {
+        font-size: 50px;
+    }
+
+    .menuContainerRightContainerTopContainerFirstContainerNavLinkContainerDivText {
+        font-size: 12px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .menuContainerLeftContainerTitleContainerText {
+        font-size: 100px;
+    }
+
+    .menuContainerRightContainerTopContainerFirstContainerNavLinkContainerDivText {
+        font-size: 18px;
+    }
+}

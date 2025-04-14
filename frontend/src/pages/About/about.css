@@ -398,3 +398,26 @@
     letter-spacing: 2px;
     position: relative;
 }
+
+@media (max-width: 768px) {
+    .aboutContainer {
+        flex-direction: column;
+        padding: 5px;
+    }
+
+    .aboutContainerLeft,
+    .aboutContainerRight {
+        flex: none;
+        width: 100%;
+    }
+
+    .aboutContainerLeftContainerTitleTextText {
+        font-size: 40px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .aboutContainerLeftContainerTitleTextText {
+        font-size: 80px;
+    }
+}

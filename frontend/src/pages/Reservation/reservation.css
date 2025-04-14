@@ -667,3 +667,47 @@ select:-webkit-autofill:focus {
     justify-content: center;
     align-items: center;
 }
+
+@media (max-width: 768px) {
+    .reservationContainer {
+        flex-direction: column;
+        padding: 5px;
+    }
+
+    .reservationContainerDiv {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .reservationContainerDivLeft,
+    .reservationContainerDivRight {
+        flex: none;
+        width: 100%;
+    }
+
+    .reservationContainerDivLeftContainerTitleContainerTextOne,
+    .reservationContainerDivLeftContainerTitleContainerTextTwo {
+        font-size: 40px;
+    }
+
+    .reservationContainerDivRightContainerTopContainerFirstContainerMiddleText {
+        font-size: 20px;
+    }
+
+    .reservationContainerDivRightContainerTopContainerThirdContainerFirstContainerInput,
+    .reservationContainerDivRightContainerTopContainerThirdContainerSecondContainerInput,
+    .reservationContainerDivRightContainerTopContainerThirdContainerThirdContainerInput {
+        width: 100%;
+    }
+}
+
+@media (min-width: 1200px) {
+    .reservationContainerDivLeftContainerTitleContainerTextOne,
+    .reservationContainerDivLeftContainerTitleContainerTextTwo {
+        font-size: 80px;
+    }
+
+    .reservationContainerDivRightContainerTopContainerFirstContainerMiddleText {
+        font-size: 36px;
+    }
+}
