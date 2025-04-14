@@ -18,12 +18,12 @@ public class Reservation {
     private LocalDateTime reservationTime;
 
     @Column(nullable = false)
-    private String tableType; // np. "2-person", "3-person"
+    private String tableType;
 
-    private boolean confirmed = false; // Default to false
+    private boolean confirmed = false;
 
     @Column(unique = true, nullable = false)
-    private String confirmationToken = UUID.randomUUID().toString(); // Generate a random token
+    private String confirmationToken = UUID.randomUUID().toString();
 
     // Getters and Setters
     public Long getId() {

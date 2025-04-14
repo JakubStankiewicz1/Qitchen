@@ -18,7 +18,7 @@ public class RestaurantService {
     }
 
     public Restaurant createOrUpdateRestaurant(Restaurant restaurant) {
-        restaurantRepository.deleteAll(); // Ensure only one restaurant exists
+        restaurantRepository.deleteAll();
         return restaurantRepository.save(restaurant);
     }
 

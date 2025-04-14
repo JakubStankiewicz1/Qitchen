@@ -244,6 +244,24 @@
     font-size: 16px;
     color: #EFE7D2;
     text-transform: uppercase;
+    position: relative;
+}
+
+.navbarContainerThirdContainerText::after,
+.navbarContainerFourthContainerText::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: #EFE7D2;
+    transition: width 0.3s ease-in-out;
+}
+
+.navbarContainerThirdContainerText:hover::after,
+.navbarContainerFourthContainerText:hover::after {
+    width: 100%;
 }
 
 .navbarContainerSecondContainerText {
@@ -275,4 +293,10 @@
     padding-right: 15px;
     padding-top: 10px;
     padding-bottom: 10px;
+    transition: all 0.3s ease-in-out;
+}
+
+.navbarContainerFifth:hover {
+    background-color: #32322D;
+    /* transition: all 0.3s ease-in-out; */
 }

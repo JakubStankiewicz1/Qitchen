@@ -1,0 +1,99 @@
+.confirmation {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #0A0B0A;
+    font-family: 'Playfair Display', serif;
+}
+
+.confirmationContainer {
+    text-align: center;
+    padding: 50px;
+    padding-top: 30px;
+    border-radius: 16px;
+    max-width: 600px;
+    width: 100%;
+    border: 1px solid #2D2D29;
+    background-color: rgba(80, 0, 1, 0.1);
+}
+
+.confirmationIcon {
+    margin-bottom: 40px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.confirmationContentIcon {
+    width: 18px;
+    height: auto;
+    color: #D4AF37;
+}
+
+.confirmationIconImage {
+    width: 100px;
+    height: 100px;
+    filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.5));
+}
+
+.confirmationTitle {
+    margin-bottom: 20px;
+}
+
+.confirmationTitleText {
+    font-size: 32px;
+    font-weight: 600;
+    color: #D4AF37;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.confirmationMessage {
+    margin-bottom: 40px;
+}
+
+.confirmationMessageText {
+    font-size: 18px;
+    color: #EFE7D2;
+    line-height: 1.8;
+    font-weight: 300;
+}
+
+.confirmationButton {
+    margin-top: 30px;
+}
+
+.confirmationButtonLink {
+    text-decoration: none;
+}
+
+.confirmationButtonStyle {
+    background: linear-gradient(135deg, #D4AF37, #B8860B);
+    color: #0A0B0A;
+    border: none;
+    padding: 15px 30px;
+    font-size: 18px;
+    font-weight: 600;
+    text-transform: uppercase;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+}
+
+.confirmationButtonStyle:hover {
+    background: linear-gradient(135deg, #C49B27, #A87F06);
+    transform: scale(1.05);
+}
+
+.confirmationIconText {
+    color: #EFE7D2;
+    text-transform: uppercase;
+    font-size: 32px;
+    font-weight: 400;
+    letter-spacing: 2px;
+}
+

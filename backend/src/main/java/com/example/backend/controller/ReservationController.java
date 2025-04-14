@@ -4,6 +4,7 @@ import com.example.backend.entity.Reservation;
 import com.example.backend.service.ReservationService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.view.RedirectView;
 
 import java.util.List;
 
@@ -44,8 +45,8 @@ public class ReservationController {
     }
 
     @GetMapping("/confirm")
-    public ResponseEntity<String> confirmReservation(@RequestParam String token) {
+    public RedirectView confirmReservation(@RequestParam String token) {
         reservationService.confirmReservation(token);
-        return ResponseEntity.ok("Reservation confirmed successfully!");
+        return new RedirectView("http://localhost:5173/confirmation");
     }
 }

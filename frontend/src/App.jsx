@@ -9,10 +9,11 @@ import About from './pages/About/About';
 import Contact from './pages/Contact/Contact';
 import Blog from './pages/Blog/Blog';
 import Reservation from './pages/Reservation/Reservation';
+import Confirmation from './pages/Confirmation/Confirmation';
 
 const App = () => {
   return (
-    <div>
+    <>
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
@@ -21,9 +22,10 @@ const App = () => {
         <Route path="/contact" element={<Contact />} />
         <Route path="/blog" element={<Blog />} />
         <Route path="/reservation" element={<Reservation />} />
+        <Route path="/confirmation" element={<Confirmation />} />
       </Routes>
-    </div>
-  )
-}
+    </>
+  );
+};
 
-export default App
+export default App;

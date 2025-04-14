@@ -22,7 +22,7 @@ const Navbar = () => {
 
 
             {/* Second Element */}
-            <NavLink to="/" className="navbarContainerSecond">
+            <NavLink to="/" className="navbarContainerSecond" onClick={() => setIsOpen(false)}>
                 <div className="navbarContainerSecondContainer">
                     <p className="navbarContainerSecondContainerText">
                         Qitchen
@@ -31,7 +31,7 @@ const Navbar = () => {
             </NavLink>
 
             {/* Third Element */}
-            <NavLink to="/menu" className="navbarContainerThird">
+            <NavLink to="/menu" className="navbarContainerThird" onClick={() => setIsOpen(false)}>
                 <div className="navbarContainerThirdContainer">
                     <p className="navbarContainerThirdContainerText inter">
                         Menu
@@ -40,7 +40,7 @@ const Navbar = () => {
             </NavLink>
 
             {/* Fourth Element */}
-            <NavLink to="/about" className="navbarContainerFourth">
+            <NavLink to="/about" className="navbarContainerFourth" onClick={() => setIsOpen(false)}>
                 <div className="navbarContainerFourthContainer">
                     <p className="navbarContainerFourthContainerText inter">
                         About
@@ -49,7 +49,7 @@ const Navbar = () => {
             </NavLink>
 
             {/* Fifth Element */}
-            <NavLink className="navbarContainerFifth">
+            <NavLink to="/reservation" className="navbarContainerFifth" onClick={() => setIsOpen(false)}>
                 <div className="navbarContainerFifthContainer">
                     <p className="navbarContainerFifthContainerText inter">
                         Book a table
@@ -68,7 +68,7 @@ const Navbar = () => {
                     </div>
 
                     {/* Second Part */}
-                    <NavLink className="navbarContainerDropdownMenuContainerSecond">
+                    <NavLink to="/menu" className="navbarContainerDropdownMenuContainerSecond" onClick={() => setIsOpen(false)}>
                         <div className="navbarContainerDropdownMenuContainerSecondContainer">
                             <p className="navbarContainerDropdownMenuContainerSecondContainerText">
                                 Menu
@@ -77,7 +77,7 @@ const Navbar = () => {
                     </NavLink>
 
                     {/* Third Part */}
-                    <NavLink to="/reservation" className="navbarContainerDropdownMenuContainerThird">
+                    <NavLink to="/reservation" className="navbarContainerDropdownMenuContainerThird" onClick={() => setIsOpen(false)}>
                         <div className="navbarContainerDropdownMenuContainerThirdContainer">
                             <p className="navbarContainerDropdownMenuContainerThirdContainerText">
                                 Reservation
@@ -86,7 +86,7 @@ const Navbar = () => {
                     </NavLink>
 
                     {/* Fourth Part */}
-                    <NavLink className="navbarContainerDropdownMenuContainerFourth">
+                    <NavLink to="/about" className="navbarContainerDropdownMenuContainerFourth" onClick={() => setIsOpen(false)}>
                         <div className="navbarContainerDropdownMenuContainerFourthContainer">
                             <p className="navbarContainerDropdownMenuContainerFourthContainerText">
                                 About
@@ -95,7 +95,7 @@ const Navbar = () => {
                     </NavLink>
 
                     {/* Fifth Part */}
-                    <NavLink to="/contact" className="navbarContainerDropdownMenuContainerFifth">
+                    <NavLink to="/contact" className="navbarContainerDropdownMenuContainerFifth" onClick={() => setIsOpen(false)}>
                         <div className="navbarContainerDropdownMenuContainerFifthContainer">
                             <p className="navbarContainerDropdownMenuContainerFifthContainerText">
                                 Contact
@@ -104,7 +104,7 @@ const Navbar = () => {
                     </NavLink>
 
                     {/* Sixth Part */}
-                    <NavLink to="/blog" className="navbarContainerDropdownMenuContainerSixth">
+                    <NavLink to="/blog" className="navbarContainerDropdownMenuContainerSixth" onClick={() => setIsOpen(false)}>
                         <div className="navbarContainerDropdownMenuContainerSixthContainer">
                             <p className="navbarContainerDropdownMenuContainerSixthContainerText">
                                 Blog
