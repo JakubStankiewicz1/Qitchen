@@ -22,9 +22,7 @@ public class SecurityConfig {
             .and()
             .csrf().disable() // Disable CSRF for simplicity
             .authorizeHttpRequests()
-            .requestMatchers("/api/auth/login").permitAll() // Allow login endpoint
-            .requestMatchers("/api/reservations").permitAll() // Allow public access to reservations
-            .requestMatchers("/api/reservations/confirm").permitAll() // Allow public access to confirmation endpoint
+            .requestMatchers("/api/auth/login", "/api/reservations/**").permitAll() // Allow public access to login and reservations
             .anyRequest().authenticated() // Protect other endpoints
             .and()
             .addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter.class);

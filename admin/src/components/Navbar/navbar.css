@@ -99,12 +99,19 @@
 }
 
 .navbarContainerLogout {
-  margin-top: 20px;
+  /* margin-top: 20px; */
   text-align: center;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  /* background-color: red; */
 }
 
 .logoutButton {
   background-color: #f44336;
+  width: 90%;
+  margin-bottom: 10px;
   color: white;
   border: none;
   padding: 10px 20px;
