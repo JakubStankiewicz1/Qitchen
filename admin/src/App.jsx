@@ -21,7 +21,7 @@ const App = () => {
   const logout = () => {
     localStorage.removeItem('token');
     setIsAuthenticated(false);
-  };
+  }; //fdsaf
 
   return (
     <AuthContext.Provider value={{ isAuthenticated, setIsAuthenticated, logout }}>
