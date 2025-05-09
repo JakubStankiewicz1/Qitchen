@@ -173,6 +173,14 @@
   width: 100%;
 }
 
+.navbarContainerDropdownMenuContainerSecondContainer.active .navbarContainerDropdownMenuContainerSecondContainerText::after,
+.navbarContainerDropdownMenuContainerThirdContainer.active .navbarContainerDropdownMenuContainerThirdContainerText::after,
+.navbarContainerDropdownMenuContainerFourthContainer.active .navbarContainerDropdownMenuContainerFourthContainerText::after,
+.navbarContainerDropdownMenuContainerFifthContainer.active .navbarContainerDropdownMenuContainerFifthContainerText::after,
+.navbarContainerDropdownMenuContainerSixthContainer.active .navbarContainerDropdownMenuContainerSixthContainerText::after {
+    width: 100%;
+}
+
 .navbarContainerDropdownMenuContainerFirst {
   margin-bottom: -15px;
 }

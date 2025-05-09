@@ -143,7 +143,10 @@ const Contact = () => {
                             <img src={assets.contactImageFive} alt="" className="contactContainerDivRightContainerSecondContainerLeftContainerImageImg" />
                         </div>
 
-                        <div className="contactContainerDivRightContainerSecondContainerLeftContainerDiv">
+                        <a href="https://www.google.pl/maps/place/Legerova+19/@50.0713958,14.4279413,590m/data=!3m2!1e3!4b1!4m9!3m8!1s0x470b94899af6bec7:0x93f1a0b1d0204509!5m2!4m1!1i2!8m2!3d50.0713924!4d14.4305162!16s%2Fg%2F11g9jw9ppn?entry=ttu&g_ep=EgoyMDI1MDUwNi4wIKXMDSoASAFQAw%3D%3D" 
+                           target="_blank" 
+                           rel="noopener noreferrer"
+                           className="contactContainerDivRightContainerSecondContainerLeftContainerDiv">
                             <div className="contactContainerDivRightContainerSecondContainerLeftContainerDivContainer">
                                 <p className="contactContainerDivRightContainerSecondContainerLeftContainerDivText">
                                     Show route
@@ -153,7 +156,8 @@ const Contact = () => {
                                     <GoArrowRight className="contactContainerDivRightContainerSecondContainerLeftContainerDivContainerDivIcon" />
                                 </div>
                             </div>
-                        </div>
+                        </a>
+
                     </div>
                   </div>
 
