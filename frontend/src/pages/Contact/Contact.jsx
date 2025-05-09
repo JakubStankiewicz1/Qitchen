@@ -153,7 +153,6 @@ const Contact = () => {
                                     <GoArrowRight className="contactContainerDivRightContainerSecondContainerLeftContainerDivContainerDivIcon" />
                                 </div>
                             </div>
-                            
                         </div>
                     </div>
                   </div>
