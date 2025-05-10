@@ -29,6 +29,9 @@ const BlogElement = ({ image, date, title, text, id }) => {
                         <p className="blogElementContainerRightContainerTextText inter">{text}</p>
                     </div>
                 </div>
+
+                
+
             </div>
 
         </div>
