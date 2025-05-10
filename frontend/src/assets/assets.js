@@ -65,6 +65,8 @@ import blogImageSix from "./blogImageSix.png";
 
 import reservationImageOne from "./reservationImageOne.png";
 
+import blogImageOneCon from "./blogImageOneCon.png";
+
 export default {
     homeImage,
     houseElementImageOne,
@@ -113,4 +115,5 @@ export default {
     blogImageFive,
     blogImageSix,
     reservationImageOne,
+    blogImageOneCon,
 }

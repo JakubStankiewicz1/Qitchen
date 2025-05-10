@@ -1,12 +1,11 @@
 import React from 'react';
 import "./blogElement.css";
 import assets from '../../assets/assets';
-
 import { NavLink } from 'react-router-dom';
 
-const BlogElement = ({ image, date, title, text }) => {
+const BlogElement = ({ image, date, title, text, id }) => {
   return (
-    <NavLink className="blogElement">
+    <NavLink to={`/blog/${id}`} className="blogElement">
         <div className="blogElementContainer">
 
             {/* Left Part */}

@@ -10,6 +10,7 @@ import Contact from './pages/Contact/Contact';
 import Blog from './pages/Blog/Blog';
 import Reservation from './pages/Reservation/Reservation';
 import Confirmation from './pages/Confirmation/Confirmation';
+import BlogPost from './pages/BlogPost/BlogPost';
 
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -26,6 +27,7 @@ const App = () => {
         <Route path="/blog" element={<Blog />} />
         <Route path="/reservation" element={<Reservation />} />
         <Route path="/confirmation" element={<Confirmation />} />
+        <Route path="/blog/:id" element={<BlogPost />} />
       </Routes>
       
       <ToastContainer position="top-right" autoClose={3000} hideProgressBar={false} newestOnTop={false} closeOnClick pauseOnFocusLoss draggable pauseOnHover />
