@@ -10,105 +10,135 @@
 }
 
 .blogPostContainer {
-    display: flex;
-    flex-direction: row;
     width: 100%;
     height: 100%;
-    gap: 20px;
-    padding: 20px;
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    padding: 10px;
 }
 
 .blogPostContainerLeft {
+    display: flex;
     flex: 1;
     position: sticky;
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
 
 .blogPostContainerLeftContainerImage {
     width: 100%;
     height: 100%;
-    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     overflow: hidden;
+    position: relative;
+    border-radius: 16px;
 }
 
-.blogPostContainerLeftContainerImageOverlay {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.4);
-    z-index: 10;
+.blogPostContainerLeftContainerImageContainer {
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    position: relative;
 }
 
-.blogPostContainerLeftContainerImageImage {
+.blogPostContainerLeftContainerImageContainerImage {
     width: 100%;
     height: 100%;
-    object-fit: cover;
     position: relative;
     z-index: 0;
+    border-radius: 16px;
+}
+
+.blogPostContainerRight {
+    display: flex;
+    flex: 1;
+    width: 100%;
+    height: 100%;
+    overflow-y: scroll;
+    scrollbar-width: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.blogPostContainerRightContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.blogPostContainerRightContainerDivBorder {
+    border: 1px solid #31312D;
+    border-radius: 16px;
+    width: 100%;
+}
+
+.blogPostContainerRightContainerTop {
+    width: 100%;
+    padding-bottom: 20px;
+}
+
+.blogPostContainerRightContainerBottom {
+    border: 1px solid #fff;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #31312D;
+    border-radius: 16px;
+    padding-top: 20px;
+    padding-bottom: 20px;
 }
 
 .blogPostContainerLeftContainerTitle {
     position: absolute;
-    bottom: 20px;
-    left: 20px;
     z-index: 20;
+    bottom: 0;
+    left: 0;
+    margin-left: 70px;
+    margin-bottom: 55px;
 }
 
-.blogPostContainerLeftContainerTitleText {
-    font-size: 90px;
+.blogPostContainerLeftContainerTitleContainerText {
     color: #EFE7D2;
     font-weight: 100;
     text-transform: uppercase;
     letter-spacing: 2px;
 }
 
-.blogPostContainerRight {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-    overflow-y: scroll;
-    scrollbar-width: none;
-    padding: 20px;
-    color: #fff;
-    border: 1px solid #31312D;
-}
-
-.blogPostContainerRight::-webkit-scrollbar {
-    display: none;
-}
-
-.blogPostContainerRightContainer {
+.blogPostContainerRightContainerTopContainerFirst {
     width: 100%;
     display: flex;
-    flex-direction: column;
-    gap: 20px;
-}
-
-.blogPostContainerRightContainerNav {
-    display: flex;
-    justify-content: space-between;
+    flex-direction: row;
+    justify-content: center;
     align-items: center;
+    margin-top: 20px;
+    gap: 15px;
 }
 
-.blogPostContainerRightContainerNavIcon {
-    cursor: pointer;
-    width: 20px;
-    height: 20px;
+.blogPostContainerRightContainerTopContainerFirstText {
+    color: #EFE7D2;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
 }
 
-.blogPostContainerRightContainerNavDate {
-    font-size: 14px;
-    color: #EEE6D1;
+.blogPostContainerRightContainerTopContainerSecond {
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-.blogPostContainerRightContainerTitle {
+.blogPostContainerRightContainerTopContainerSecondContainer {
     font-size: 40px;
     text-transform: uppercase;
     font-weight: 500;
@@ -117,34 +147,70 @@
     letter-spacing: 1.4px;
 }
 
-.blogPostContainerRightContainerContent {
+.blogPostContainerRightContainerBottomContainer {
     display: flex;
-    flex-direction: column;
-    gap: 20px;
-}
-
-.blogPostContainerRightContainerText h3 {
-    font-size: 26px;
-    font-weight: 500;
-    color: #EFE7D2;
-    text-transform: uppercase;
-    line-height: 30px;
-}
-
-.blogPostContainerRightContainerText p {
-    font-size: 16px;
-    color: #AEADA8;
-    line-height: 1.6;
-    white-space: pre-wrap;
-}
-
-.blogPostContainerRightContainerFooter {
-    display: flex;
+    flex-direction: row;
     justify-content: center;
     align-items: center;
     gap: 10px;
-    font-size: 12px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.blogPostContainerRightContainerBottomContainerFirstContainerText,
+.blogPostContainerRightContainerBottomContainerSecondContainerText,
+.blogPostContainerRightContainerBottomContainerThirdContainerText {
     color: #EFE7D2;
-    text-transform: uppercase;
+    font-size: 13px;
+    font-weight: 200;
+    text-transform: capitalize;
     letter-spacing: 0.5px;
+}
+
+.blogPostContainerRightContainerBottomContainerDiamondIcon {
+    padding: 0 10px;
+}
+
+.blogPostContainerRightContainerTopContainerThird {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 30px;
+}
+
+.blogPostContainerRightContainerTopContainerThirdContainerTitle {
+    color:#EFE7D2;
+    text-transform: uppercase;
+    font-size: 26px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+}
+
+.blogPostContainerRightContainerTopContainerThirdContainerTwo {
+    margin-top: 10px;
+}
+
+.blogPostContainerRightContainerTopContainerThirdContainerText {
+    color: #AEACA7;
+    font-size: 15px;
+    font-weight: 400;
+    letter-spacing: 0.2px;
+}
+
+.blogPostContainerRightContainerTopContainerThirdContainer {
+    margin-bottom: 30px;
+}
+
+.blogPostContainerRightContainerDivBorderGapEle {
+    width: 100%;
+    display: flex;
+    margin-top: 10px;
+}
+
+.blogPostContainerRightContainerDivBorderGapEleContainer {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
 }
