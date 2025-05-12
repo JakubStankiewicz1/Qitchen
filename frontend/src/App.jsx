@@ -11,6 +11,8 @@ import Blog from './pages/Blog/Blog';
 import Reservation from './pages/Reservation/Reservation';
 import Confirmation from './pages/Confirmation/Confirmation';
 import BlogPost from './pages/BlogPost/BlogPost';
+import UpdateReservation from './pages/UpdateReservation/UpdateReservation';
+import DeleteReservation from './pages/DeleteReservation/DeleteReservation';
 
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -28,6 +30,8 @@ const App = () => {
         <Route path="/reservation" element={<Reservation />} />
         <Route path="/confirmation" element={<Confirmation />} />
         <Route path="/blog/:id" element={<BlogPost />} />
+        <Route path="/update-reservation/:id" element={<UpdateReservation />} />
+        <Route path="/delete-reservation/:id" element={<DeleteReservation />} />
       </Routes>
       
       <ToastContainer position="top-right" autoClose={3000} hideProgressBar={false} newestOnTop={false} closeOnClick pauseOnFocusLoss draggable pauseOnHover />

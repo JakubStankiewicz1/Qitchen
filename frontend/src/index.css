@@ -30,3 +30,8 @@ html::-webkit-scrollbar {
 a {
   text-decoration: none;
 }
+
+::selection {
+  background-color: black;
+  color: #EFE7D2;
+}

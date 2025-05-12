@@ -50,6 +50,7 @@ import blogImageTwoCon from "./blogImageTwoCon.png";
 import blogImageThreeCon from "./blogImageThreeCon.png";
 import blogImageFourCon from "./blogImageFourCon.png";
 import blogImageFiveCon from "./blogImageFiveCon.png";
+import updateReservationImg from "./updateReservationImg.png";
 
 export default {
     homeImage,
@@ -103,4 +104,5 @@ export default {
     blogImageThreeCon,
     blogImageFourCon,
     blogImageFiveCon,
+    updateReservationImg,
 }

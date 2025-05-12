@@ -69,6 +69,9 @@ public class ReservationService {
         Reservation reservation = reservationOptional.get();
         reservation.setConfirmed(true);
         reservationRepository.save(reservation);
+        
+        // Send second email with reservation details and management options
+        emailService.sendReservationDetailsEmail(reservation.getEmail(), reservation);
     }
 
     private void validateTableAvailability(Reservation reservation) {
