@@ -3,6 +3,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import axios from 'axios';
 import './deleteReservation.css';
+import assets from '../../assets/assets';
 
 const DeleteReservation = () => {
     const { id } = useParams();
@@ -41,49 +42,133 @@ const DeleteReservation = () => {
     }
 
     return (
-        <div className="delete-reservation-container">
-            <div className="delete-reservation-content">
-                <h2 className="delete-reservation-title">Delete Reservation</h2>
-                <div className="reservation-details">
-                    <h3 className="details-title">Reservation Details</h3>
-                    <div className="details-list">
-                        <div className="detail-item">
-                            <span className="detail-label">Name:</span>
-                            <span>{reservation.name}</span>
+        <div className="deleteReservation">
+            <div className="deleteReservationContainer">
+                <div className="deleteReservationContainerDiv">
+
+                    {/* Left Part */}
+                    <div className="deleteReservationContainerDivLeft">
+                        <div className="deleteReservationContainerDivLeftContainer">
+                            {/* Image Container */}
+                            <div className="deleteReservationContainerDivLeftContainerImage">
+                                <div className="deleteReservationContainerDivLeftContainerImageContainer">
+                                    <img src={assets.deleteReservationImg} alt="" className='deleteReservationContainerDivLeftContainerImageContainerImg' />
+                                </div>
+                            </div>
+
+                            {/* Title Container */}
+                            <div className="deleteReservationContainerDivLeftContainerTitle">
+                                <div className="deleteReservationContainerDivLeftContainerTitleContainer">
+                                    <p className="deleteReservationContainerDivLeftContainerTitleContainerText">
+                                        Delete Reservation
+                                    </p>
+                                </div>
+                            </div>
                         </div>
-                        <div className="detail-item">
-                            <span className="detail-label">Date & Time:</span>
-                            <span>{new Date(reservation.reservationTime).toLocaleString()}</span>
-                        </div>
-                        <div className="detail-item">
-                            <span className="detail-label">Number of Guests:</span>
-                            <span>{reservation.numberOfGuests}</span>
-                        </div>
-                        <div className="detail-item">
-                            <span className="detail-label">Table Type:</span>
-                            <span>{reservation.tableType}</span>
+                    </div>
+
+                    {/* Right Part */}
+                    <div className="deleteReservationContainerDivRight">
+                        <div className="deleteReservationContainerDivRightContainer">
+                            <div className="deleteReservationContainerDivRightContainerDiv">
+
+                                <div className="deleteReservationContainerDivRightContainerDivFirst">
+                                    <div className="deleteReservationContainerDivRightContainerDivFirstContainer">
+                                        <p className="deleteReservationContainerDivRightContainerDivFirstContainerText">
+                                            Delete Reservation
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <div className="deleteReservationContainerDivRightContainerDivSecond">
+                                    <div className="deleteReservationContainerDivRightContainerDivSecondContainer">
+                                        <p className="deleteReservationContainerDivRightContainerDivSecondContainerText">
+                                            Reservation Details
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <div className="deleteReservationContainerDivRightContainerDivThird">
+                                    <div className="deleteReservationContainerDivRightContainerDivThirdContainer">
+                                        <div className="deleteReservationContainerDivRightContainerDivThirdContainerInfoOne">
+                                            <div className="deleteReservationContainerDivRightContainerDivThirdContainerInfoOneContainer">
+                                                <p className="deleteReservationContainerDivRightContainerDivThirdContainerInfoOneContainerTextOne">
+                                                    Name:
+                                                </p>
+                                                <p className="deleteReservationContainerDivRightContainerDivThirdContainerInfoOneContainerTextTwo">
+                                                    {reservation.name}
+                                                </p>
+                                            </div>
+                                        </div>
+
+                                        <div className="deleteReservationContainerDivRightContainerDivThirdContainerInfoOne">
+                                            <p className="deleteReservationContainerDivRightContainerDivThirdContainerInfoOneContainer">
+                                                <p className="deleteReservationContainerDivRightContainerDivThirdContainerInfoOneContainerTextOne">
+                                                    Date & Time:
+                                                </p>
+                                                <p className="deleteReservationContainerDivRightContainerDivThirdContainerInfoOneContainerTextTwo">
+                                                    {new Date(reservation.reservationTime).toLocaleString()}
+                                                </p>
+                                            </p>
+                                        </div>
+
+                                        <div className="deleteReservationContainerDivRightContainerDivThirdContainerInfoOne">
+                                            <div className="deleteReservationContainerDivRightContainerDivThirdContainerInfoOneContainer">
+                                                <p className="deleteReservationContainerDivRightContainerDivThirdContainerInfoOneContainerTextOne">
+                                                    Number of Guests:
+                                                </p>
+                                                <p className="deleteReservationContainerDivRightContainerDivThirdContainerInfoOneContainerTextTwo">
+                                                    {reservation.numberOfGuests}
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div className="deleteReservationContainerDivRightContainerDivFourth">
+                                    <div className="deleteReservationContainerDivRightContainerDivFourthContainer">
+                                        <p className="deleteReservationContainerDivRightContainerDivFourthContainerText">
+                                            Are you sure you want to delete this reservation?
+                                        </p>
+                                        <p className="deleteReservationContainerDivRightContainerDivFourthContainerTextTwo">
+                                            This action cannot be undone.
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <div className="deleteReservationContainerDivRightContainerDivFifth">
+                                    <div className="deleteReservationContainerDivRightContainerDivFifthContainer">
+
+                                        {/* Left Button */}
+                                        <div className="deleteReservationContainerDivRightContainerDivFifthContainerLeft">
+                                            <div onClick={() => navigate("/")} className="deleteReservationContainerDivRightContainerDivFifthContainerLeftContainer">
+                                                <p className="deleteReservationContainerDivRightContainerDivFifthContainerLeftContainerText">
+                                                    Cancel
+                                                </p>
+                                            </div>
+                                        </div>
+
+                                        {/* Right Button */}
+                                        <div className="deleteReservationContainerDivRightContainerDivFifthContainerRight">
+                                            <div onClick={handleDelete} className="deleteReservationContainerDivRightContainerDivFifthContainerRightContainer">
+                                                <p className="deleteReservationContainerDivRightContainerDivFifthContainerRightContainerText">
+                                                    Delete Reservation
+                                                </p>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                                {/* <div className="deleteReservationContainerDivRightContainerDivFirst"></div> */}
+
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div className="confirmation-message">
-                    <p>Are you sure you want to delete this reservation?</p>
-                    <p className="warning-text">This action cannot be undone.</p>
-                </div>
-                <div className="button-container">
-                    <button
-                        onClick={() => navigate('/')}
-                        className="cancel-button"
-                    >
-                        Cancel
-                    </button>
-                    <button
-                        onClick={handleDelete}
-                        className="delete-button"
-                    >
-                        Delete Reservation
-                    </button>
-                </div>
+
             </div>
+
         </div>
     );
 };

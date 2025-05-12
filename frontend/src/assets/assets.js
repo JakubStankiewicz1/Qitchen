@@ -51,8 +51,9 @@ import blogImageThreeCon from "./blogImageThreeCon.png";
 import blogImageFourCon from "./blogImageFourCon.png";
 import blogImageFiveCon from "./blogImageFiveCon.png";
 import updateReservationImg from "./updateReservationImg.png";
-
 import reservationConfirmationImage from "./reservationConfirmationImage.jpg";
+
+import deleteReservationImg from "./deleteReservationImg.webp"
 
 export default {
     homeImage,
@@ -107,5 +108,6 @@ export default {
     blogImageFourCon,
     blogImageFiveCon,
     updateReservationImg,
-    reservationConfirmationImage
+    reservationConfirmationImage,
+    deleteReservationImg,
 }
