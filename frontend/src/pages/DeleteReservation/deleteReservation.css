@@ -133,3 +133,13 @@
     border-radius: 16px;
     border: 1px solid #2D2D29;
 }
+
+.deleteReservationContainerDivRightContainerDivFirstContainerText {
+    font-size: 34px;
+    color: #EFE7D2;
+    font-weight: 100;
+    text-transform: capitalize;
+    letter-spacing: 2px;
+    margin-left: 20px;
+    margin-top: 20px;
+}
