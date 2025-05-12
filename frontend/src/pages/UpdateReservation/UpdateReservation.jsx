@@ -131,8 +131,8 @@ const UpdateReservation = () => {
                                 <div className="update-reservation-right-container-top-container">
                                     <div className="update-reservation-right-container-top-container-second">
                                         <div className="update-reservation-right-container-top-container-second-container">
-                                            <p className="update-reservation-right-container-top-container-second-container-text inter">
-                                                Update your reservation details at Qitchen.
+                                            <p className="update-reservation-right-container-top-container-second-container-text">
+                                                Update your reservation details at Qitchen
                                             </p>
                                         </div>
                                     </div>
