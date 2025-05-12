@@ -52,6 +52,8 @@ import blogImageFourCon from "./blogImageFourCon.png";
 import blogImageFiveCon from "./blogImageFiveCon.png";
 import updateReservationImg from "./updateReservationImg.png";
 
+import reservationConfirmationImage from "./reservationConfirmationImage.jpg";
+
 export default {
     homeImage,
     houseElementImageOne,
@@ -105,4 +107,5 @@ export default {
     blogImageFourCon,
     blogImageFiveCon,
     updateReservationImg,
+    reservationConfirmationImage
 }
