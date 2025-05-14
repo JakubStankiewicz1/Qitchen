@@ -106,6 +106,19 @@ const Reservation = () => {
             const response = await axios.post("http://localhost:8081/api/reservations", reservationData);
             toast.success("Reservation created successfully!");
             console.log(response.data);
+            // Reset all form fields after successful reservation
+            setName("");
+            setPhoneNumber("");
+            setEmail("");
+            setGuests(null);
+            setSelectedGuest(null);
+            setCustomGuests("");
+            setSelectedDate(null);
+            setTempDate(null);
+            setSelectedHour(null);
+            setTempHour(null);
+            setSelectedMinute(null);
+            setTempMinute(null);
         } catch (error) {
             console.error("Error creating reservation:", error);
             toast.error("Failed to create reservation. Please try again.");

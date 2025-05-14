@@ -4,8 +4,10 @@ import assets from "../../assets/assets";
 import { FaStar } from "react-icons/fa";
 import { IoIosStar } from "react-icons/io";
 import { MdOutlineStar } from "react-icons/md";
+import { useNavigate } from "react-router-dom";
 
 const Confirmation = () => {
+  const navigate = useNavigate();
   return (
     <div className="confirmation">
       <div className="confirmationContainer">
@@ -85,8 +87,8 @@ const Confirmation = () => {
                     </p>
                   </div> */}
 
-                  <div class="confirmationButton">
-                    <div class="confirmationButtonLink">
+                  <div onClick={() => navigate('/')} className="confirmationButton">
+                    <div className="confirmationButtonLink">
                       <span>
                         <p className="confirmationButtonLinkText inter">Back to Home</p>
                       </span>
