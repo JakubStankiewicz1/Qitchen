@@ -1,145 +1,340 @@
 .deleteReservation {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #0B0C0C;
-    width: 100%;
-    height: 100vh;
-    overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #0b0c0c;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
 }
 
 .deleteReservationContainer {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: row;
-    gap: 10px;
-    padding-top: 10px;
-    padding-left: 10px;
-    padding-right: 10px;
-    padding-bottom: 10px;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  padding-top: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-bottom: 10px;
 }
 
 .deleteReservationContainerDiv {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: row;
-    gap: 10px;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
 }
 
-
 .deleteReservationContainerDivLeft {
-    display: flex;
-    flex: 1;
-    position: sticky;
+  display: flex;
+  flex: 1;
+  position: sticky;
 }
 
 .deleteReservationContainerDivLeftContainerImage {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
-    position: relative;
-    border-radius: 16px;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  position: relative;
+  border-radius: 16px;
 }
 
 .deleteReservationContainerDivLeftContainerImageContainer {
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
-    position: relative;
-        border-radius: 16px;
-
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  position: relative;
+  border-radius: 16px;
 }
 
 .deleteReservationContainerDivLeftContainerImageContainer::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.4);
-    z-index: 10;
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: 10;
 }
 
 .deleteReservationContainerDivLeftContainerImageContainerImg {
-    width: 100%;
-    height: 100%;
-    position: relative;
-    z-index: 0;
-    border-radius: 16px;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  z-index: 0;
+  border-radius: 16px;
 }
 
 .deleteReservationContainerDivLeftContainerTitle {
-    position: absolute;
-    z-index: 20;
-    bottom: 0;
-    left: 0;
-    margin-left: 70px;
-    margin-bottom: 55px;
+  position: absolute;
+  z-index: 20;
+  bottom: 0;
+  left: 0;
+  margin-left: 70px;
+  margin-bottom: 55px;
 }
 
 .deleteReservationContainerDivLeftContainerTitleContainerText {
-    font-size: 90px;
-    color: #EFE7D2;
-    font-weight: 100;
-    text-transform: uppercase;
-    letter-spacing: 2px;
+  font-size: 90px;
+  color: #efe7d2;
+  font-weight: 100;
+  text-transform: uppercase;
+  letter-spacing: 2px;
 }
 
-
-
-
-
-
-
 .deleteReservationContainerDivRight {
-    display: flex;
-    flex: 1;
-    width: 100%;
-    height: 100%;
-    overflow-y: scroll;
-    scrollbar-width: none;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-
-
-    color: #fff;
+  display: flex;
+  flex: 1;
+  width: 100%;
+  height: 100%;
+  overflow-y: scroll;
+  scrollbar-width: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
 }
 
 .deleteReservationContainerDivRightContainer {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-
 .deleteReservationContainerDivRightContainerDiv {
-    width: 100%;
-    height: 100%;
-    /* background-color: red; */
-    border-radius: 16px;
-    border: 1px solid #2D2D29;
+  width: 100%;
+  height: 100%;
+  border-radius: 16px;
+  border: 1px solid #2d2d29;
+}
+
+.deleteReservationContainerDivRightContainerDivFirst {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-top: 15px;
 }
 
 .deleteReservationContainerDivRightContainerDivFirstContainerText {
-    font-size: 34px;
-    color: #EFE7D2;
-    font-weight: 100;
-    text-transform: capitalize;
-    letter-spacing: 2px;
-    margin-left: 20px;
-    margin-top: 20px;
+  font-size: 34px;
+  color: #efe7d2;
+  font-weight: 100;
+  text-transform: capitalize;
+  letter-spacing: 2px;
+  margin-left: 20px;
+  margin-top: 20px;
+}
+
+.deleteReservationContainerDivRightContainerDivSecond {
+  margin-top: 70px;
+  width: 70%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.deleteReservationContainerDivRightContainerDivSecondContainerText {
+  font-size: 28px;
+  font-weight: 500;
+  letter-spacing: 0.4px;
+}
+
+.deleteReservationContainerDivRightContainerDivThird {
+  width: 70%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px;
+}
+
+.deleteReservationContainerDivRightContainerDivThirdContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.deleteReservationContainerDivRightContainerDivThirdContainerInfoOneContainer {
+  display: flex;
+  flex-direction: row;
+  gap: 15px;
+}
+
+.deleteReservationContainerDivRightContainerDivThirdContainerInfoOneContainerTextOne {
+  font-size: 18px;
+  font-weight: 500;
+  letter-spacing: 0.4px;
+}
+
+.deleteReservationContainerDivRightContainerDivThirdContainerInfoOneContainerTextTwo {
+  font-size: 22px;
+  font-weight: 500;
+  letter-spacing: 0.4px;
+}
+
+.deleteReservationContainerDivRightContainerDivFourth {
+  margin-top: 50px;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.deleteReservationContainerDivRightContainerDivFourthContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.deleteReservationContainerDivRightContainerDivFourthContainerText {
+  font-size: 20px;
+  font-weight: 500;
+  letter-spacing: 0.4px;
+}
+
+.deleteReservationContainerDivRightContainerDivFourthContainerTextTwo {
+  font-size: 18px;
+  font-weight: 500;
+  letter-spacing: 0.4px;
+}
+
+.deleteReservationContainerDivRightContainerDivFifth {
+  margin-top: 100px;
+}
+
+.deleteReservationContainerDivRightContainerDivFifthContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 60px;
+}
+
+.deleteReservationContainerDivRightContainerDivFifthContainerLeftContainerButton {
+  font-size: 17px;
+  background: transparent;
+  border: none;
+  padding: 1em 1.5em;
+  color: #ffedd3;
+  text-transform: uppercase;
+  position: relative;
+  transition: color 0.5s ease;
+  cursor: pointer;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.deleteReservationContainerDivRightContainerDivFifthContainerLeftContainerButton::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 2px;
+  width: 0;
+  background-color: #ffc506;
+  transition: width 0.5s ease;
+  z-index: 2;
+}
+
+.deleteReservationContainerDivRightContainerDivFifthContainerLeftContainerButton:hover::before {
+  width: 100%;
+}
+
+.deleteReservationContainerDivRightContainerDivFifthContainerLeftContainerButton::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 0;
+  width: 100%;
+  background-color: #ffc506;
+  transition: height 0.4s ease;
+  z-index: 0;
+}
+
+.deleteReservationContainerDivRightContainerDivFifthContainerLeftContainerButton:hover::after {
+  height: 100%;
+  transition-delay: 0.5s;
+}
+
+.deleteReservationContainerDivRightContainerDivFifthContainerLeftContainerButton:hover {
+  color: #1e1e2b;
+  transition-delay: 0.5s;
+}
+
+.deleteReservationContainerDivRightContainerDivFifthContainerLeftContainerButton p {
+  position: relative;
+  z-index: 2;
+}
+
+.deleteReservationContainerDivRightContainerDivFifthContainerRightContainerButton {
+  font-size: 17px;
+  background: transparent;
+  border: none;
+  padding: 1em 1.5em;
+  color: #ffedd3;
+  text-transform: uppercase;
+  position: relative;
+  transition: color 0.5s ease;
+  cursor: pointer;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.deleteReservationContainerDivRightContainerDivFifthContainerRightContainerButton::before {
+  content: "";
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  height: 2px;
+  width: 0;
+  background-color: #ffc506;
+  transition: width 0.5s ease;
+  z-index: 2;
+}
+
+.deleteReservationContainerDivRightContainerDivFifthContainerRightContainerButton:hover::before {
+  width: 100%;
+}
+
+.deleteReservationContainerDivRightContainerDivFifthContainerRightContainerButton::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 0;
+  width: 100%;
+  background-color: #ffc506;
+  transition: height 0.4s ease;
+  z-index: 0;
+}
+
+.deleteReservationContainerDivRightContainerDivFifthContainerRightContainerButton:hover::after {
+  height: 100%;
+  transition-delay: 0.5s;
+}
+
+.deleteReservationContainerDivRightContainerDivFifthContainerRightContainerButton:hover {
+  color: #1e1e2b;
+  transition-delay: 0.5s;
+}
+
+.deleteReservationContainerDivRightContainerDivFifthContainerRightContainerButton p {
+  position: relative;
+  z-index: 2;
 }
