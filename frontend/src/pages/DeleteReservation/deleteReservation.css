@@ -303,7 +303,7 @@
   bottom: 0;
   height: 2px;
   width: 0;
-  background-color: #ffc506;
+  background-color: #FF0033;
   transition: width 0.5s ease;
   z-index: 2;
 }
@@ -319,7 +319,7 @@
   bottom: 0;
   height: 0;
   width: 100%;
-  background-color: #ffc506;
+  background-color: #FF0033;
   transition: height 0.4s ease;
   z-index: 0;
 }
