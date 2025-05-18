@@ -19,10 +19,7 @@
     height: 100%;
     display: flex;
     flex-direction: row;
-    padding-left: 10px;
-    padding-top: 10px;
-    padding-right: 10px;
-    padding-bottom: 10px;
+    padding: 10px;
     gap: 10px;
 }
 
@@ -293,6 +290,12 @@ select:-webkit-autofill:focus {
     align-items: center;
 }
 
+.reservationContainerDivRightContainerTopContainerThirdContainerFourth.mobile {
+    height: auto;
+    flex-direction: column;
+    gap: 12px;
+}
+
 .reservationContainerDivRightContainerTopContainerThirdContainerFourthContainer {
     display: flex;
     flex-direction: row;
@@ -301,6 +304,12 @@ select:-webkit-autofill:focus {
     gap: 10px;
     width: 100%;
     height: 45px;
+}
+
+.reservationContainerDivRightContainerTopContainerThirdContainerFourth.mobile .reservationContainerDivRightContainerTopContainerThirdContainerFourthContainer {
+    flex-direction: column;
+    height: auto;
+    gap: 12px;
 }
 
 .reservationContainerDivRightContainerTopContainerThirdContainerFourthContainerLeft,
@@ -317,6 +326,12 @@ select:-webkit-autofill:focus {
     background-color: rgba(0, 0, 0, 0.3);
     padding-left: 10px;
     cursor: pointer;
+}
+
+.reservationContainerDivRightContainerTopContainerThirdContainerFourth.mobile .reservationContainerDivRightContainerTopContainerThirdContainerFourthContainerLeft,
+.reservationContainerDivRightContainerTopContainerThirdContainerFourth.mobile .reservationContainerDivRightContainerTopContainerThirdContainerFourthContainerMiddle,
+.reservationContainerDivRightContainerTopContainerThirdContainerFourth.mobile .reservationContainerDivRightContainerTopContainerThirdContainerFourthContainerRight {
+    height: 45px;
 }
 
 .reservationContainerDivRightContainerTopContainerThirdContainerFifth {
@@ -452,6 +467,7 @@ select:-webkit-autofill:focus {
     justify-content: center;
     align-items: center;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.7);
+    width: 80%;
 }
 
 .openGuestsModalTime {
@@ -465,6 +481,12 @@ select:-webkit-autofill:focus {
     align-items: center;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.7);
     width: 60%;
+}
+
+.openGuestsModal.mobile, 
+.openGuestsModalTime.mobile {
+    width: 90%;
+    padding: 15px;
 }
 
 .openGuestsModalTimeDiv {
@@ -673,46 +695,228 @@ select:-webkit-autofill:focus {
     align-items: center;
 }
 
-@media (max-width: 768px) {
+/* Media Queries for Responsive Design */
+@media screen and (max-width: 1200px) {
+    .reservationContainerDivLeftContainerTitleContainerTextOne,
+    .reservationContainerDivLeftContainerTitleContainerTextTwo {
+        font-size: 60px;
+    }
+    
+    .reservationContainerDivRightContainerTopContainerFirstContainerMiddleText {
+        font-size: 26px;
+    }
+    
+    .reservationContainerDivRightContainerTopContainerSecond {
+        width: 80%;
+    }
+    
+    .reservationContainerDivRightContainerTopContainerThirdContainerFirstContainerInput,
+    .reservationContainerDivRightContainerTopContainerThirdContainerSecondContainerInput,
+    .reservationContainerDivRightContainerTopContainerThirdContainerThirdContainerInput,
+    .reservationContainerDivRightContainerTopContainerThirdContainerFourth {
+        width: 400px;
+    }
+}
+
+@media screen and (max-width: 992px) {
+    .reservationContainer {
+        padding: 8px;
+    }
+    
+    .reservationContainerDiv {
+        gap: 8px;
+    }
+    
+    .reservationContainerDivLeftContainerTitleContainerTextOne,
+    .reservationContainerDivLeftContainerTitleContainerTextTwo {
+        font-size: 50px;
+    }
+    
+    .reservationContainerDivLeftContainerTitle {
+        bottom: 40px;
+        left: 40px;
+    }
+    
+    .reservationContainerDivRightContainerTopContainerFirstContainerMiddleText {
+        font-size: 24px;
+    }
+    
+    .reservationContainerDivRightContainerTopContainerSecondContainerText {
+        font-size: 15px;
+        line-height: 24px;
+    }
+    
+    .reservationContainerDivRightContainerTopContainerThirdContainerFirstContainerInput,
+    .reservationContainerDivRightContainerTopContainerThirdContainerSecondContainerInput,
+    .reservationContainerDivRightContainerTopContainerThirdContainerThirdContainerInput,
+    .reservationContainerDivRightContainerTopContainerThirdContainerFourth {
+        width: 350px;
+    }
+    
+    .openGuests, 
+    .openGuestsTime {
+        width: calc(100% - 16px);
+        height: calc(100% - 16px);
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .reservation {
+        height: auto;
+        min-height: 100vh;
+    }
+    
     .reservationContainer {
         flex-direction: column;
         padding: 5px;
+        height: auto;
+        min-height: 100vh;
     }
 
     .reservationContainerDiv {
         flex-direction: column;
         gap: 20px;
+        height: auto;
     }
 
-    .reservationContainerDivLeft,
+    .reservationContainerDivLeft {
+        flex: none;
+        width: 100%;
+        height: 40vh;
+        min-height: 300px;
+    }
+
     .reservationContainerDivRight {
         flex: none;
         width: 100%;
+        height: auto;
     }
-
+    
     .reservationContainerDivLeftContainerTitleContainerTextOne,
     .reservationContainerDivLeftContainerTitleContainerTextTwo {
         font-size: 40px;
+    }
+    
+    .reservationContainerDivLeftContainerTitle {
+        bottom: 30px;
+        left: 30px;
     }
 
     .reservationContainerDivRightContainerTopContainerFirstContainerMiddleText {
         font-size: 20px;
     }
+    
+    .reservationContainerDivRightContainerTopContainerSecond {
+        width: 90%;
+    }
+    
+    .reservationContainerDivRightContainerTopContainerSecondContainerText {
+        font-size: 14px;
+        line-height: 22px;
+    }
 
     .reservationContainerDivRightContainerTopContainerThirdContainerFirstContainerInput,
     .reservationContainerDivRightContainerTopContainerThirdContainerSecondContainerInput,
-    .reservationContainerDivRightContainerTopContainerThirdContainerThirdContainerInput {
+    .reservationContainerDivRightContainerTopContainerThirdContainerThirdContainerInput,
+    .reservationContainerDivRightContainerTopContainerThirdContainerFourth {
         width: 100%;
+    }
+    
+    .reservationContainerDivRightContainerBottom {
+        max-height: none;
+        padding: 15px 10px;
+    }
+    
+    .reservationContainerDivRightContainerBottomContainer {
+        flex-wrap: wrap;
+        gap: 5px;
+        justify-content: center;
+    }
+    
+    .openGuestsContainer {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    
+    .openGuestsOption:last-child {
+        grid-column: span 3;
+    }
+    
+    .openGuestsOption {
+        width: 60px;
+        height: 45px;
     }
 }
 
-@media (min-width: 1200px) {
+@media screen and (max-width: 576px) {
+    .reservation {
+        overflow-y: auto;
+    }
+    
+    .reservationContainer {
+        padding: 0;
+        gap: 0;
+    }
+    
+    .reservationContainerDiv {
+        gap: 10px;
+    }
+    
+    .reservationContainerDivLeft {
+        height: 35vh;
+        min-height: 250px;
+    }
+    
     .reservationContainerDivLeftContainerTitleContainerTextOne,
     .reservationContainerDivLeftContainerTitleContainerTextTwo {
-        font-size: 80px;
-    }
-
-    .reservationContainerDivRightContainerTopContainerFirstContainerMiddleText {
         font-size: 36px;
+    }
+    
+    .reservationContainerDivLeftContainerTitle {
+        bottom: 20px;
+        left: 20px;
+    }
+    
+    .reservationContainerDivRight {
+        padding: 0 10px 10px;
+    }
+    
+    .reservationContainerDivRightContainerTopContainerFirstContainerMiddleText {
+        font-size: 18px;
+    }
+    
+    .reservationContainerDivRightContainerTopContainerThirdContainerFifthContainerText {
+        font-size: 16px;
+    }
+    
+    .openGuestsContainer {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .openGuestsOption:last-child {
+        grid-column: span 2;
+    }
+    
+    .openGuestsContainerTime {
+        flex-direction: column;
+    }
+    
+    .reservationContainerDivRightContainerBottomContainerOneText,
+    .reservationContainerDivRightContainerBottomContainerThreeText,
+    .reservationContainerDivRightContainerBottomContainerFiveText {
+        font-size: 11px;
+    }
+    
+    .reservationContainerDivRightContainerBottom {
+        margin-top: 10px;
+    }
+    
+    .openGuestsContainerHour {
+        gap: 8px;
+    }
+    
+    .openGuestsOption {
+        width: 55px;
+        height: 40px;
+        font-size: 14px;
     }
 }

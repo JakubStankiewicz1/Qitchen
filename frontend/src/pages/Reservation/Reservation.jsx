@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import "./reservation.css";
 import assets from '../../assets/assets';
 import { IoClose, IoArrowBack } from "react-icons/io5";
@@ -26,7 +26,21 @@ const Reservation = () => {
     const [phoneNumber, setPhoneNumber] = useState("");
     const [email, setEmail] = useState("");
     const [isLoading, setIsLoading] = useState(false);
+    const [isMobile, setIsMobile] = useState(window.innerWidth <= 992);
+    const [isSmallScreen, setIsSmallScreen] = useState(window.innerWidth <= 768);
+    const [isMobileView, setIsMobileView] = useState(window.innerWidth <= 576);
     const modalRef = useRef(null);
+
+    useEffect(() => {
+        const handleResize = () => {
+            setIsMobile(window.innerWidth <= 992);
+            setIsSmallScreen(window.innerWidth <= 768);
+            setIsMobileView(window.innerWidth <= 576);
+        };
+
+        window.addEventListener('resize', handleResize);
+        return () => window.removeEventListener('resize', handleResize);
+    }, []);
 
     const handleGuestSelection = (value) => {
         setSelectedGuest(value);
@@ -165,17 +179,21 @@ const Reservation = () => {
                                     {/* First Part */}
                                     <div className="reservationContainerDivRightContainerTopContainerFirst">
                                         <div className="reservationContainerDivRightContainerTopContainerFirstContainer">
-                                            <div className="reservationContainerDivRightContainerTopContainerFirstContainerLeft">
-                                                <img src={assets.leftArrow} alt="" className='reservationContainerDivRightContainerTopContainerFirstContainerLeftImage' />
-                                            </div>
+                                            {!isMobileView && (
+                                                <div className="reservationContainerDivRightContainerTopContainerFirstContainerLeft">
+                                                    <img src={assets.leftArrow} alt="" className='reservationContainerDivRightContainerTopContainerFirstContainerLeftImage' />
+                                                </div>
+                                            )}
                                             <div className="reservationContainerDivRightContainerTopContainerFirstContainerMiddle">
                                                 <p className="reservationContainerDivRightContainerTopContainerFirstContainerMiddleText">
                                                     Reservation
                                                 </p>
                                             </div>
-                                            <div className="reservationContainerDivRightContainerTopContainerFirstContainerRight">
-                                                <img src={assets.rightArrow} alt="" className='reservationContainerDivRightContainerTopContainerFirstContainerRightImage' />
-                                            </div>
+                                            {!isMobileView && (
+                                                <div className="reservationContainerDivRightContainerTopContainerFirstContainerRight">
+                                                    <img src={assets.rightArrow} alt="" className='reservationContainerDivRightContainerTopContainerFirstContainerRightImage' />
+                                                </div>
+                                            )}
                                         </div>
                                     </div>
 
@@ -231,7 +249,7 @@ const Reservation = () => {
                                             </div>
 
                                             {/* Fourth Part */}
-                                            <div className="reservationContainerDivRightContainerTopContainerThirdContainerFourth">
+                                            <div className={`reservationContainerDivRightContainerTopContainerThirdContainerFourth ${isSmallScreen ? 'mobile' : ''}`}>
                                                 <div className="reservationContainerDivRightContainerTopContainerThirdContainerFourthContainer">
                                                     {/* Left Part */}
                                                     <div className="reservationContainerDivRightContainerTopContainerThirdContainerFourthContainerLeft" onClick={() => setOpenGuests(true)}>
@@ -310,7 +328,7 @@ const Reservation = () => {
                         {
                             openGuests
                             ? <div className="openGuests" onClick={handleOutsideClick}>
-                                <div className="openGuestsModal" ref={modalRef}>
+                                <div className={`openGuestsModal ${isMobileView ? 'mobile' : ''}`} ref={modalRef}>
                                     <div className="openGuestsCloseIcon" onClick={() => setOpenGuests(false)}>
                                         <IoClose className='openGuestsCloseIconImage' />
                                     </div>
@@ -357,7 +375,7 @@ const Reservation = () => {
                         {/* Date Picker Modal */}
                         {openDatePicker && (
                             <div className="openGuests" onClick={handleOutsideClick}>
-                                <div className="openGuestsModal" ref={modalRef}>
+                                <div className={`openGuestsModal ${isMobileView ? 'mobile' : ''}`} ref={modalRef}>
                                     <div className="openGuestsCloseIcon openGuestsCloseIconTwo" onClick={() => setOpenDatePicker(false)}>
                                         <IoClose className='openGuestsCloseIconImage' />
                                     </div>
@@ -382,7 +400,7 @@ const Reservation = () => {
                         {/* Hour Picker Modal */}
                         {openHourPicker && (
                             <div className="openGuestsTime" onClick={handleOutsideClick}>
-                                <div className="openGuestsModalTime" ref={modalRef}>
+                                <div className={`openGuestsModalTime ${isMobileView ? 'mobile' : ''}`} ref={modalRef}>
                                     <div className="openGuestsCloseIcon openGuestsCloseIconTwo" onClick={() => setOpenHourPicker(false)}>
                                         <IoClose className='openGuestsCloseIconImage' />
                                     </div>
@@ -420,7 +438,7 @@ const Reservation = () => {
                         {/* Minute Picker Modal */}
                         {openMinutePicker && (
                             <div className="openGuestsTime" onClick={handleOutsideClick}>
-                                <div className="openGuestsModalTime" ref={modalRef}>
+                                <div className={`openGuestsModalTime ${isMobileView ? 'mobile' : ''}`} ref={modalRef}>
                                     <div className="openGuestsModalTimeDiv">
                                         <div className="openGuestsBackIcon" onClick={() => { setOpenMinutePicker(false); setOpenHourPicker(true); }}>
                                             <IoArrowBack className="openGuestsBackIconImage" />
