@@ -184,7 +184,6 @@
     display: flex;
 }
 
-/* Small Mobile Devices */
 @media (max-width: 480px) {
     .homeContainer {
         flex-direction: column;
@@ -235,7 +234,6 @@
     }
 }
 
-/* Medium Mobile Devices */
 @media (min-width: 481px) and (max-width: 768px) {
     .homeContainer {
         flex-direction: column;

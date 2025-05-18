@@ -67,3 +67,85 @@
     font-weight: 200;
     line-height: 20px;
 }
+
+/* Media queries for responsive design */
+@media screen and (max-width: 1200px) {
+    .blogElementContainerLeftContainerImage {
+        width: 160px;
+    }
+    
+    .blogElementContainerRight {
+        width: 60%;
+    }
+    
+    .blogElementContainerRightContainerTitleText {
+        font-size: 18px;
+    }
+}
+
+@media screen and (max-width: 992px) {
+    .blogElement {
+        margin: 5px;
+    }
+    
+    .blogElementContainerLeftContainerImage {
+        width: 140px;
+    }
+    
+    .blogElementContainerRight {
+        width: 65%;
+    }
+    
+    .blogElementContainerRightContainerTitleText {
+        font-size: 16px;
+    }
+    
+    .blogElementContainerRightContainerTextText {
+        font-size: 12px;
+        line-height: 18px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .blogElementContainer {
+        flex-direction: column;
+        gap: 15px;
+        padding: 10px;
+        border: 1px solid #31312D;
+        border-radius: 16px;
+    }
+    
+    .blogElementContainerLeft {
+        width: 100%;
+    }
+    
+    .blogElementContainerLeftContainerImage {
+        width: 100%;
+        max-height: 200px;
+        object-fit: cover;
+    }
+    
+    .blogElementContainerRight {
+        width: 100%;
+        text-align: center;
+    }
+    
+    .blogElementContainerRightContainerDate {
+        justify-content: center;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .blogElement {
+        margin: 5px 0;
+    }
+    
+    .blogElementContainerRightContainerTitleText {
+        font-size: 14px;
+    }
+    
+    .blogElementContainerRightContainerTextText {
+        font-size: 11px;
+        line-height: 16px;
+    }
+}

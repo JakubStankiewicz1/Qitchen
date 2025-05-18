@@ -19,10 +19,7 @@
     height: 100%;
     display: flex;
     flex-direction: row;
-    padding-left: 10px;
-    padding-top: 10px;
-    padding-right: 10px;
-    padding-bottom: 10px;
+    padding: 10px;
     gap: 10px;
 }
 
@@ -129,9 +126,8 @@
     display: flex;
     justify-content: center;
     align-items: flex-start;
-    margin-top: 0;
-    padding-top: 0;
     margin-top: 10px;
+    padding-top: 0;
 }
 
 .blogContainerRightContainerTopContainer {
@@ -161,4 +157,83 @@
     flex-wrap: wrap;
     justify-content: space-between;
     gap: 10px;
+}
+
+/* Media Queries for Responsive Design */
+@media screen and (max-width: 1200px) {
+    .blogContainerLeftContainerTitleContainerText {
+        font-size: 60px;
+    }
+    
+    .blogContainerRightContainerTopContainerMiddleTextOne,
+    .blogContainerRightContainerTopContainerMiddleTextTwo {
+        font-size: 26px;
+    }
+}
+
+@media screen and (max-width: 992px) {
+    .blogContainerDiv {
+        flex-direction: column;
+    }
+    
+    .blogContainerLeft {
+        height: 30vh;
+    }
+    
+    .blogContainerLeftContainerTitleContainerText {
+        font-size: 50px;
+    }
+    
+    .blogContainerLeftContainerTitle {
+        bottom: 30px;
+        left: 30px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .blogContainerLeftContainerTitleContainerText {
+        font-size: 40px;
+    }
+    
+    .blogContainerRightContainerTopContainerMiddleTextOne,
+    .blogContainerRightContainerTopContainerMiddleTextTwo {
+        font-size: 22px;
+    }
+    
+    .blogContainerRightContainerBottomContainer {
+        justify-content: center;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .blogContainer {
+        padding: 5px;
+        gap: 5px;
+    }
+    
+    .blogContainerDiv {
+        gap: 5px;
+    }
+    
+    .blogContainerLeftContainerTitleContainerText {
+        font-size: 32px;
+    }
+    
+    .blogContainerLeftContainerTitle {
+        bottom: 20px;
+        left: 20px;
+    }
+    
+    .blogContainerRightContainerTopContainerMiddleTextOne,
+    .blogContainerRightContainerTopContainerMiddleTextTwo {
+        font-size: 18px;
+    }
+    
+    .blogContainerRightContainerTop {
+        margin-top: 5px;
+    }
+    
+    .blogContainerRightContainerTopContainer {
+        gap: 10px;
+    }
 }
