@@ -19,10 +19,7 @@
     height: 100%;
     display: flex;
     flex-direction: row;
-    padding-left: 10px;
-    padding-top: 10px;
-    padding-right: 10px;
-    padding-bottom: 10px;
+    padding: 10px;
     gap: 10px;
 }
 
@@ -642,25 +639,288 @@
     height: auto;
 }
 
-@media (max-width: 768px) {
-    .contactContainer {
-        flex-direction: column;
-        padding: 5px;
-    }
-
-    .contactContainerDivLeft,
-    .contactContainerDivRight {
-        flex: none;
-        width: 100%;
-    }
-
+/* Media Queries for Responsive Design */
+@media screen and (max-width: 1200px) {
     .contactContainerDivLeftContainerTitleContainerText {
-        font-size: 40px;
+        font-size: 60px;
+    }
+    
+    .contactContainerDivRightContainerFirstContainerLeftBottomContainerElementContainerTextOne,
+    .contactContainerDivRightContainerFirstContainerLeftBottomContainerElementContainerTextTwo {
+        font-size: 14px;
+    }
+    
+    .contactContainerDivRightContainerFirstContainerLeftTopContainerText {
+        font-size: 20px;
+    }
+    
+    .contactContainerDivRightContainerSecondContainerLeftContainerDivText {
+        font-size: 14px;
+    }
+    
+    .contactContainerDivRightContainerSecondContainerRightContainerTopContainerMiddleText {
+        font-size: 20px;
     }
 }
 
-@media (min-width: 1200px) {
+@media screen and (max-width: 992px) {
+    .contactContainerDiv {
+        flex-direction: column;
+    }
+    
+    .contactContainerDivLeft {
+        height: 30vh;
+        flex: none;
+    }
+    
     .contactContainerDivLeftContainerTitleContainerText {
-        font-size: 80px;
+        font-size: 50px;
+    }
+    
+    .contactContainerDivLeftContainerTitle {
+        bottom: 30px;
+        left: 30px;
+    }
+    
+    .contactContainerDivRight {
+        flex: none;
+        height: 70vh;
+        overflow-y: auto;
+    }
+    
+    .contactContainerDivRightContainerFirstContainer {
+        flex-direction: column;
+    }
+    
+    .contactContainerDivRightContainerFirstContainerLeft {
+        height: auto;
+        margin-bottom: 10px;
+        position: relative;
+        padding-bottom: 280px;
+    }
+    
+    .contactContainerDivRightContainerFirstContainerLeftBottom {
+        position: relative;
+        margin-top: 60px;
+        bottom: auto;
+    }
+    
+    .contactContainerDivRightContainerFirstContainerRight {
+        margin-top: 10px;
+    }
+    
+    .contactContainerDivRightContainerSecondContainer {
+        flex-direction: column;
+    }
+    
+    .contactContainerDivRightContainerSecondContainerLeft {
+        height: 200px;
+        margin-bottom: 10px;
+    }
+    
+    .contactContainerDivRightContainerSecondContainerRight {
+        margin-top: 10px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .contact {
+        height: auto;
+        min-height: 100vh;
+        overflow-y: auto;
+    }
+    
+    .contactContainer {
+        padding: 5px;
+    }
+    
+    .contactContainerDiv {
+        gap: 5px;
+    }
+    
+    .contactContainerDivLeftContainerTitleContainerText {
+        font-size: 40px;
+    }
+    
+    .contactContainerDivLeftContainerTitle {
+        bottom: 20px;
+        left: 20px;
+    }
+    
+    .contactContainerDivRightContainer {
+        gap: 5px;
+    }
+    
+    .contactContainerDivRightContainerFirstContainerLeftBottomContainerElementContainerTextOne,
+    .contactContainerDivRightContainerFirstContainerLeftBottomContainerElementContainerTextTwo {
+        font-size: 12px;
+    }
+    
+    .contactContainerDivRightContainerFirstContainerRightTop,
+    .contactContainerDivRightContainerFirstContainerRightBottom {
+        flex-wrap: wrap;
+    }
+    
+    .contactImage {
+        width: 100%;
+        margin-bottom: 5px;
+    }
+    
+    .contactContainerDivRightContainerSecondContainerRightContainerBottomContainer {
+        gap: 15px;
+    }
+    
+    .contactContainerDivRightContainerSecondContainerRightContainerBottomContainerFirstRightTextOne,
+    .contactContainerDivRightContainerSecondContainerRightContainerBottomContainerFirstRightTextTwo,
+    .contactContainerDivRightContainerSecondContainerRightContainerBottomContainerSecondRightText,
+    .contactContainerDivRightContainerSecondContainerRightContainerBottomContainerThirdRightText {
+        font-size: 11px;
+    }
+    
+    .contactContainerDivRightContainerThirdThird {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    .contactContainerDivRightContainerThird {
+        max-height: none;
+        padding: 10px 5px;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .contact {
+        overflow: auto;
+        position: relative;
+        display: block;
+    }
+
+    .contactContainer {
+        padding: 0;
+        overflow-y: auto;
+        display: flex;
+        flex-direction: column;
+        height: auto;
+        min-height: 100vh;
+    }
+    
+    .contactContainerDiv {
+        gap: 0;
+        flex-direction: column;
+        height: auto;
+    }
+    
+    .contactContainerDivLeft {
+        height: 40vh;
+        position: relative;
+        border-radius: 0;
+    }
+    
+    .contactContainerDivLeftContainerImage {
+        border-radius: 0;
+    }
+    
+    .contactContainerDivLeftContainerImageContainerImage {
+        border-radius: 0;
+    }
+    
+    .contactContainerDivLeftContainerTitleContainerText {
+        font-size: 36px;
+    }
+    
+    .contactContainerDivLeftContainerTitle {
+        bottom: 15px;
+        left: 15px;
+    }
+    
+    .contactContainerDivRight {
+        padding: 10px;
+        overflow-y: visible;
+        height: auto;
+    }
+    
+    .contactContainerDivRightContainer {
+        gap: 15px;
+    }
+    
+    .contactContainerDivRightContainerFirst,
+    .contactContainerDivRightContainerSecond {
+        min-height: auto;
+    }
+    
+    .contactContainerDivRightContainerFirstContainerLeftTopContainerText {
+        font-size: 18px;
+    }
+    
+    .contactContainerDivRightContainerFirstContainerLeft {
+        padding-bottom: 250px;
+        border-radius: 8px;
+    }
+    
+    .contactContainerDivRightContainerSecondContainerRightContainerTopContainerMiddleText {
+        font-size: 18px;
+    }
+    
+    .contactContainerDivRightContainerSecondContainerRightContainerBottomContainer {
+        width: 90%;
+        padding: 20px 0;
+    }
+    
+    .contactContainerDivRightContainerFirstContainerLeftBottomContainerElementContainerTextOne,
+    .contactContainerDivRightContainerFirstContainerLeftBottomContainerElementContainerTextTwo {
+        font-size: 12px;
+    }
+    
+    .contactContainerDivRightContainerSecondContainerLeft {
+        height: 240px;
+        margin-bottom: 15px;
+        border-radius: 8px;
+        overflow: hidden;
+    }
+    
+    .contactContainerDivRightContainerSecondContainerLeftContainerImageImg {
+        border-radius: 8px;
+    }
+    
+    .contactContainerDivRightContainerSecondContainerLeftContainerDiv {
+        padding: 5px 15px;
+        bottom: 10px;
+        right: 10px;
+    }
+    
+    .contactContainerDivRightContainerSecondContainerLeftContainerDivText {
+        font-size: 14px;
+    }
+    
+    .contactContainerDivRightContainerSecondContainerRightContainer {
+        border-radius: 8px;
+        padding: 15px 0;
+    }
+    
+    .contactContainerDivRightContainerThird {
+        margin-top: 15px;
+        margin-bottom: 15px;
+        padding: 15px 5px;
+        border-radius: 8px;
+        height: auto;
+        max-height: none;
+    }
+    
+    .contactContainerDivRightContainerThirdThird {
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+    
+    .contactContainerDivRightContainerThirdThirdFirstText,
+    .contactContainerDivRightContainerThirdThirdThirdText,
+    .contactContainerDivRightContainerThirdThirdFifthText {
+        font-size: 11px;
+        padding: 5px 0;
+    }
+    
+    .contactContainerDivRightContainerThirdThirdSecond,
+    .contactContainerDivRightContainerThirdThirdFourth {
+        padding-left: 5px;
+        padding-right: 5px;
     }
 }

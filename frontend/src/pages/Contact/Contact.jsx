@@ -1,10 +1,25 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "./contact.css";
 import assets from "../../assets/assets";
 import { GoArrowRight } from "react-icons/go";
 import { PiFacebookLogo, PiInstagramLogoLight, PiTwitterLogoLight } from "react-icons/pi";
 
 const Contact = () => {
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 992);
+  const [isSmallScreen, setIsSmallScreen] = useState(window.innerWidth <= 768);
+  const [isMobileView, setIsMobileView] = useState(window.innerWidth <= 576);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 992);
+      setIsSmallScreen(window.innerWidth <= 768);
+      setIsMobileView(window.innerWidth <= 576);
+    };
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
   return (
     <div className="contact">
       <div className="contactContainer">
@@ -39,9 +54,9 @@ const Contact = () => {
                     {/* Top Part */}
                     <div className="contactContainerDivRightContainerFirstContainerLeftTop">
                       <div className="contactContainerDivRightContainerFirstContainerLeftTopContainer">
-                        <img src={assets.leftArrow} alt="" className="contactContainerDivRightContainerFirstContainerLeftTopContainerImage" />
+                        {!isMobileView && <img src={assets.leftArrow} alt="" className="contactContainerDivRightContainerFirstContainerLeftTopContainerImage" />}
                         <p className="contactContainerDivRightContainerFirstContainerLeftTopContainerText">Opening hours</p>
-                        <img src={assets.rightArrow} alt="" className="contactContainerDivRightContainerFirstContainerLeftTopContainerImage" />
+                        {!isMobileView && <img src={assets.rightArrow} alt="" className="contactContainerDivRightContainerFirstContainerLeftTopContainerImage" />}
                       </div>
                     </div>
 
@@ -63,7 +78,7 @@ const Contact = () => {
                             <p className="contactContainerDivRightContainerFirstContainerLeftBottomContainerElementContainerTextOne inter">Tuesday</p>
                             <div className="contactContainerDivRightContainerFirstContainerLeftBottomContainerElementContainerDots"></div>
                             <p className="contactContainerDivRightContainerFirstContainerLeftBottomContainerElementContainerTextTwo inter">
-                              16:00 - 22:30{" "}
+                              16:00 - 22:30
                             </p>
                           </div>
                         </div>
@@ -71,11 +86,11 @@ const Contact = () => {
                         <div className="contactContainerDivRightContainerFirstContainerLeftBottomContainerElement">
                           <div className="contactContainerDivRightContainerFirstContainerLeftBottomContainerElementContainer">
                             <p className="contactContainerDivRightContainerFirstContainerLeftBottomContainerElementContainerTextOne inter">
-                              Wednesday
+                              {isMobileView ? "Wed" : "Wednesday"}
                             </p>
                             <div className="contactContainerDivRightContainerFirstContainerLeftBottomContainerElementContainerDots"></div>
                             <p className="contactContainerDivRightContainerFirstContainerLeftBottomContainerElementContainerTextTwo inter">
-                              16:00 - 22:30{" "}
+                              16:00 - 22:30
                             </p>
                           </div>
                         </div>
@@ -83,11 +98,11 @@ const Contact = () => {
                         <div className="contactContainerDivRightContainerFirstContainerLeftBottomContainerElement">
                           <div className="contactContainerDivRightContainerFirstContainerLeftBottomContainerElementContainer">
                             <p className="contactContainerDivRightContainerFirstContainerLeftBottomContainerElementContainerTextOne inter">
-                              Thursday
+                              {isMobileView ? "Thu" : "Thursday"}
                             </p>
                             <div className="contactContainerDivRightContainerFirstContainerLeftBottomContainerElementContainerDots"></div>
                             <p className="contactContainerDivRightContainerFirstContainerLeftBottomContainerElementContainerTextTwo inter">
-                              16:00 - 22:30{" "}
+                              16:00 - 22:30
                             </p>
                           </div>
                         </div>
@@ -97,7 +112,7 @@ const Contact = () => {
                             <p className="contactContainerDivRightContainerFirstContainerLeftBottomContainerElementContainerTextOne inter">Friday</p>
                             <div className="contactContainerDivRightContainerFirstContainerLeftBottomContainerElementContainerDots"></div>
                             <p className="contactContainerDivRightContainerFirstContainerLeftBottomContainerElementContainerTextTwo inter">
-                              16:00 - 22:30{" "}
+                              16:00 - 22:30
                             </p>
                           </div>
                         </div>
@@ -105,11 +120,11 @@ const Contact = () => {
                         <div className="contactContainerDivRightContainerFirstContainerLeftBottomContainerElement">
                           <div className="contactContainerDivRightContainerFirstContainerLeftBottomContainerElementContainer">
                             <p className="contactContainerDivRightContainerFirstContainerLeftBottomContainerElementContainerTextOne inter">
-                              Saturday & Sunday
+                              {isMobileView ? "Sat & Sun" : isSmallScreen ? "Sat & Sun" : "Saturday & Sunday"}
                             </p>
                             <div className="contactContainerDivRightContainerFirstContainerLeftBottomContainerElementContainerDots"></div>
                             <p className="contactContainerDivRightContainerFirstContainerLeftBottomContainerElementContainerTextTwo inter">
-                              16:00 - 22:30{" "}
+                              16:00 - 22:30
                             </p>
                           </div>
                         </div>
@@ -117,16 +132,18 @@ const Contact = () => {
                     </div>
                   </div>
 
-                  <div className="contactContainerDivRightContainerFirstContainerRight">
-                    <div className="contactContainerDivRightContainerFirstContainerRightTop">
-                      <img src={assets.contactImageTwo} alt="" className="contactImage" />
-                      <img src={assets.contactImageTwo} alt="" className="contactImage" />
+                  {!isMobileView && (
+                    <div className="contactContainerDivRightContainerFirstContainerRight">
+                      <div className="contactContainerDivRightContainerFirstContainerRightTop">
+                        <img src={assets.contactImageTwo} alt="" className="contactImage" />
+                        <img src={assets.contactImageTwo} alt="" className="contactImage" />
+                      </div>
+                      <div className="contactContainerDivRightContainerFirstContainerRightBottom">
+                        <img src={assets.contactImageThree} alt="" className="contactImage" />
+                        <img src={assets.contactImageFour} alt="" className="contactImage" />
+                      </div>
                     </div>
-                    <div className="contactContainerDivRightContainerFirstContainerRightBottom">
-                      <img src={assets.contactImageThree} alt="" className="contactImage" />
-                      <img src={assets.contactImageFour} alt="" className="contactImage" />
-                    </div>
-                  </div>
+                  )}
                 </div>
               </div>
               
@@ -166,9 +183,11 @@ const Contact = () => {
                         {/* Top Part */}
                         <div className="contactContainerDivRightContainerSecondContainerRightContainerTop">
                             <div className="contactContainerDivRightContainerSecondContainerRightContainerTopContainer">
+                                {!isMobileView && (
                                 <div className="contactContainerDivRightContainerSecondContainerRightContainerTopContainerLeft">
                                     <img src={assets.leftArrow} alt="" className="contactContainerDivRightContainerSecondContainerRightContainerTopContainerLeftImage" />
                                 </div>
+                                )}
 
                                 <div className="contactContainerDivRightContainerSecondContainerRightContainerTopContainerMiddle">
                                     <p className="contactContainerDivRightContainerSecondContainerRightContainerTopContainerMiddleText">
@@ -176,9 +195,11 @@ const Contact = () => {
                                     </p>
                                 </div>
 
+                                {!isMobileView && (
                                 <div className="contactContainerDivRightContainerSecondContainerRightContainerTopContainerRight">
                                     <img src={assets.rightArrow} alt="" className="contactContainerDivRightContainerSecondContainerRightContainerTopContainerRightImage" />
                                 </div>
+                                )}
                             </div>
                         </div>
 
