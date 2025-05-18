@@ -1,8 +1,23 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import "./about.css";
 import assets from '../../assets/assets';
 
 const About = () => {
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 992);
+  const [isSmallScreen, setIsSmallScreen] = useState(window.innerWidth <= 768);
+  const [isMobileView, setIsMobileView] = useState(window.innerWidth <= 576);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 992);
+      setIsSmallScreen(window.innerWidth <= 768);
+      setIsMobileView(window.innerWidth <= 576);
+    };
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
   return (
     <div className="about">
         <div className="aboutContainer">
@@ -55,11 +70,13 @@ const About = () => {
                             </div>
 
                             {/* Right Part */}
-                            <div className="aboutContainerRightContainerFirstContainerRight">
-                                <div className="aboutContainerRightContainerFirstContainerRightContainer">
-                                    <img src={assets.aboutImageTwo} alt="" className='aboutContainerRightContainerFirstContainerRightContainerImage' />
+                            {(!isSmallScreen || isMobileView) && (
+                                <div className="aboutContainerRightContainerFirstContainerRight">
+                                    <div className="aboutContainerRightContainerFirstContainerRightContainer">
+                                        <img src={assets.aboutImageTwo} alt="" className='aboutContainerRightContainerFirstContainerRightContainerImage' />
+                                    </div>
                                 </div>
-                            </div>
+                            )}
                         </div>
                     </div>
 
@@ -101,72 +118,76 @@ const About = () => {
                             </div>
 
                             {/* Element */}
-                            <div className="aboutContainerRightContainerSecondContainerElement">
-                                <div className="aboutContainerRightContainerSecondContainerElementContainer">
-                                    {/* Top Part */}
-                                    <div className="aboutContainerRightContainerSecondContainerElementContainerTop">
-                                        <div className="aboutContainerRightContainerSecondContainerElementContainerTopContainer">
-                                            <img src={assets.aboutStarIcon} alt="" className="aboutContainerRightContainerSecondContainerElementContainerTopContainerImage" />
-                                            <img src={assets.aboutStarIcon} alt="" className="aboutContainerRightContainerSecondContainerElementContainerTopContainerImage" />
-                                            <img src={assets.aboutStarIcon} alt="" className="aboutContainerRightContainerSecondContainerElementContainerTopContainerImage" />
-                                            <img src={assets.aboutStarIcon} alt="" className="aboutContainerRightContainerSecondContainerElementContainerTopContainerImage" />
-                                            <img src={assets.aboutStarIcon} alt="" className="aboutContainerRightContainerSecondContainerElementContainerTopContainerImage" />
+                            {!isMobileView && (
+                                <div className="aboutContainerRightContainerSecondContainerElement">
+                                    <div className="aboutContainerRightContainerSecondContainerElementContainer">
+                                        {/* Top Part */}
+                                        <div className="aboutContainerRightContainerSecondContainerElementContainerTop">
+                                            <div className="aboutContainerRightContainerSecondContainerElementContainerTopContainer">
+                                                <img src={assets.aboutStarIcon} alt="" className="aboutContainerRightContainerSecondContainerElementContainerTopContainerImage" />
+                                                <img src={assets.aboutStarIcon} alt="" className="aboutContainerRightContainerSecondContainerElementContainerTopContainerImage" />
+                                                <img src={assets.aboutStarIcon} alt="" className="aboutContainerRightContainerSecondContainerElementContainerTopContainerImage" />
+                                                <img src={assets.aboutStarIcon} alt="" className="aboutContainerRightContainerSecondContainerElementContainerTopContainerImage" />
+                                                <img src={assets.aboutStarIcon} alt="" className="aboutContainerRightContainerSecondContainerElementContainerTopContainerImage" />
+                                            </div>
                                         </div>
-                                    </div>
 
-                                    {/* Middle Part */}
-                                    <div className="aboutContainerRightContainerSecondContainerElementContainerMiddle">
-                                        <div className="aboutContainerRightContainerSecondContainerElementContainerMiddleContainer">
-                                            <p className="aboutContainerRightContainerSecondContainerElementContainerMiddleContainerText">
-                                                Michelin Guide
-                                            </p>
+                                        {/* Middle Part */}
+                                        <div className="aboutContainerRightContainerSecondContainerElementContainerMiddle">
+                                            <div className="aboutContainerRightContainerSecondContainerElementContainerMiddleContainer">
+                                                <p className="aboutContainerRightContainerSecondContainerElementContainerMiddleContainerText">
+                                                    Michelin Guide
+                                                </p>
+                                            </div>
                                         </div>
-                                    </div>
 
-                                    {/* Bottom Part */}
-                                    <div className="aboutContainerRightContainerSecondContainerElementContainerBottom">
-                                        <div className="aboutContainerRightContainerSecondContainerElementContainerBottomContainer">
-                                            <p className="aboutContainerRightContainerSecondContainerElementContainerBottomContainerText inter">
-                                            Best Steak House Prague
-                                            </p>
+                                        {/* Bottom Part */}
+                                        <div className="aboutContainerRightContainerSecondContainerElementContainerBottom">
+                                            <div className="aboutContainerRightContainerSecondContainerElementContainerBottomContainer">
+                                                <p className="aboutContainerRightContainerSecondContainerElementContainerBottomContainerText inter">
+                                                Best Steak House Prague
+                                                </p>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            )}
 
                             {/* Element */}
-                            <div className="aboutContainerRightContainerSecondContainerElement">
-                                <div className="aboutContainerRightContainerSecondContainerElementContainer">
-                                    {/* Top Part */}
-                                    <div className="aboutContainerRightContainerSecondContainerElementContainerTop">
-                                        <div className="aboutContainerRightContainerSecondContainerElementContainerTopContainer">
-                                            <img src={assets.aboutStarIcon} alt="" className="aboutContainerRightContainerSecondContainerElementContainerTopContainerImage" />
-                                            <img src={assets.aboutStarIcon} alt="" className="aboutContainerRightContainerSecondContainerElementContainerTopContainerImage" />
-                                            <img src={assets.aboutStarIcon} alt="" className="aboutContainerRightContainerSecondContainerElementContainerTopContainerImage" />
-                                            <img src={assets.aboutStarIcon} alt="" className="aboutContainerRightContainerSecondContainerTopContainerImage" />
-                                            <img src={assets.aboutStarIcon} alt="" className="aboutContainerRightContainerSecondContainerElementContainerTopContainerImage" />
+                            {!isSmallScreen && (
+                                <div className="aboutContainerRightContainerSecondContainerElement">
+                                    <div className="aboutContainerRightContainerSecondContainerElementContainer">
+                                        {/* Top Part */}
+                                        <div className="aboutContainerRightContainerSecondContainerElementContainerTop">
+                                            <div className="aboutContainerRightContainerSecondContainerElementContainerTopContainer">
+                                                <img src={assets.aboutStarIcon} alt="" className="aboutContainerRightContainerSecondContainerElementContainerTopContainerImage" />
+                                                <img src={assets.aboutStarIcon} alt="" className="aboutContainerRightContainerSecondContainerElementContainerTopContainerImage" />
+                                                <img src={assets.aboutStarIcon} alt="" className="aboutContainerRightContainerSecondContainerElementContainerTopContainerImage" />
+                                                <img src={assets.aboutStarIcon} alt="" className="aboutContainerRightContainerSecondContainerElementContainerTopContainerImage" />
+                                                <img src={assets.aboutStarIcon} alt="" className="aboutContainerRightContainerSecondContainerElementContainerTopContainerImage" />
+                                            </div>
                                         </div>
-                                    </div>
 
-                                    {/* Middle Part */}
-                                    <div className="aboutContainerRightContainerSecondContainerElementContainerMiddle">
-                                        <div className="aboutContainerRightContainerSecondContainerElementContainerMiddleContainer">
-                                            <p className="aboutContainerRightContainerSecondContainerElementContainerMiddleContainerText">
-                                                Star Dining
-                                            </p>
+                                        {/* Middle Part */}
+                                        <div className="aboutContainerRightContainerSecondContainerElementContainerMiddle">
+                                            <div className="aboutContainerRightContainerSecondContainerElementContainerMiddleContainer">
+                                                <p className="aboutContainerRightContainerSecondContainerElementContainerMiddleContainerText">
+                                                    Star Dining
+                                                </p>
+                                            </div>
                                         </div>
-                                    </div>
 
-                                    {/* Bottom Part */}
-                                    <div className="aboutContainerRightContainerSecondContainerElementContainerBottom">
-                                        <div className="aboutContainerRightContainerSecondContainerElementContainerBottomContainer">
-                                            <p className="aboutContainerRightContainerSecondContainerElementContainerBottomContainerText inter">
-                                                Best steak hosue prague
-                                            </p>
+                                        {/* Bottom Part */}
+                                        <div className="aboutContainerRightContainerSecondContainerElementContainerBottom">
+                                            <div className="aboutContainerRightContainerSecondContainerElementContainerBottomContainer">
+                                                <p className="aboutContainerRightContainerSecondContainerElementContainerBottomContainerText inter">
+                                                    Best steak hosue prague
+                                                </p>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            )}
                         </div>
                     </div>
 
@@ -174,11 +195,13 @@ const About = () => {
                     <div className="aboutContainerRightContainerThird">
                         <div className="aboutContainerRightContainerThirdContainer">
                             {/* Left Part */}
-                            <div className="aboutContainerRightContainerThirdContainerLeft">
-                                <div className="aboutContainerRightContainerThirdContainerLeftContainer">
-                                    <img src={assets.aboutImageThree} alt="" className="aboutContainerRightContainerThirdContainerLeftContainerImage" />
+                            {!isSmallScreen && (
+                                <div className="aboutContainerRightContainerThirdContainerLeft">
+                                    <div className="aboutContainerRightContainerThirdContainerLeftContainer">
+                                        <img src={assets.aboutImageThree} alt="" className="aboutContainerRightContainerThirdContainerLeftContainerImage" />
+                                    </div>
                                 </div>
-                            </div>
+                            )}
 
                             {/* Right Part */}
                             <div className="aboutContainerRightContainerThirdContainerRight">
@@ -186,11 +209,13 @@ const About = () => {
                                     {/* Top Part */}
                                     <div className="aboutContainerRightContainerThirdContainerRightContainerTop">
                                         <div className="aboutContainerRightContainerThirdContainerRightContainerTopContainer">
-                                            <div className="aboutContainerRightContainerThirdContainerRightContainerTopContainerLeft">
-                                                <div className="aboutContainerRightContainerThirdContainerRightContainerTopContainerLeftContainer">
-                                                    <img src={assets.leftArrow} alt="" className="aboutContainerRightContainerThirdContainerRightContainerTopContainerLeftContainerImage" />
+                                            {!isMobileView && (
+                                                <div className="aboutContainerRightContainerThirdContainerRightContainerTopContainerLeft">
+                                                    <div className="aboutContainerRightContainerThirdContainerRightContainerTopContainerLeftContainer">
+                                                        <img src={assets.leftArrow} alt="" className="aboutContainerRightContainerThirdContainerRightContainerTopContainerLeftContainerImage" />
+                                                    </div>
                                                 </div>
-                                            </div>
+                                            )}
 
                                             <div className="aboutContainerRightContainerThirdContainerRightContainerTopContainerMiddle">
                                                 <p className="aboutContainerRightContainerThirdContainerRightContainerTopContainerMiddleText">
@@ -198,11 +223,13 @@ const About = () => {
                                                 </p>
                                             </div>
 
-                                            <div className="aboutContainerRightContainerThirdContainerRightContainerTopContainerRight">
-                                                <div className="aboutContainerRightContainerThirdContainerRightContainerTopContainerRightContainer">
-                                                    <img src={assets.rightArrow} alt="" className="aboutContainerRightContainerThirdContainerRightContainerTopContainerRightContainerImage" />
+                                            {!isMobileView && (
+                                                <div className="aboutContainerRightContainerThirdContainerRightContainerTopContainerRight">
+                                                    <div className="aboutContainerRightContainerThirdContainerRightContainerTopContainerRightContainer">
+                                                        <img src={assets.rightArrow} alt="" className="aboutContainerRightContainerThirdContainerRightContainerTopContainerRightContainerImage" />
+                                                    </div>
                                                 </div>
-                                            </div>
+                                            )}
                                         </div>
                                     </div>
 

@@ -19,10 +19,7 @@
     height: 100%;
     display: flex;
     flex-direction: row;
-    padding-left: 10px;
-    padding-top: 10px;
-    padding-right: 10px;
-    padding-bottom: 10px;
+    padding: 10px;
     gap: 10px;
 }
 
@@ -337,7 +334,6 @@
     display: flex;
     width: 100%;
     justify-content: center;
-
 }
 
 .aboutContainerRightContainerThirdContainerRightContainerTopContainer {
@@ -371,7 +367,6 @@
 .aboutContainerRightContainerFourthContainerFourthIcon {
     width: 14px;
     height: auto;
-
 }
 
 .aboutContainerRightContainerFourthContainerSecond,
@@ -399,25 +394,235 @@
     position: relative;
 }
 
-@media (max-width: 768px) {
-    .aboutContainer {
-        flex-direction: column;
-        padding: 5px;
-    }
-
-    .aboutContainerLeft,
-    .aboutContainerRight {
-        flex: none;
-        width: 100%;
-    }
-
+/* Media Queries for Responsive Design */
+@media screen and (max-width: 1200px) {
     .aboutContainerLeftContainerTitleTextText {
-        font-size: 40px;
+        font-size: 60px;
+    }
+    
+    .aboutContainerRightContainerFirstContainerLeftContainerTopTextOne,
+    .aboutContainerRightContainerFirstContainerLeftContainerTopTextTwo,
+    .aboutContainerRightContainerThirdContainerRightContainerTopContainerMiddleText {
+        font-size: 20px;
+        letter-spacing: 2px;
+    }
+    
+    .aboutContainerRightContainerSecondContainerElementContainerMiddleContainerText {
+        font-size: 20px;
+    }
+    
+    .aboutContainerRightContainerSecondContainerElementContainerBottomContainerText {
+        font-size: 12px;
+        width: 80%;
     }
 }
 
-@media (min-width: 1200px) {
+@media screen and (max-width: 992px) {
+    .aboutContainerLeft {
+        flex: 4;
+    }
+    
+    .aboutContainerRight {
+        flex: 7;
+    }
+    
     .aboutContainerLeftContainerTitleTextText {
-        font-size: 80px;
+        font-size: 50px;
+    }
+    
+    .aboutContainerLeftContainerTitle {
+        bottom: 50px;
+        left: 40px;
+    }
+    
+    .aboutContainerRightContainerFirstContainerLeftContainerTopTextOne,
+    .aboutContainerRightContainerFirstContainerLeftContainerTopTextTwo,
+    .aboutContainerRightContainerThirdContainerRightContainerTopContainerMiddleText {
+        font-size: 18px;
+        letter-spacing: 1.5px;
+    }
+    
+    .aboutContainerRightContainerFirstContainerLeftContainerBottomText,
+    .aboutContainerRightContainerThirdContainerRightContainerBottomText {
+        font-size: 12px;
+        line-height: 18px;
+    }
+    
+    .aboutContainerRightContainerSecondContainerElementContainerMiddleContainerText {
+        font-size: 18px;
+    }
+    
+    .aboutContainerRightContainerSecondContainerElementContainerBottomContainerText {
+        font-size: 11px;
+        width: 90%;
+        line-height: 16px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .about {
+        height: auto;
+        min-height: 100vh;
+    }
+    
+    .aboutContainer {
+        flex-direction: column;
+        padding: 5px;
+        overflow-y: auto;
+        height: auto;
+    }
+
+    .aboutContainerLeft {
+        flex: none;
+        width: 100%;
+        height: 40vh;
+    }
+    
+    .aboutContainerRight {
+        flex: none;
+        width: 100%;
+        height: auto;
+        overflow-y: visible;
+    }
+    
+    .aboutContainerLeftContainerTitleTextText {
+        font-size: 40px;
+    }
+    
+    .aboutContainerLeftContainerTitle {
+        bottom: 30px;
+        left: 30px;
+    }
+    
+    .aboutContainerRightContainerFirst,
+    .aboutContainerRightContainerThird {
+        flex-basis: auto;
+        margin-bottom: 10px;
+    }
+    
+    .aboutContainerRightContainerFirstContainer {
+        flex-direction: column;
+    }
+    
+    .aboutContainerRightContainerFirstContainerLeft,
+    .aboutContainerRightContainerThirdContainerRight {
+        margin-bottom: 10px;
+    }
+    
+    .aboutContainerRightContainerSecondContainer {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .aboutContainerRightContainerSecondContainerElement {
+        padding: 15px 0;
+    }
+    
+    .aboutContainerRightContainerSecondContainerElementContainerMiddleContainerText {
+        font-size: 22px;
+    }
+    
+    .aboutContainerRightContainerSecondContainerElementContainerBottomContainerText {
+        width: 70%;
+    }
+    
+    .aboutContainerRightContainerThirdContainer {
+        flex-direction: column;
+    }
+    
+    .aboutContainerRightContainerThirdContainerRightContainer {
+        width: 90%;
+    }
+    
+    .aboutContainerRightContainerFourth {
+        margin-top: 10px;
+    }
+    
+    .aboutContainerRightContainerFourthContainer {
+        flex-wrap: wrap;
+        gap: 5px;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .about {
+        overflow: auto;
+    }
+    
+    .aboutContainer {
+        padding: 0;
+        gap: 5px;
+    }
+    
+    .aboutContainerLeft {
+        height: 35vh;
+    }
+    
+    .aboutContainerLeftContainerTitleTextText {
+        font-size: 36px;
+    }
+    
+    .aboutContainerLeftContainerTitle {
+        bottom: 20px;
+        left: 20px;
+    }
+    
+    .aboutContainerRight {
+        padding: 10px;
+    }
+    
+    .aboutContainerRightContainer {
+        gap: 15px;
+    }
+    
+    .aboutContainerRightContainerFirstContainerLeftContainer,
+    .aboutContainerRightContainerThirdContainerRightContainer {
+        width: 90%;
+        height: 90%;
+    }
+    
+    .aboutContainerRightContainerFirstContainerLeftContainerTopTextOne,
+    .aboutContainerRightContainerFirstContainerLeftContainerTopTextTwo,
+    .aboutContainerRightContainerThirdContainerRightContainerTopContainerMiddleText {
+        font-size: 16px;
+        letter-spacing: 1px;
+    }
+    
+    .aboutContainerRightContainerFirstContainerLeftContainerBottomText,
+    .aboutContainerRightContainerThirdContainerRightContainerBottomText {
+        font-size: 11px;
+        line-height: 16px;
+    }
+    
+    .aboutContainerRightContainerSecondContainerElementContainerMiddleContainerText {
+        font-size: 20px;
+    }
+    
+    .aboutContainerRightContainerSecondContainerElementContainerBottomContainerText {
+        width: 85%;
+    }
+    
+    .aboutContainerRightContainerSecondContainerElementContainerTopContainerImage {
+        width: 16px;
+    }
+    
+    .aboutContainerRightContainerFourth {
+        max-height: none;
+        padding: 15px 0;
+    }
+    
+    .aboutContainerRightContainerFourthContainer {
+        justify-content: center;
+    }
+    
+    .aboutContainerRightContainerFourthContainerFirstText,
+    .aboutContainerRightContainerFourthContainerThirdText,
+    .aboutContainerRightContainerFourthContainerFifthText {
+        font-size: 11px;
+    }
+    
+    .aboutContainerRightContainerFourthContainerSecond,
+    .aboutContainerRightContainerFourthContainerFourth {
+        padding: 0 5px;
     }
 }
