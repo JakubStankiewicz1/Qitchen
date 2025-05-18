@@ -5,6 +5,7 @@
     background-color: #000000;
     justify-content: center;
     align-items: center;
+    overflow: hidden;
 }
 
 .homeContainer {
@@ -13,10 +14,7 @@
     width: 100%;
     height: 100%;
     justify-content: center;
-    padding-top: 10px; 
-    padding-bottom: 10px;
-    padding-left: 10px;
-    padding-right: 10px;
+    padding: 10px;
     gap: 10px;
     align-items: center;
 }
@@ -61,6 +59,7 @@
         1px -1px 0 #000,
         -1px 1px 0 #000,
         1px 1px 0 #000;
+    line-height: 1.1;
 }
 
 .homeContainerLeftContainerTitleContainerTextTwo {
@@ -89,17 +88,19 @@
     flex-grow: 1;
     overflow: hidden;
     align-items: center;
+    justify-content: center;
 }
 
 .homeContainerLeftContainerImage {
     width: 100%;
-    height: auto;
+    height: 100%;
     overflow: hidden;
+    position: relative;
 }
 
 .homeContainerLeftContainerImageContainer {
     width: 100%;
-    height: auto;
+    height: 100%;
     overflow: hidden;
     z-index: 10;
     position: relative;
@@ -118,7 +119,8 @@
 
 .homeContainerLeftContainerImageContainerImage {
     width: 100%;
-    height: auto;
+    height: 100%;
+    object-fit: cover;
     position: relative;
     z-index: 0;
 }
@@ -182,27 +184,174 @@
     display: flex;
 }
 
-@media (max-width: 768px) {
+/* Small Mobile Devices */
+@media (max-width: 480px) {
+    .homeContainer {
+        flex-direction: column;
+        padding: 5px;
+        gap: 5px;
+    }
+
+    .homeContainerLeft {
+        height: 60%;
+    }
+
+    .homeContainerRight {
+        height: 40%;
+    }
+
+    .homeContainerLeftContainerTitle {
+        padding-left: 20px;
+        padding-bottom: 10px;
+    }
+
+    .homeContainerLeftContainerTitleContainerTextOne,
+    .homeContainerLeftContainerTitleContainerTextTwo {
+        font-size: 42px;
+    }
+
+    .homeContainerLeftContainerTitleContainerTextTwo {
+        margin-top: -10px;
+    }
+
+    .homeContainerLeftContainerSocialMedia {
+        width: 120px;
+        height: 60px;
+        padding-left: 5px;
+        padding-top: 5px;
+    }
+
+    .homeContainerLeftContainerSocialMediaContainerInstagram,
+    .homeContainerLeftContainerSocialMediaContainerFacebook,
+    .homeContainerLeftContainerSocialMediaContainerTwitter {
+        width: 30px;
+        height: 30px;
+    }
+
+    .homeContainerLeftContainerSocialMediaContainerInstagramContainerIcon,
+    .homeContainerLeftContainerSocialMediaContainerFacebookContainerIcon,
+    .homeContainerLeftContainerSocialMediaContainerTwitterContainerIcon {
+        width: 16px;
+    }
+}
+
+/* Medium Mobile Devices */
+@media (min-width: 481px) and (max-width: 768px) {
     .homeContainer {
         flex-direction: column;
         padding: 5px;
     }
 
-    .homeContainerLeft,
+    .homeContainerLeft {
+        height: 65%;
+    }
+
     .homeContainerRight {
-        flex: none;
-        width: 100%;
+        height: 35%;
+    }
+
+    .homeContainerLeftContainerTitle {
+        padding-left: 30px;
+        padding-bottom: 15px;
     }
 
     .homeContainerLeftContainerTitleContainerTextOne,
     .homeContainerLeftContainerTitleContainerTextTwo {
         font-size: 60px;
     }
+
+    .homeContainerLeftContainerTitleContainerTextTwo {
+        margin-top: -15px;
+    }
 }
 
+/* Tablets */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .homeContainer {
+        flex-direction: row;
+        padding: 8px;
+        gap: 8px;
+    }
+
+    .homeContainerLeft {
+        flex: 2;
+    }
+
+    .homeContainerRight {
+        flex: 1;
+    }
+
+    .homeContainerLeftContainerTitle {
+        padding-left: 40px;
+        padding-bottom: 15px;
+    }
+
+    .homeContainerLeftContainerTitleContainerTextOne,
+    .homeContainerLeftContainerTitleContainerTextTwo {
+        font-size: 80px;
+    }
+}
+
+/* Small Desktops */
+@media (min-width: 1025px) and (max-width: 1199px) {
+    .homeContainerLeftContainerTitleContainerTextOne,
+    .homeContainerLeftContainerTitleContainerTextTwo {
+        font-size: 100px;
+    }
+
+    .homeContainerLeft {
+        flex: 2.8;
+    }
+}
+
+/* Large Desktops */
 @media (min-width: 1200px) {
     .homeContainerLeftContainerTitleContainerTextOne,
     .homeContainerLeftContainerTitleContainerTextTwo {
         font-size: 140px;
+    }
+}
+
+/* Landscape Mode for Mobile */
+@media (max-height: 500px) and (orientation: landscape) {
+    .homeContainer {
+        flex-direction: row;
+    }
+
+    .homeContainerLeft {
+        flex: 2;
+        height: 100%;
+    }
+
+    .homeContainerRight {
+        flex: 1;
+        height: 100%;
+    }
+
+    .homeContainerLeftContainerTitleContainerTextOne,
+    .homeContainerLeftContainerTitleContainerTextTwo {
+        font-size: 50px;
+    }
+
+    .homeContainerLeftContainerTitleContainerTextTwo {
+        margin-top: -10px;
+    }
+
+    .homeContainerLeftContainerTitle {
+        padding-left: 20px;
+        padding-bottom: 10px;
+    }
+
+    .homeContainerLeftContainerSocialMedia {
+        width: 120px;
+        height: 60px;
+    }
+}
+
+/* Very Large Screens */
+@media (min-width: 1600px) {
+    .homeContainerLeftContainerTitleContainerTextOne,
+    .homeContainerLeftContainerTitleContainerTextTwo {
+        font-size: 160px;
     }
 }
