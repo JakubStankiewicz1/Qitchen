@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Value;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
+import java.util.Objects;
 
 @Service
 public class ReservationService {
@@ -52,6 +53,18 @@ public class ReservationService {
         existingReservation.setNumberOfGuests(updatedReservation.getNumberOfGuests());
         existingReservation.setReservationTime(updatedReservation.getReservationTime());
         existingReservation.setTableType(updatedReservation.getTableType());
+        if (existingReservation.getTableType() == null) {
+            // Przykład: ustaw domyślnie na podstawie liczby gości
+            if (existingReservation.getNumberOfGuests() <= 2) {
+                existingReservation.setTableType("2-person");
+            } else {
+                existingReservation.setTableType("3-person");
+            }
+        }
+        if (updatedReservation.getTableType() == null) {
+            // Ustaw domyślnie na podstawie liczby gości
+            updatedReservation.setTableType(updatedReservation.getNumberOfGuests() <= 2 ? "2-person" : "3-person");
+        }
         validateTableAvailability(existingReservation);
         return reservationRepository.save(existingReservation);
     }
@@ -83,13 +96,29 @@ public class ReservationService {
         List<Reservation> overlappingReservations = reservationRepository.findByReservationTimeBetween(start, end);
 
         long reservedTables = overlappingReservations.stream()
-                .filter(r -> r.getTableType().equals(tableType))
+                .filter(r -> Objects.equals(r.getTableType(), tableType))
                 .count();
 
-        if (tableType.equals("2-person") && reservedTables >= TWO_PERSON_TABLES) {
+        if ("2-person".equals(tableType) && reservedTables >= TWO_PERSON_TABLES) {
             throw new RuntimeException("No available 2-person tables for the selected time.");
-        } else if (tableType.equals("3-person") && reservedTables >= THREE_PERSON_TABLES) {
+        } else if ("3-person".equals(tableType) && reservedTables >= THREE_PERSON_TABLES) {
             throw new RuntimeException("No available 3-person tables for the selected time.");
         }
+    }
+
+    public boolean validateTableAvailability(LocalDateTime reservationTime, String tableType, Long excludeId) {
+        // Bezpieczne porównanie wartości tableType - użyj Objects.equals lub poniższego podejścia
+        if ("2-person".equals(tableType)) {
+            // ...existing code dla 2-person...
+        } else if ("3-person".equals(tableType)) {
+            // ...existing code dla 3-person...
+        }
+        
+        // Alternatywnie użyj:
+        // if (Objects.equals(tableType, "2-person")) { ... }
+        
+        // ...existing code...
+        
+        return true; // lub inna wartość w zależności od logiki metody
     }
 }
