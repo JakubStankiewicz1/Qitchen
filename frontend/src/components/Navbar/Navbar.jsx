@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { NavLink, useLocation } from 'react-router-dom'; // Added useLocation
 import "./navbar.css";
 import assets from '../../assets/assets';
@@ -9,11 +9,43 @@ const Navbar = () => {
 
     const isActive = (path) => location.pathname === path; // Check if the path matches the current route
 
+    // Handle body scroll lock when menu is open
+    useEffect(() => {
+        if (isOpen) {
+            // Disable scrolling on the body
+            document.body.style.overflow = 'hidden';
+            document.body.style.position = 'fixed';
+            document.body.style.width = '100%';
+        } else {
+            // Re-enable scrolling on the body
+            document.body.style.overflow = '';
+            document.body.style.position = '';
+            document.body.style.width = '';
+        }
+
+        // Clean up the effect
+        return () => {
+            document.body.style.overflow = '';
+            document.body.style.position = '';
+            document.body.style.width = '';
+        };
+    }, [isOpen]);
+
+    // Close menu when route changes
+    useEffect(() => {
+        setIsOpen(false);
+    }, [location.pathname]);
+
+    // Toggle menu state
+    const toggleMenu = () => {
+        setIsOpen(!isOpen);
+    };
+
     return (
         <div className="navbar">
             <div className="navbarContainer">
-                {/* Firt Element */}
-                <div className="navbarContainerFirst" onClick={() => setIsOpen(!isOpen)}>
+                {/* First Element */}
+                <div className="navbarContainerFirst" onClick={toggleMenu}>
                     <div className="navbarContainerFirstContainer">
                         <div className={isOpen ? 'navbarContainerFirstContainerDivOneOpen' : 'navbarContainerFirstContainerDivOneClosed'} />
                         <div className={isOpen ? 'navbarContainerFirstContainerDivTwoOpen' : 'navbarContainerFirstContainerDivTwoClosed'} />
@@ -63,7 +95,7 @@ const Navbar = () => {
                     {/* First Part */}
                     <div className="navbarContainerDropdownMenuContainerFirst">
                         <div className="navbarContainerDropdownMenuContainerFirstContainer">
-                            <img src={assets.gridIcon} alt="" />
+                            <img src={assets.gridIcon} alt="Grid Icon" />
                         </div>
                     </div>
 
