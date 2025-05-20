@@ -14,6 +14,9 @@ const Reservations = () => {
   const [sortConfig, setSortConfig] = useState({ key: 'reservationTime', direction: 'desc' });
   const [showConfirmDialog, setShowConfirmDialog] = useState(false);
   const [addMode, setAddMode] = useState(false);
+  const [showEditConfirm, setShowEditConfirm] = useState(false);
+  const [showDeleteConfirm, setShowDeleteConfirm] = useState(false);
+  const [pendingReservation, setPendingReservation] = useState(null);
   const modalRef = useRef(null);
 
   useEffect(() => {
@@ -99,13 +102,37 @@ const Reservations = () => {
   };
 
   const openEditModal = (reservation) => {
-    setEditingReservation(reservation);
-    setModalOpen(true);
+    setPendingReservation(reservation);
+    setShowEditConfirm(true);
   };
 
-  const closeEditModal = () => {
-    setEditingReservation(null);
-    setModalOpen(false);
+  const handleEditConfirmed = () => {
+    setEditingReservation(pendingReservation);
+    setModalOpen(true);
+    setAddMode(false);
+    setShowEditConfirm(false);
+    setPendingReservation(null);
+  };
+
+  const handleEditCancelled = () => {
+    setShowEditConfirm(false);
+    setPendingReservation(null);
+  };
+
+  const handleDeleteClick = (reservation) => {
+    setPendingReservation(reservation);
+    setShowDeleteConfirm(true);
+  };
+
+  const handleDeleteConfirmed = async () => {
+    setShowDeleteConfirm(false);
+    await deleteReservation(pendingReservation.id);
+    setPendingReservation(null);
+  };
+
+  const handleDeleteCancelled = () => {
+    setShowDeleteConfirm(false);
+    setPendingReservation(null);
   };
 
   const handleEditChange = (e) => {
@@ -233,6 +260,12 @@ const Reservations = () => {
     return `custom:${combination}`;
   };
 
+  const closeEditModal = () => {
+    setEditingReservation(null);
+    setModalOpen(false);
+    setAddMode(false);
+  };
+
   return (
     <div className="reservationsDivOne">
       <div className="reservationsDivTwo">
@@ -328,7 +361,7 @@ const Reservations = () => {
                           <button className="reservationsContainerBottomTableBodyTrEdit" onClick={() => openEditModal(reservation)}>
                             <p className="reservationsContainerBottomTableBodyTrEditText inter">Edit</p>
                           </button>
-                          <button className="reservationsContainerBottomTableBodyTrDelete" onClick={() => deleteReservation(reservation.id)}>
+                          <button className="reservationsContainerBottomTableBodyTrDelete" onClick={() => handleDeleteClick(reservation)}>
                             <p className="reservationsContainerBottomTableBodyTrDeleteText inter">Delete</p>
                           </button>
                         </div>
@@ -379,6 +412,30 @@ const Reservations = () => {
                 <div style={{display:'flex',justifyContent:'center',gap:'20px',marginTop:'20px'}}>
                   <button onClick={handleFinalConfirm} style={{backgroundColor:'#4caf50',color:'white',padding:'8px 20px',borderRadius:'4px'}}>Yes</button>
                   <button onClick={handleCancelConfirm} style={{backgroundColor:'#f44336',color:'white',padding:'8px 20px',borderRadius:'4px'}}>No</button>
+                </div>
+              </div>
+            </div>
+          )}
+
+          {showEditConfirm && (
+            <div className="modalOverlay" onClick={handleEditCancelled}>
+              <div className="modalContent" onClick={e => e.stopPropagation()} style={{textAlign:'center'}}>
+                <h3>Are you sure you want to edit this reservation?</h3>
+                <div style={{display:'flex',justifyContent:'center',gap:'20px',marginTop:'20px'}}>
+                  <button onClick={handleEditConfirmed} style={{backgroundColor:'#4caf50',color:'white',padding:'8px 20px',borderRadius:'4px'}}>Yes</button>
+                  <button onClick={handleEditCancelled} style={{backgroundColor:'#f44336',color:'white',padding:'8px 20px',borderRadius:'4px'}}>No</button>
+                </div>
+              </div>
+            </div>
+          )}
+
+          {showDeleteConfirm && (
+            <div className="modalOverlay" onClick={handleDeleteCancelled}>
+              <div className="modalContent" onClick={e => e.stopPropagation()} style={{textAlign:'center'}}>
+                <h3>Are you sure you want to delete this reservation?</h3>
+                <div style={{display:'flex',justifyContent:'center',gap:'20px',marginTop:'20px'}}>
+                  <button onClick={handleDeleteConfirmed} style={{backgroundColor:'#4caf50',color:'white',padding:'8px 20px',borderRadius:'4px'}}>Yes</button>
+                  <button onClick={handleDeleteCancelled} style={{backgroundColor:'#f44336',color:'white',padding:'8px 20px',borderRadius:'4px'}}>No</button>
                 </div>
               </div>
             </div>
