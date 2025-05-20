@@ -364,10 +364,6 @@ const Reservations = () => {
                   Time:
                   <input type="datetime-local" name="reservationTime" value={editingReservation.reservationTime} onChange={handleEditChange} />
                 </label>
-                <label>
-                  Table Type:
-                  <input type="text" name="tableType" value={editingReservation.tableType} onChange={handleEditChange} />
-                </label>
                 <div className="modalActions">
                   <button onClick={handleModalConfirm} style={{backgroundColor:'#4caf50',color:'white'}}>Confirm</button>
                   <button onClick={closeEditModal} style={{backgroundColor:'#f44336',color:'white'}}>Cancel</button>
