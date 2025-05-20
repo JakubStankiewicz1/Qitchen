@@ -3,15 +3,64 @@ import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "./reservations.css";
+import { BiSearch, BiSortAlt2 } from "react-icons/bi";
 
 const Reservations = () => {
   const [reservations, setReservations] = useState([]);
+  const [filteredReservations, setFilteredReservations] = useState([]);
   const [editingReservation, setEditingReservation] = useState(null);
   const [modalOpen, setModalOpen] = useState(false);
+  const [searchQuery, setSearchQuery] = useState("");
+  const [sortConfig, setSortConfig] = useState({ key: 'reservationTime', direction: 'desc' });
 
   useEffect(() => {
     fetchReservations();
   }, []);
+
+  useEffect(() => {
+    // Apply filtering when reservations or search query changes
+    if (searchQuery.trim() === "") {
+      setFilteredReservations(reservations);
+    } else {
+      const query = searchQuery.toLowerCase();
+      const filtered = reservations.filter(
+        (reservation) =>
+          reservation.id.toString().includes(query) ||
+          reservation.name.toLowerCase().includes(query) ||
+          reservation.email.toLowerCase().includes(query) ||
+          reservation.phoneNumber.includes(query) ||
+          reservation.tableType.toLowerCase().includes(query) ||
+          new Date(reservation.reservationTime).toLocaleString().toLowerCase().includes(query)
+      );
+      setFilteredReservations(filtered);
+    }
+  }, [reservations, searchQuery]);
+
+  useEffect(() => {
+    // Apply sorting when sortConfig or filteredReservations change
+    let sortedReservations = [...filteredReservations];
+    if (sortConfig.key) {
+      sortedReservations.sort((a, b) => {
+        let aValue = a[sortConfig.key];
+        let bValue = b[sortConfig.key];
+        
+        // Special handling for date values
+        if (sortConfig.key === 'reservationTime') {
+          aValue = new Date(aValue);
+          bValue = new Date(bValue);
+        }
+
+        if (aValue < bValue) {
+          return sortConfig.direction === 'asc' ? -1 : 1;
+        }
+        if (aValue > bValue) {
+          return sortConfig.direction === 'asc' ? 1 : -1;
+        }
+        return 0;
+      });
+    }
+    setFilteredReservations(sortedReservations);
+  }, [sortConfig]);
 
   const fetchReservations = async () => {
     try {
@@ -23,6 +72,7 @@ const Reservations = () => {
       });
       const confirmedReservations = response.data.filter((reservation) => reservation.confirmed);
       setReservations(confirmedReservations);
+      setFilteredReservations(confirmedReservations); // Initialize filtered list
     } catch (error) {
       console.error("Error fetching reservations:", error);
       toast.error("Failed to fetch reservations. Please check your authentication.");
@@ -72,32 +122,98 @@ const Reservations = () => {
     }
   };
 
+  // New function to handle sorting
+  const requestSort = (key) => {
+    let direction = 'asc';
+    if (sortConfig.key === key && sortConfig.direction === 'asc') {
+      direction = 'desc';
+    }
+    setSortConfig({ key, direction });
+  };
+
+  // Render sort indicator arrows
+  const getSortIndicator = (key) => {
+    if (sortConfig.key !== key) return <BiSortAlt2 />;
+    return sortConfig.direction === 'asc' ? '↑' : '↓';
+  };
+
   return (
     <div className="reservationsDivOne">
       <div className="reservationsDivTwo">
         <div className="reservations">
           <ToastContainer />
           <div className="reservationsContainer">
-            <div className="reservationsContainerTitle">
-              <p className="reservationsContainerText">Reservations</p>
+            <div className="reservationsContainerHeader">
+              <div className="reservationsContainerTitle">
+                <p className="reservationsContainerText">Reservations</p>
+              </div>
+              <div className="reservationsSearchContainer">
+                <div className="searchInputWrapper">
+                  <BiSearch className="searchIcon" />
+                  <input
+                    type="text"
+                    placeholder="Search reservations..."
+                    value={searchQuery}
+                    onChange={(e) => setSearchQuery(e.target.value)}
+                    className="reservationsSearchInput"
+                  />
+                </div>
+              </div>
             </div>
 
             <div className="reservationsContainerBottom">
               <table className="reservationsContainerBottomTable">
                 <thead className="reservationsContainerBottomTableThread">
                   <tr className="reservationsContainerBottomTableThreadTr">
-                    <th className="reservationsContainerBottomTableThreadName">Name</th>
-                    <th className="reservationsContainerBottomTableThreadEmail">Email</th>
-                    <th className="reservationsContainerBottomTableThreadPhone">Phone</th>
-                    <th className="reservationsContainerBottomTableThreadGuests">Guests</th>
-                    <th className="reservationsContainerBottomTableThreadTime">Time</th>
-                    <th className="reservationsContainerBottomTableThreadTableType">Table Type</th>
+                    <th 
+                      className="reservationsContainerBottomTableThreadId sortable"
+                      onClick={() => requestSort('id')}
+                    >
+                      ID {getSortIndicator('id')}
+                    </th>
+                    <th 
+                      className="reservationsContainerBottomTableThreadName sortable" 
+                      onClick={() => requestSort('name')}
+                    >
+                      Name {getSortIndicator('name')}
+                    </th>
+                    <th 
+                      className="reservationsContainerBottomTableThreadEmail sortable"
+                      onClick={() => requestSort('email')}
+                    >
+                      Email {getSortIndicator('email')}
+                    </th>
+                    <th 
+                      className="reservationsContainerBottomTableThreadPhone sortable"
+                      onClick={() => requestSort('phoneNumber')}
+                    >
+                      Phone {getSortIndicator('phoneNumber')}
+                    </th>
+                    <th 
+                      className="reservationsContainerBottomTableThreadGuests sortable"
+                      onClick={() => requestSort('numberOfGuests')}
+                    >
+                      Guests {getSortIndicator('numberOfGuests')}
+                    </th>
+                    <th 
+                      className="reservationsContainerBottomTableThreadTime sortable"
+                      onClick={() => requestSort('reservationTime')}
+                    >
+                      Time {getSortIndicator('reservationTime')}
+                    </th>
+                    <th 
+                      className="reservationsContainerBottomTableThreadTableType sortable"
+                      onClick={() => requestSort('tableType')}
+                    >
+                      Table Type {getSortIndicator('tableType')}
+                    </th>
                     <th className="reservationsContainerBottomTableThreadActions">Actions</th>
                   </tr>
                 </thead>
                 <tbody className="reservationsContainerBottomTableBody">
-                  {reservations.map((reservation) => (
+                  {filteredReservations.map((reservation) => (
                     <tr key={reservation.id} className="reservationsContainerBottomTableBodyTr">
+                      <td className="reservationsContainerBottomTableBodyTrId inter">{reservation.id}</td>
                       <td className="reservationsContainerBottomTableBodyTrName inter">{reservation.name}</td>
                       <td className="reservationsContainerBottomTableBodyTrEmail inter">{reservation.email}</td>
                       <td className="reservationsContainerBottomTableBodyTrPhoneNumber inter">{reservation.phoneNumber}</td>

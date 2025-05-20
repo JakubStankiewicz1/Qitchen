@@ -27,6 +27,50 @@
   letter-spacing: 1px;
 }
 
+.reservationsContainerHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.reservationsSearchContainer {
+  display: flex;
+  align-items: center;
+}
+
+.searchInputWrapper {
+  position: relative;
+  width: 300px;
+}
+
+.searchIcon {
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #aaa;
+}
+
+.reservationsSearchInput {
+  width: 100%;
+  padding: 8px 10px 8px 35px;
+  border: 1px solid #31312d;
+  border-radius: 4px;
+  background-color: rgba(30, 30, 30, 0.7);
+  color: white;
+  font-size: 14px;
+}
+
+.reservationsSearchInput::placeholder {
+  color: #aaa;
+}
+
+.reservationsSearchInput:focus {
+  outline: none;
+  border-color: #efe7d2;
+}
+
 table {
   width: 100%;
   border-collapse: collapse;
@@ -47,11 +91,28 @@ table {
   letter-spacing: 0.4px;
 }
 
+.reservationsContainerBottomTableThreadId,
+.reservationsContainerBottomTableBodyTrId {
+  font-size: 15px;
+  font-weight: 350;
+  letter-spacing: 0.4px;
+}
+
 th,
 td {
   border: 2px solid #31312d;
   padding: 8px;
   text-align: left;
+}
+
+.sortable {
+  cursor: pointer;
+  user-select: none;
+  position: relative;
+}
+
+.sortable:hover {
+  background-color: rgba(255, 255, 255, 0.05);
 }
 
 .reservationsContainerBottomTableBodyTrBtnContainer {
@@ -174,4 +235,20 @@ td {
 .modalActions button:last-of-type {
   background-color: #f44336;
   color: white;
+}
+
+/* Style for no results message */
+.noReservationsMessage {
+  text-align: center;
+  padding: 20px;
+  font-size: 16px;
+  color: #efe7d2;
+}
+
+/* Make the table header stick to the top when scrolling */
+.reservationsContainerBottomTableThread {
+  position: sticky;
+  top: 0;
+  background-color: #0A0B0A;
+  z-index: 10;
 }
