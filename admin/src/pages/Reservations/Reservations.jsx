@@ -343,7 +343,7 @@ const Reservations = () => {
           {modalOpen && (
             <div className="modalOverlay" onClick={closeEditModal}>
               <div className="modalContent" onClick={(e) => e.stopPropagation()}>
-                <h2>Edit Reservation</h2>
+                <h2>{addMode ? 'Add Reservation' : 'Edit Reservation'}</h2>
                 <label>
                   Name:
                   <input type="text" name="name" value={editingReservation.name} onChange={handleEditChange} />
