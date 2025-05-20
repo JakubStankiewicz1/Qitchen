@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -12,6 +12,9 @@ const Reservations = () => {
   const [modalOpen, setModalOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
   const [sortConfig, setSortConfig] = useState({ key: 'reservationTime', direction: 'desc' });
+  const [showConfirmDialog, setShowConfirmDialog] = useState(false);
+  const [addMode, setAddMode] = useState(false);
+  const modalRef = useRef(null);
 
   useEffect(() => {
     fetchReservations();
@@ -110,15 +113,74 @@ const Reservations = () => {
     setEditingReservation({ ...editingReservation, [name]: value });
   };
 
+  const openAddModal = () => {
+    setEditingReservation({
+      name: "",
+      email: "",
+      phoneNumber: "",
+      numberOfGuests: "",
+      reservationTime: "",
+      tableType: ""
+    });
+    setAddMode(true);
+    setModalOpen(true);
+  };
+
+  const handleModalConfirm = () => {
+    setShowConfirmDialog(true);
+  };
+
+  const handleFinalConfirm = async () => {
+    setShowConfirmDialog(false);
+    await confirmEdit();
+  };
+
+  const handleCancelConfirm = () => {
+    setShowConfirmDialog(false);
+  };
+
   const confirmEdit = async () => {
+    // Validation
+    if (!editingReservation.name || !editingReservation.email || !editingReservation.phoneNumber || !editingReservation.numberOfGuests || !editingReservation.reservationTime) {
+      toast.error("Please fill in all fields.");
+      return;
+    }
+    // Calculate table type if adding
+    let reservationToSend = { ...editingReservation };
+    if (addMode) {
+      reservationToSend.tableType = calculateOptimalTableType(Number(editingReservation.numberOfGuests));
+    }
     try {
-      await axios.put(`http://localhost:8081/api/reservations/${editingReservation.id}`, editingReservation);
-      toast.success("Reservation updated successfully!");
+      const token = localStorage.getItem("token");
+      if (editingReservation.id) {
+        await axios.put(
+          `http://localhost:8081/api/reservations/${editingReservation.id}`,
+          reservationToSend,
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          }
+        );
+        toast.success("Reservation updated successfully!");
+      } else {
+        await axios.post(
+          "http://localhost:8081/api/reservations",
+          { ...reservationToSend, confirmed: true },
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          }
+        );
+        toast.success("Reservation created successfully!");
+      }
       fetchReservations();
       closeEditModal();
+      setAddMode(false);
     } catch (error) {
-      console.error("Error updating reservation:", error);
-      toast.error("Failed to update reservation.");
+      console.error("Error saving reservation:", error);
+      toast.error("Failed to save reservation.");
     }
   };
 
@@ -137,6 +199,40 @@ const Reservations = () => {
     return sortConfig.direction === 'asc' ? '↑' : '↓';
   };
 
+  // Calculate optimal table type based on the number of guests
+  const calculateOptimalTableType = (numberOfGuests) => {
+    const tableSizes = [2, 4, 6, 10];
+    for (const size of tableSizes) {
+      if (numberOfGuests <= size) {
+        return `${size}-person`;
+      }
+    }
+    let combination = "";
+    let remainingGuests = numberOfGuests;
+    for (let i = tableSizes.length - 1; i >= 0 && remainingGuests > 0; i--) {
+      const currentSize = tableSizes[i];
+      while (remainingGuests >= currentSize) {
+        if (combination.length > 0) {
+          combination += " + ";
+        }
+        combination += `${currentSize}-person`;
+        remainingGuests -= currentSize;
+      }
+    }
+    if (remainingGuests > 0) {
+      for (const size of tableSizes) {
+        if (remainingGuests <= size) {
+          if (combination.length > 0) {
+            combination += " + ";
+          }
+          combination += `${size}-person`;
+          break;
+        }
+      }
+    }
+    return `custom:${combination}`;
+  };
+
   return (
     <div className="reservationsDivOne">
       <div className="reservationsDivTwo">
@@ -146,6 +242,12 @@ const Reservations = () => {
             <div className="reservationsContainerHeader">
               <div className="reservationsContainerTitle">
                 <p className="reservationsContainerText">Reservations</p>
+                <button 
+                  className="addReservationButton"
+                  onClick={openAddModal}
+                >
+                  Add Reservation
+                </button>
               </div>
               <div className="reservationsSearchContainer">
                 <div className="searchInputWrapper">
@@ -267,8 +369,20 @@ const Reservations = () => {
                   <input type="text" name="tableType" value={editingReservation.tableType} onChange={handleEditChange} />
                 </label>
                 <div className="modalActions">
-                  <button onClick={confirmEdit}>Confirm</button>
-                  <button onClick={closeEditModal}>Cancel</button>
+                  <button onClick={handleModalConfirm} style={{backgroundColor:'#4caf50',color:'white'}}>Confirm</button>
+                  <button onClick={closeEditModal} style={{backgroundColor:'#f44336',color:'white'}}>Cancel</button>
+                </div>
+              </div>
+            </div>
+          )}
+
+          {showConfirmDialog && (
+            <div className="modalOverlay" onClick={handleCancelConfirm}>
+              <div className="modalContent" onClick={e => e.stopPropagation()} style={{textAlign:'center'}}>
+                <h3>Are you sure you want to add this reservation?</h3>
+                <div style={{display:'flex',justifyContent:'center',gap:'20px',marginTop:'20px'}}>
+                  <button onClick={handleFinalConfirm} style={{backgroundColor:'#4caf50',color:'white',padding:'8px 20px',borderRadius:'4px'}}>Yes</button>
+                  <button onClick={handleCancelConfirm} style={{backgroundColor:'#f44336',color:'white',padding:'8px 20px',borderRadius:'4px'}}>No</button>
                 </div>
               </div>
             </div>
