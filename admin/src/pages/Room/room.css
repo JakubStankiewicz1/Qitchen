@@ -1,0 +1,89 @@
+.room-root {
+  font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+  background: #101010;
+  color: #efe7d2;
+  min-height: 100vh;
+  padding: 40px 0 40px 0;
+}
+.room-title {
+  text-align: center;
+  font-size: 2.1rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+  color: #ffe082;
+}
+.room-desc {
+  text-align: center;
+  color: #bdbdbd;
+  margin-bottom: 32px;
+}
+.room-table-wrapper {
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+  max-width: 700px;
+  background: #181818;
+  border-radius: 14px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.10);
+  padding: 32px 24px;
+}
+.room-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.room-table th, .room-table td {
+  padding: 14px 10px;
+  text-align: center;
+  border-bottom: 1px solid #23221e;
+}
+.room-table th {
+  color: #ffe082;
+  font-size: 1.1rem;
+  font-weight: 500;
+  background: #181818;
+}
+.room-table tr:last-child td {
+  border-bottom: none;
+}
+.room-input {
+  width: 70px;
+  padding: 7px 10px;
+  border-radius: 6px;
+  border: 1.5px solid #31312d;
+  background: #23221e;
+  color: #efe7d2;
+  font-size: 1rem;
+  text-align: center;
+  transition: border 0.2s;
+}
+.room-input:focus {
+  outline: none;
+  border: 1.5px solid #4caf50;
+}
+.room-save-btn {
+  background: #4caf50;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 8px 18px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.room-save-btn:hover:not(:disabled) {
+  background: #388e3c;
+}
+.room-save-btn:disabled {
+  background: #555;
+  cursor: not-allowed;
+}
+@media (max-width: 800px) {
+  .room-table-wrapper {
+    padding: 18px 2vw;
+    max-width: 98vw;
+  }
+  .room-title {
+    font-size: 1.3rem;
+  }
+} 

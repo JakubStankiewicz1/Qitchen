@@ -5,6 +5,7 @@ import NavbarFeatureElement from '../NavbarFeatureElement/NavbarFeatureElement';
 import assets from '../../assets/assets';
 import { NavLink } from 'react-router-dom';
 import { useAuth } from '../../App';
+import { MdTableBar } from "react-icons/md";
 
 const Navbar = () => {
   const { logout } = useAuth();
@@ -65,6 +66,10 @@ const Navbar = () => {
             <div className="navbarContainerFourth">
                 <div className="navbarContainerFourthContainer">
                     <NavbarFeatureElement icon={assets.reservedIcon} text={"Reservations"} link={"/reservations"} />
+                    <NavLink to="/room" className="navbarFeatureElement">
+                        <span className="navbarFeatureElementIcon"><MdTableBar /></span>
+                        <span className="navbarFeatureElementText">Sala</span>
+                    </NavLink>
                 </div>
             </div>
 

@@ -5,6 +5,7 @@ import { Routes, Route, Navigate } from 'react-router-dom';
 import Home from './pages/Home/Home';
 import Reservations from './pages/Reservations/Reservations';
 import Login from './pages/Login/Login';
+import Room from './pages/Room/Room';
 
 const AuthContext = createContext();
 
@@ -41,6 +42,10 @@ const App = () => {
               <Route
                 path="/reservations"
                 element={isAuthenticated ? <Reservations /> : <Navigate to="/login" />}
+              />
+              <Route
+                path="/room"
+                element={isAuthenticated ? <Room /> : <Navigate to="/login" />}
               />
               <Route
                 path="*"
