@@ -55,10 +55,18 @@ public class ReservationService {
         existingReservation.setTableType(updatedReservation.getTableType());
         if (existingReservation.getTableType() == null) {
             // Przykład: ustaw domyślnie na podstawie liczby gości
-            if (existingReservation.getNumberOfGuests() <= 2) {
+            if (existingReservation.getNumberOfGuests() == 1) {
+                existingReservation.setTableType("1-person");
+            } else if (existingReservation.getNumberOfGuests() == 2) {
                 existingReservation.setTableType("2-person");
+            } else if (existingReservation.getNumberOfGuests() <= 4) {
+                existingReservation.setTableType("4-person");
+            } else if (existingReservation.getNumberOfGuests() <= 6) {
+                existingReservation.setTableType("6-person");
+            } else if (existingReservation.getNumberOfGuests() <= 10) {
+                existingReservation.setTableType("10-person");
             } else {
-                existingReservation.setTableType("3-person");
+                existingReservation.setTableType(calculateOptimalTableCombination(existingReservation.getNumberOfGuests()));
             }
         }
         if (updatedReservation.getTableType() == null) {
@@ -120,5 +128,53 @@ public class ReservationService {
         // ...existing code...
         
         return true; // lub inna wartość w zależności od logiki metody
+    }
+
+    /**
+     * Calculates the optimal combination of tables for a given number of guests
+     * @param numberOfGuests The number of guests to accommodate
+     * @return A string describing the optimal table combination
+     */
+    private String calculateOptimalTableCombination(int numberOfGuests) {
+        // Available table sizes
+        int[] tableSizes = {2, 4, 6, 10};
+        
+        // Check if any single table can accommodate the guests
+        for (int size : tableSizes) {
+            if (numberOfGuests <= size) {
+                return size + "-person";
+            }
+        }
+        
+        // For larger groups, find optimal combination
+        StringBuilder combination = new StringBuilder();
+        int remainingGuests = numberOfGuests;
+        
+        // Start with largest tables for efficiency
+        for (int i = tableSizes.length - 1; i >= 0 && remainingGuests > 0; i--) {
+            int currentSize = tableSizes[i];
+            while (remainingGuests >= currentSize) {
+                if (combination.length() > 0) {
+                    combination.append(" + ");
+                }
+                combination.append(currentSize).append("-person");
+                remainingGuests -= currentSize;
+            }
+        }
+        
+        // If we still have guests that don't fit perfectly, add one more small table
+        if (remainingGuests > 0) {
+            for (int size : tableSizes) {
+                if (remainingGuests <= size) {
+                    if (combination.length() > 0) {
+                        combination.append(" + ");
+                    }
+                    combination.append(size).append("-person");
+                    break;
+                }
+            }
+        }
+        
+        return "custom:" + combination.toString();
     }
 }

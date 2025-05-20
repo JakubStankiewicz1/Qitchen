@@ -112,7 +112,7 @@ const Reservation = () => {
             phoneNumber,
             numberOfGuests: guests,
             reservationTime: `${selectedDate.toISOString().split('T')[0]}T${selectedHour}:${selectedMinute}:00`,
-            tableType: guests <= 2 ? "2-person" : "3-person"
+            tableType: calculateOptimalTableType(guests)
         };
 
         setIsLoading(true);
@@ -139,6 +139,50 @@ const Reservation = () => {
         } finally {
             setIsLoading(false);
         }
+    };
+
+    // Calculate optimal table type based on the number of guests
+    const calculateOptimalTableType = (numberOfGuests) => {
+        // Available table sizes
+        const tableSizes = [2, 4, 6, 10];
+        
+        // Check if any single table can accommodate the guests
+        for (const size of tableSizes) {
+            if (numberOfGuests <= size) {
+                return `${size}-person`;
+            }
+        }
+        
+        // For larger groups, find optimal combination
+        let combination = "";
+        let remainingGuests = numberOfGuests;
+        
+        // Start with largest tables for efficiency
+        for (let i = tableSizes.length - 1; i >= 0 && remainingGuests > 0; i--) {
+            const currentSize = tableSizes[i];
+            while (remainingGuests >= currentSize) {
+                if (combination.length > 0) {
+                    combination += " + ";
+                }
+                combination += `${currentSize}-person`;
+                remainingGuests -= currentSize;
+            }
+        }
+        
+        // If we still have guests that don't fit perfectly, add one more small table
+        if (remainingGuests > 0) {
+            for (const size of tableSizes) {
+                if (remainingGuests <= size) {
+                    if (combination.length > 0) {
+                        combination += " + ";
+                    }
+                    combination += `${size}-person`;
+                    break;
+                }
+            }
+        }
+        
+        return `custom:${combination}`;
     };
 
     return (
