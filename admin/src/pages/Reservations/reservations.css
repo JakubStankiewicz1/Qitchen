@@ -325,3 +325,33 @@ td {
 .addReservationButton:active {
   background-color: #3d8b40;
 }
+
+.modalContentButtonOne {
+  background-color: #4caf50;
+  color: white;
+  padding: 8px 20px;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+.modalContentButtonOne:hover {
+  background-color: #45a049;
+  transform: scale(1.03);
+}
+
+.modalContentButtonTwo {
+  background-color: #f44336;
+  color: white;
+  padding: 8px 20px;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+.modalContentButtonTwo:hover {
+  background-color: #d32f2f;
+  transform: scale(1.03);
+}

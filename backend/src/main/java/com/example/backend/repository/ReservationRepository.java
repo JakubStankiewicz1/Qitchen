@@ -10,4 +10,7 @@ import java.util.Optional;
 public interface ReservationRepository extends JpaRepository<Reservation, Long> {
     List<Reservation> findByReservationTimeBetween(LocalDateTime start, LocalDateTime end);
     Optional<Reservation> findByConfirmationToken(String confirmationToken);
+    long countByDateTimeBetween(LocalDateTime start, LocalDateTime end);
+    long countByDateTimeAfter(LocalDateTime dateTime);
+    List<Reservation> findTop10ByOrderByDateTimeDesc();
 }

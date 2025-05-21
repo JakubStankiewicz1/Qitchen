@@ -12,6 +12,8 @@ import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 import java.util.Objects;
+import java.util.Map;
+import java.util.HashMap;
 
 @Service
 public class ReservationService {
@@ -242,5 +244,28 @@ public class ReservationService {
             this.message = message;
             this.availableCount = availableCount;
         }
+    }
+
+    public Map<String, Long> getReservationStats() {
+        LocalDateTime now = LocalDateTime.now();
+        LocalDateTime startOfDay = now.toLocalDate().atStartOfDay();
+        LocalDateTime endOfDay = startOfDay.plusDays(1);
+
+        long totalReservations = reservationRepository.count();
+        long todayReservations = reservationRepository.countByDateTimeBetween(startOfDay, endOfDay);
+        long upcomingReservations = reservationRepository.countByDateTimeAfter(now);
+        long availableTables = tableTypeRepository.count() * 4; // Assuming 4 seats per table on average
+
+        Map<String, Long> stats = new HashMap<>();
+        stats.put("totalReservations", totalReservations);
+        stats.put("todayReservations", todayReservations);
+        stats.put("upcomingReservations", upcomingReservations);
+        stats.put("availableTables", availableTables);
+
+        return stats;
+    }
+
+    public List<Reservation> getRecentReservations() {
+        return reservationRepository.findTop10ByOrderByDateTimeDesc();
     }
 }

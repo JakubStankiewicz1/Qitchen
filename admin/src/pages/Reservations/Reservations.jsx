@@ -410,8 +410,8 @@ const Reservations = () => {
               <div className="modalContent" onClick={e => e.stopPropagation()} style={{textAlign:'center'}}>
                 <h3>Are you sure you want to add this reservation?</h3>
                 <div style={{display:'flex',justifyContent:'center',gap:'20px',marginTop:'20px'}}>
-                  <button onClick={handleFinalConfirm} style={{backgroundColor:'#4caf50',color:'white',padding:'8px 20px',borderRadius:'4px'}}>Yes</button>
-                  <button onClick={handleCancelConfirm} style={{backgroundColor:'#f44336',color:'white',padding:'8px 20px',borderRadius:'4px'}}>No</button>
+                  <div onClick={handleFinalConfirm} className="modalContentButtonOne">Yes</div>
+                  <div onClick={handleCancelConfirm} className="modalContentButtonTwo">No</div>
                 </div>
               </div>
             </div>
@@ -422,8 +422,8 @@ const Reservations = () => {
               <div className="modalContent" onClick={e => e.stopPropagation()} style={{textAlign:'center'}}>
                 <h3>Are you sure you want to edit this reservation?</h3>
                 <div style={{display:'flex',justifyContent:'center',gap:'20px',marginTop:'20px'}}>
-                  <button onClick={handleEditConfirmed} style={{backgroundColor:'#4caf50',color:'white',padding:'8px 20px',borderRadius:'4px'}}>Yes</button>
-                  <button onClick={handleEditCancelled} style={{backgroundColor:'#f44336',color:'white',padding:'8px 20px',borderRadius:'4px'}}>No</button>
+                  <button onClick={handleEditConfirmed} className="modalContentButtonOne">Yes</button>
+                  <button onClick={handleEditCancelled} className="modalContentButtonTwo">No</button>
                 </div>
               </div>
             </div>
@@ -434,8 +434,8 @@ const Reservations = () => {
               <div className="modalContent" onClick={e => e.stopPropagation()} style={{textAlign:'center'}}>
                 <h3>Are you sure you want to delete this reservation?</h3>
                 <div style={{display:'flex',justifyContent:'center',gap:'20px',marginTop:'20px'}}>
-                  <button onClick={handleDeleteConfirmed} style={{backgroundColor:'#4caf50',color:'white',padding:'8px 20px',borderRadius:'4px'}}>Yes</button>
-                  <button onClick={handleDeleteCancelled} style={{backgroundColor:'#f44336',color:'white',padding:'8px 20px',borderRadius:'4px'}}>No</button>
+                  <button onClick={handleDeleteConfirmed} className="modalContentButtonOne">Yes</button>
+                  <button onClick={handleDeleteCancelled} className="modalContentButtonTwo">No</button>
                 </div>
               </div>
             </div>

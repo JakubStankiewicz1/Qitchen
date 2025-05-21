@@ -67,22 +67,22 @@ const Room = () => {
 
   return (
     <div className="room-root">
-      <h1 className="room-title">Zarządzanie salą</h1>
-      <p className="room-desc">Edytuj ilość dostępnych stolików każdego typu w restauracji.</p>
+      <h1 className="room-title">Tables management</h1>
+      <p className="room-desc">Edit the number of available tables of each type in the restaurant.</p>
       <div className="room-table-wrapper">
         <table className="room-table">
           <thead>
             <tr>
-              <th>Typ stolika</th>
-              <th>Ilość miejsc</th>
-              <th>Dostępnych stolików</th>
-              <th>Akcja</th>
+              <th>Table type</th>
+              <th>Number of seats</th>
+              <th>Available tables</th>
+              <th>Action</th>
             </tr>
           </thead>
           <tbody>
             {tableTypes.map(t => (
               <tr key={t.id}>
-                <td>{t.seats}-osobowy</td>
+                <td>{t.seats}-seater</td>
                 <td>{t.seats}</td>
                 <td>
                   {editingTableId === t.id ? (
@@ -101,15 +101,15 @@ const Room = () => {
                   {editingTableId === t.id ? (
                     <>
                       <button className="room-save-btn" onClick={() => handleSave(t.id)} disabled={loading}>
-                        Zapisz
+                        Save
                       </button>
                       <button className="room-save-btn" onClick={handleCancelClick} disabled={loading} style={{ marginLeft: '8px', backgroundColor: '#f44336' }}>
-                        Anuluj
+                        Cancal
                       </button>
                     </>
                   ) : (
                     <button className="room-save-btn" onClick={() => handleEditClick(t.id)} disabled={loading}>
-                      Edytuj
+                      Edit
                     </button>
                   )}
                 </td>

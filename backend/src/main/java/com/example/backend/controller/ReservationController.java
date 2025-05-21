@@ -65,4 +65,14 @@ public class ReservationController {
             return ResponseEntity.badRequest().body("Invalid request: " + e.getMessage());
         }
     }
+
+    @GetMapping("/stats")
+    public ResponseEntity<Map<String, Long>> getReservationStats() {
+        return ResponseEntity.ok(reservationService.getReservationStats());
+    }
+
+    @GetMapping("/recent")
+    public ResponseEntity<List<Reservation>> getRecentReservations() {
+        return ResponseEntity.ok(reservationService.getRecentReservations());
+    }
 }
