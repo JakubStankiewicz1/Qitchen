@@ -7,6 +7,7 @@ const Room = () => {
   const [tableTypes, setTableTypes] = useState([]);
   const [editCounts, setEditCounts] = useState({});
   const [loading, setLoading] = useState(false);
+  const [editingTableId, setEditingTableId] = useState(null);
 
   useEffect(() => {
     fetchTableTypes();
@@ -46,11 +47,22 @@ const Room = () => {
       );
       toast.success('Zapisano zmiany!');
       fetchTableTypes();
+      setEditingTableId(null);
     } catch (err) {
       toast.error('Błąd zapisu!');
     } finally {
       setLoading(false);
     }
+  };
+
+  const handleEditClick = (id) => {
+    setEditingTableId(id);
+  };
+
+  const handleCancelClick = () => {
+    const originalCount = tableTypes.find(t => t.id === editingTableId)?.count;
+    setEditCounts({ ...editCounts, [editingTableId]: originalCount });
+    setEditingTableId(null);
   };
 
   return (
@@ -73,18 +85,33 @@ const Room = () => {
                 <td>{t.seats}-osobowy</td>
                 <td>{t.seats}</td>
                 <td>
-                  <input
-                    type="number"
-                    min="0"
-                    value={editCounts[t.id]}
-                    onChange={e => handleCountChange(t.id, e.target.value)}
-                    className="room-input"
-                  />
+                  {editingTableId === t.id ? (
+                    <input
+                      type="number"
+                      min="0"
+                      value={editCounts[t.id]}
+                      onChange={e => handleCountChange(t.id, e.target.value)}
+                      className="room-input"
+                    />
+                  ) : (
+                    <span>{t.count}</span>
+                  )}
                 </td>
                 <td>
-                  <button className="room-save-btn" onClick={() => handleSave(t.id)} disabled={loading}>
-                    Zapisz
-                  </button>
+                  {editingTableId === t.id ? (
+                    <>
+                      <button className="room-save-btn" onClick={() => handleSave(t.id)} disabled={loading}>
+                        Zapisz
+                      </button>
+                      <button className="room-save-btn" onClick={handleCancelClick} disabled={loading} style={{ marginLeft: '8px', backgroundColor: '#f44336' }}>
+                        Anuluj
+                      </button>
+                    </>
+                  ) : (
+                    <button className="room-save-btn" onClick={() => handleEditClick(t.id)} disabled={loading}>
+                      Edytuj
+                    </button>
+                  )}
                 </td>
               </tr>
             ))}
