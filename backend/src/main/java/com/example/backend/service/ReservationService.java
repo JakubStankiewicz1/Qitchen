@@ -4,6 +4,9 @@ import com.example.backend.entity.Reservation;
 import com.example.backend.repository.ReservationRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.beans.factory.annotation.Value;
+import com.example.backend.service.TableTypeService;
+import com.example.backend.entity.TableType;
+import com.example.backend.repository.TableTypeRepository;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -15,6 +18,8 @@ public class ReservationService {
 
     private final ReservationRepository reservationRepository;
     private final EmailService emailService;
+    private final TableTypeService tableTypeService;
+    private final TableTypeRepository tableTypeRepository;
 
     @Value("${spring.mail.username}")
     private String senderEmail;
@@ -22,9 +27,11 @@ public class ReservationService {
     private final int TWO_PERSON_TABLES = 10;
     private final int THREE_PERSON_TABLES = 6;
 
-    public ReservationService(ReservationRepository reservationRepository, EmailService emailService) {
+    public ReservationService(ReservationRepository reservationRepository, EmailService emailService, TableTypeService tableTypeService, TableTypeRepository tableTypeRepository) {
         this.reservationRepository = reservationRepository;
         this.emailService = emailService;
+        this.tableTypeService = tableTypeService;
+        this.tableTypeRepository = tableTypeRepository;
     }
 
     public List<Reservation> getAllReservations() {
@@ -176,5 +183,64 @@ public class ReservationService {
         }
         
         return "custom:" + combination.toString();
+    }
+
+    /**
+     * Checks table availability for a given time and number of guests
+     */
+    public TableAvailabilityResult checkTableAvailability(LocalDateTime reservationTime, int numberOfGuests) {
+        // 1. Find optimal table type(s) for the group
+        int[] tableSizes = {1, 2, 4, 6, 10};
+        int needed = numberOfGuests;
+        // Try to fit in one table first
+        for (int size : tableSizes) {
+            if (needed <= size) {
+                return checkSingleTableType(reservationTime, size);
+            }
+        }
+        // If not possible, try combinations (greedy)
+        // For simplicity, just check if enough total seats are available
+        // (You can expand this to return optimal combinations)
+        int totalAvailableSeats = 0;
+        for (int size : tableSizes) {
+            TableType type = tableTypeRepository.findBySeats(size).orElse(null);
+            if (type != null) {
+                int reserved = countReservedTables(reservationTime, size);
+                int available = type.getCount() - reserved;
+                totalAvailableSeats += available * size;
+            }
+        }
+        boolean available = totalAvailableSeats >= numberOfGuests;
+        return new TableAvailabilityResult(available, available ? "Stolik dostępny" : "Brak wolnych stolików na tę liczbę osób", null);
+    }
+
+    private TableAvailabilityResult checkSingleTableType(LocalDateTime reservationTime, int size) {
+        TableType type = tableTypeRepository.findBySeats(size).orElse(null);
+        if (type == null) return new TableAvailabilityResult(false, "Brak takiego typu stolika", null);
+        int reserved = countReservedTables(reservationTime, size);
+        int available = type.getCount() - reserved;
+        boolean ok = available > 0;
+        return new TableAvailabilityResult(ok, ok ? "Stolik dostępny" : "Brak wolnych stolików tego typu", available);
+    }
+
+    private int countReservedTables(LocalDateTime reservationTime, int size) {
+        LocalDateTime start = reservationTime.minusHours(1);
+        LocalDateTime end = reservationTime.plusHours(1);
+        List<Reservation> overlapping = reservationRepository.findByReservationTimeBetween(start, end);
+        return (int) overlapping.stream().filter(r -> {
+            String t = r.getTableType();
+            return t != null && t.startsWith(size + "-person");
+        }).count();
+    }
+
+    public static class TableAvailabilityResult {
+        public boolean available;
+        public String message;
+        public Integer availableCount;
+        public TableAvailabilityResult(boolean available, String message, Integer availableCount) {
+            this.available = available;
+            this.message = message;
+            this.availableCount = availableCount;
+        }
     }
 }

@@ -92,14 +92,24 @@ const UpdateReservation = () => {
             return;
         }
 
-        const reservationData = {
-            name,
-            email,
-            phoneNumber,
-            reservationTime: `${selectedDate.toISOString().split('T')[0]}T${selectedHour}:${selectedMinute}:00`
-        };
-
+        const reservationTime = `${selectedDate.toISOString().split('T')[0]}T${selectedHour}:${selectedMinute}:00`;
         try {
+            // Check availability first
+            const check = await axios.post("http://localhost:8081/api/reservations/check-availability", {
+                reservationTime,
+                numberOfGuests: 1 // TODO: podaj właściwą liczbę gości jeśli masz ją w stanie
+            });
+            if (!check.data.available) {
+                toast.error(check.data.message || "No available tables for this time.");
+                return;
+            }
+            // If available, proceed to update reservation
+            const reservationData = {
+                name,
+                email,
+                phoneNumber,
+                reservationTime
+            };
             await axios.put(`http://localhost:8081/api/reservations/${id}`, reservationData);
             toast.success('Reservation updated successfully');
             navigate('/confirmation');

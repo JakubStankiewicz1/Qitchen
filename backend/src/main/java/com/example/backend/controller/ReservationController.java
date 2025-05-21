@@ -6,7 +6,10 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.view.RedirectView;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/api/reservations")
@@ -48,5 +51,18 @@ public class ReservationController {
     public RedirectView confirmReservation(@RequestParam String token) {
         reservationService.confirmReservation(token);
         return new RedirectView("http://localhost:5173/confirmation");
+    }
+
+    @PostMapping("/check-availability")
+    public ResponseEntity<?> checkAvailability(@RequestBody Map<String, Object> body) {
+        try {
+            String timeStr = (String) body.get("reservationTime");
+            int guests = (int) body.get("numberOfGuests");
+            LocalDateTime time = LocalDateTime.parse(timeStr, DateTimeFormatter.ISO_DATE_TIME);
+            var result = reservationService.checkTableAvailability(time, guests);
+            return ResponseEntity.ok(result);
+        } catch (Exception e) {
+            return ResponseEntity.badRequest().body("Invalid request: " + e.getMessage());
+        }
     }
 }

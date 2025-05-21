@@ -106,20 +106,30 @@ const Reservation = () => {
             return;
         }
 
-        const reservationData = {
-            name,
-            email,
-            phoneNumber,
-            numberOfGuests: guests,
-            reservationTime: `${selectedDate.toISOString().split('T')[0]}T${selectedHour}:${selectedMinute}:00`,
-            tableType: calculateOptimalTableType(guests)
-        };
-
+        const reservationTime = `${selectedDate.toISOString().split('T')[0]}T${selectedHour}:${selectedMinute}:00`;
         setIsLoading(true);
         try {
+            // Check availability first
+            const check = await axios.post("http://localhost:8081/api/reservations/check-availability", {
+                reservationTime,
+                numberOfGuests: Number(guests)
+            });
+            if (!check.data.available) {
+                toast.error(check.data.message || "No available tables for this time.");
+                setIsLoading(false);
+                return;
+            }
+            // If available, proceed to create reservation
+            const reservationData = {
+                name,
+                email,
+                phoneNumber,
+                numberOfGuests: guests,
+                reservationTime,
+                tableType: calculateOptimalTableType(guests)
+            };
             const response = await axios.post("http://localhost:8081/api/reservations", reservationData);
             toast.success("Reservation created successfully!");
-            console.log(response.data);
             // Reset all form fields after successful reservation
             setName("");
             setPhoneNumber("");

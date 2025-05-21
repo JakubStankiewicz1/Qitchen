@@ -1,9 +1,9 @@
 .navbarFeatureElement {
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
-    gap: 10px;
+    gap: 15px;
     width: 90%;
     margin-left: auto;
     margin-right: auto;
@@ -22,17 +22,17 @@
 .navbarFeatureElementContainer {
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
-    gap: 35px;
+    gap: 20px;
+    padding-left: 10px;
 }
 
-
 .navbarFeatureElementContainerLeftContainerIcon {
-    width: 32px;
-    height: auto;
-    display: flex;
-    
+    width: 28px;
+    height: 28px;
+    object-fit: contain;
+    display: block;
 }
 
 .navbarFeatureElementContainerRightContainerText {
@@ -40,5 +40,8 @@
     font-weight: 500;
     color: #EFE7D2;
     text-transform: capitalize;
-    letter-spacing: 0.3px;;
+    letter-spacing: 0.3px;
+    line-height: 1;
+    display: flex;
+    align-items: center;
 }

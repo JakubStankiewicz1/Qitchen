@@ -66,10 +66,7 @@ const Navbar = () => {
             <div className="navbarContainerFourth">
                 <div className="navbarContainerFourthContainer">
                     <NavbarFeatureElement icon={assets.reservedIcon} text={"Reservations"} link={"/reservations"} />
-                    <NavLink to="/room" className="navbarFeatureElement">
-                        <span className="navbarFeatureElementIcon"><MdTableBar /></span>
-                        <span className="navbarFeatureElementText">Sala</span>
-                    </NavLink>
+                    <NavbarFeatureElement icon={assets.tablesIcon} text={"Tables"} link={"/room"} />
                 </div>
             </div>
 
