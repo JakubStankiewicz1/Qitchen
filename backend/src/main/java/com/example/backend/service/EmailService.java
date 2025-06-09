@@ -4,6 +4,7 @@ import com.example.backend.entity.Reservation;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Service;
+import org.springframework.beans.factory.annotation.Value;
 
 import jakarta.mail.MessagingException;
 import jakarta.mail.internet.MimeMessage;
@@ -12,6 +13,9 @@ import jakarta.mail.internet.MimeMessage;
 public class EmailService {
 
     private final JavaMailSender mailSender;
+
+    @Value("${app.frontend.url:http://localhost:5173}")
+    private String frontendUrl;
 
     public EmailService(JavaMailSender mailSender) {
         this.mailSender = mailSender;
@@ -79,10 +83,8 @@ public class EmailService {
             MimeMessageHelper helper = new MimeMessageHelper(message, true);
 
             helper.setTo(to);
-            helper.setSubject("Your Qitchen Reservation Details");
-
-            String updateLink = "http://localhost:5173/update-reservation/" + reservation.getId();
-            String deleteLink = "http://localhost:5173/delete-reservation/" + reservation.getId();
+            helper.setSubject("Your Qitchen Reservation Details");            String updateLink = frontendUrl + "/update-reservation/" + reservation.getId();
+            String deleteLink = frontendUrl + "/delete-reservation/" + reservation.getId();
 
             // HTML email content
             String emailContent = "<!DOCTYPE html>" +

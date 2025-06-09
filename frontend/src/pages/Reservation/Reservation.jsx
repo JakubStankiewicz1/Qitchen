@@ -7,6 +7,7 @@ import "react-datepicker/dist/react-datepicker.css";
 import axios from 'axios';
 import { toast } from 'react-toastify';
 import Loading from '../../components/Loading/Loading';
+import { API_ENDPOINTS } from '../../config/api';
 
 const Reservation = () => {
     const [openGuests, setOpenGuests] = useState(false);
@@ -110,7 +111,7 @@ const Reservation = () => {
         setIsLoading(true);
         try {
             // Check availability first
-            const check = await axios.post("http://localhost:8081/api/reservations/check-availability", {
+            const check = await axios.post(API_ENDPOINTS.checkAvailability, {
                 reservationTime,
                 numberOfGuests: Number(guests)
             });
@@ -128,7 +129,7 @@ const Reservation = () => {
                 reservationTime,
                 tableType: calculateOptimalTableType(guests)
             };
-            const response = await axios.post("http://localhost:8081/api/reservations", reservationData);
+            const response = await axios.post(API_ENDPOINTS.reservations, reservationData);
             toast.success("Reservation created successfully!");
             // Reset all form fields after successful reservation
             setName("");

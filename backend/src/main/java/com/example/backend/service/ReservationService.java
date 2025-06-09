@@ -26,6 +26,12 @@ public class ReservationService {
     @Value("${spring.mail.username}")
     private String senderEmail;
 
+    @Value("${app.frontend.url:http://localhost:5173}")
+    private String frontendUrl;
+
+    @Value("${app.backend.url:http://localhost:8081}")
+    private String backendUrl;
+
     private final int TWO_PERSON_TABLES = 10;
     private final int THREE_PERSON_TABLES = 6;
 
@@ -48,7 +54,7 @@ public class ReservationService {
         validateTableAvailability(reservation);
         Reservation savedReservation = reservationRepository.save(reservation);
 
-        String confirmationLink = "http://localhost:8081/api/reservations/confirm?token=" + savedReservation.getConfirmationToken();
+        String confirmationLink = backendUrl + "/api/reservations/confirm?token=" + savedReservation.getConfirmationToken();
         emailService.sendConfirmationEmail(reservation.getEmail(), confirmationLink);
 
         return savedReservation;

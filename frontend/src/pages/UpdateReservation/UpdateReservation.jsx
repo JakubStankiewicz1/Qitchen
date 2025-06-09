@@ -7,6 +7,7 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import './updateReservation.css';
 import assets from '../../assets/assets';
+import { API_ENDPOINTS } from '../../config/api';
 
 const UpdateReservation = () => {
     const { id } = useParams();
@@ -28,7 +29,7 @@ const UpdateReservation = () => {
     useEffect(() => {
         const fetchReservation = async () => {
             try {
-                const response = await axios.get(`http://localhost:8081/api/reservations/${id}`);
+                const response = await axios.get(`${API_ENDPOINTS.reservations}/${id}`);
                 const data = response.data;
                 setName(data.name);
                 setEmail(data.email);
@@ -95,7 +96,7 @@ const UpdateReservation = () => {
         const reservationTime = `${selectedDate.toISOString().split('T')[0]}T${selectedHour}:${selectedMinute}:00`;
         try {
             // Check availability first
-            const check = await axios.post("http://localhost:8081/api/reservations/check-availability", {
+            const check = await axios.post(API_ENDPOINTS.checkAvailability, {
                 reservationTime,
                 numberOfGuests: 1 // TODO: podaj właściwą liczbę gości jeśli masz ją w stanie
             });
@@ -110,7 +111,7 @@ const UpdateReservation = () => {
                 phoneNumber,
                 reservationTime
             };
-            await axios.put(`http://localhost:8081/api/reservations/${id}`, reservationData);
+            await axios.put(`${API_ENDPOINTS.reservations}/${id}`, reservationData);
             toast.success('Reservation updated successfully');
             navigate('/confirmation');
         } catch (error) {

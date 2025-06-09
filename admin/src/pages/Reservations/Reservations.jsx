@@ -4,6 +4,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "./reservations.css";
 import { BiSearch, BiSortAlt2 } from "react-icons/bi";
+import { API_ENDPOINTS } from '../../config/api';
 
 const Reservations = () => {
   const [reservations, setReservations] = useState([]);
@@ -67,11 +68,10 @@ const Reservations = () => {
     }
     setFilteredReservations(sortedReservations);
   }, [sortConfig]);
-
   const fetchReservations = async () => {
     try {
       const token = localStorage.getItem("token");
-      const response = await axios.get("http://localhost:8081/api/reservations", {
+      const response = await axios.get(API_ENDPOINTS.reservations, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -84,11 +84,10 @@ const Reservations = () => {
       toast.error("Failed to fetch reservations. Please check your authentication.");
     }
   };
-
   const deleteReservation = async (id) => {
     try {
       const token = localStorage.getItem("token");
-      await axios.delete(`http://localhost:8081/api/reservations/${id}`, {
+      await axios.delete(`${API_ENDPOINTS.reservations}/${id}`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -178,10 +177,9 @@ const Reservations = () => {
       reservationToSend.tableType = calculateOptimalTableType(Number(editingReservation.numberOfGuests));
     }
     try {
-      const token = localStorage.getItem("token");
-      if (editingReservation.id) {
+      const token = localStorage.getItem("token");      if (editingReservation.id) {
         await axios.put(
-          `http://localhost:8081/api/reservations/${editingReservation.id}`,
+          `${API_ENDPOINTS.reservations}/${editingReservation.id}`,
           reservationToSend,
           {
             headers: {
@@ -192,7 +190,7 @@ const Reservations = () => {
         toast.success("Reservation updated successfully!");
       } else {
         await axios.post(
-          "http://localhost:8081/api/reservations",
+          API_ENDPOINTS.reservations,
           { ...reservationToSend, confirmed: true },
           {
             headers: {

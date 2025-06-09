@@ -5,6 +5,7 @@ import com.example.backend.service.ReservationService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.view.RedirectView;
+import org.springframework.beans.factory.annotation.Value;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -16,6 +17,9 @@ import java.util.Map;
 public class ReservationController {
 
     private final ReservationService reservationService;
+
+    @Value("${app.frontend.url:http://localhost:5173}")
+    private String frontendUrl;
 
     public ReservationController(ReservationService reservationService) {
         this.reservationService = reservationService;
@@ -50,7 +54,7 @@ public class ReservationController {
     @GetMapping("/confirm")
     public RedirectView confirmReservation(@RequestParam String token) {
         reservationService.confirmReservation(token);
-        return new RedirectView("http://localhost:5173/confirmation");
+        return new RedirectView(frontendUrl + "/confirmation");
     }
 
     @PostMapping("/check-availability")

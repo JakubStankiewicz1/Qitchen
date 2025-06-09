@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import './room.css';
 import axios from 'axios';
 import { toast } from 'react-toastify';
+import { API_ENDPOINTS } from '../../config/api';
 
 const Room = () => {
   const [tableTypes, setTableTypes] = useState([]);
@@ -17,7 +18,7 @@ const Room = () => {
     setLoading(true);
     try {
       const token = localStorage.getItem('token');
-      const res = await axios.get('http://localhost:8081/api/table-types', {
+      const res = await axios.get(API_ENDPOINTS.tableTypes, {
         headers: { Authorization: `Bearer ${token}` }
       });
       setTableTypes(res.data);
@@ -41,7 +42,7 @@ const Room = () => {
     try {
       const token = localStorage.getItem('token');
       await axios.put(
-        `http://localhost:8081/api/table-types/${id}`,
+        `${API_ENDPOINTS.tableTypes}/${id}`,
         { count: Number(editCounts[id]) },
         { headers: { Authorization: `Bearer ${token}` } }
       );

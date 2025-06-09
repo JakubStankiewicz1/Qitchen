@@ -4,16 +4,16 @@ import { toast } from "react-toastify";
 import axios from "axios";
 import "./deleteReservation.css";
 import assets from "../../assets/assets";
+import { API_ENDPOINTS } from '../../config/api';
 
 const DeleteReservation = () => {
   const { id } = useParams();
   const navigate = useNavigate();
   const [reservation, setReservation] = useState(null);
-
   useEffect(() => {
     const fetchReservation = async () => {
       try {
-        const response = await axios.get(`http://localhost:8081/api/reservations/${id}`);
+        const response = await axios.get(`${API_ENDPOINTS.reservations}/${id}`);
         setReservation(response.data);
       } catch (error) {
         toast.error("Failed to fetch reservation details");
@@ -25,7 +25,7 @@ const DeleteReservation = () => {
 
   const handleDelete = async () => {
     try {
-      await axios.delete(`http://localhost:8081/api/reservations/${id}`);
+      await axios.delete(`${API_ENDPOINTS.reservations}/${id}`);
       toast.success("Reservation deleted successfully");
       navigate("/");
     } catch (error) {

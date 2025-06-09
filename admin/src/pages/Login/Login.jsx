@@ -3,17 +3,17 @@ import { useAuth } from '../../App';
 import { useNavigate } from 'react-router-dom';
 import './login.css';
 import axios from 'axios';
+import { API_ENDPOINTS } from '../../config/api';
 
 const Login = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const { setIsAuthenticated } = useAuth();
   const navigate = useNavigate();
-
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post("http://localhost:8081/api/auth/login", {
+      const response = await axios.post(API_ENDPOINTS.auth.login, {
         username,
         password,
       });
