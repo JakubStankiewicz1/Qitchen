@@ -258,8 +258,8 @@ public class ReservationService {
         LocalDateTime endOfDay = startOfDay.plusDays(1);
 
         long totalReservations = reservationRepository.count();
-        long todayReservations = reservationRepository.countByDateTimeBetween(startOfDay, endOfDay);
-        long upcomingReservations = reservationRepository.countByDateTimeAfter(now);
+        long todayReservations = reservationRepository.countByReservationTimeBetween(startOfDay, endOfDay);
+        long upcomingReservations = reservationRepository.countByReservationTimeAfter(now);
         long availableTables = tableTypeRepository.count() * 4; // Assuming 4 seats per table on average
 
         Map<String, Long> stats = new HashMap<>();
@@ -272,6 +272,6 @@ public class ReservationService {
     }
 
     public List<Reservation> getRecentReservations() {
-        return reservationRepository.findTop10ByOrderByDateTimeDesc();
+        return reservationRepository.findTop10ByOrderByReservationTimeDesc();
     }
 }
