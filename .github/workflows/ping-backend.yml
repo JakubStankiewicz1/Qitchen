@@ -2,7 +2,7 @@ name: Keep Render Server Alive
 
 on:
   schedule:
-    - cron: '*/10 * * * *' # co 10 minut
+    - cron: '*/5 * * * *' # co 10 minut
   workflow_dispatch:
 
 jobs:
