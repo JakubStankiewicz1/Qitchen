@@ -10,4 +10,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Send HTTP request to Render backend
-        run: curl -s https://qitchen-backend.onrender.com > /dev/null
+        run: curl -s qitchen-backend-5kql.onrender.com > /dev/null
