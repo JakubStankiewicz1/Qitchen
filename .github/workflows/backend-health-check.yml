@@ -1,0 +1,88 @@
+name: Backend Health Check & Activity
+
+on:
+  schedule:
+    - cron: '*/8 * * * *' # co 8 minut - częściej niż poprzedni
+  workflow_dispatch:
+
+jobs:
+  health-check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check server status
+        run: |
+          echo "=== Backend Health Check Started ==="
+          echo "Time: $(date)"
+          
+          # Check if server is responding
+          echo "1. Checking server availability..."
+          response=$(curl -s -o /dev/null -w "%{http_code}" https://qitchen-backend-5kql.onrender.com/api/reservations)
+          
+          if [ "$response" = "200" ] || [ "$response" = "401" ] || [ "$response" = "403" ]; then
+            echo "✅ Server is responding (HTTP $response)"
+          else
+            echo "❌ Server not responding properly (HTTP $response)"
+            exit 1
+          fi
+          
+      - name: Test API endpoints
+        run: |
+          echo "2. Testing API endpoints..."
+          
+          # Test public endpoints
+          endpoints=(
+            "/api/reservations"
+            "/api/table-types" 
+            "/api/restaurant"
+            "/api/auth/login"
+          )
+          
+          for endpoint in "${endpoints[@]}"; do
+            echo "Testing $endpoint..."
+            status=$(curl -s -o /dev/null -w "%{http_code}" "https://qitchen-backend-5kql.onrender.com$endpoint")
+            echo "  Status: $status"
+          done
+          
+      - name: Simulate admin login attempt
+        run: |
+          echo "3. Simulating admin login attempt..."
+          
+          # Try to login with admin credentials (this will fail but keeps server active)
+          login_response=$(curl -s -w "%{http_code}" -X POST \
+            -H "Content-Type: application/json" \
+            -d '{"username":"admin","password":"admin"}' \
+            https://qitchen-backend-5kql.onrender.com/api/auth/login)
+          
+          echo "Login attempt completed with status: $login_response"
+          
+      - name: Load test simulation
+        run: |
+          echo "4. Simulating load test..."
+          
+          # Make multiple concurrent requests to simulate real usage
+          for i in {1..5}; do
+            echo "Request batch $i:"
+            
+            # Parallel requests to different endpoints
+            curl -s -o /dev/null -w "Reservations: %{http_code}\n" https://qitchen-backend-5kql.onrender.com/api/reservations &
+            curl -s -o /dev/null -w "Table Types: %{http_code}\n" https://qitchen-backend-5kql.onrender.com/api/table-types &
+            curl -s -o /dev/null -w "Restaurant: %{http_code}\n" https://qitchen-backend-5kql.onrender.com/api/restaurant &
+            
+            wait
+            sleep 1
+          done
+          
+      - name: Final status check
+        run: |
+          echo "5. Final status check..."
+          final_status=$(curl -s -o /dev/null -w "%{http_code}" https://qitchen-backend-5kql.onrender.com/api/reservations)
+          echo "Final server status: $final_status"
+          
+          if [ "$final_status" = "200" ] || [ "$final_status" = "401" ] || [ "$final_status" = "403" ]; then
+            echo "✅ Backend server is healthy and active!"
+          else
+            echo "❌ Backend server may have issues"
+            exit 1
+          fi
+          
+          echo "=== Health Check Completed Successfully ===" 

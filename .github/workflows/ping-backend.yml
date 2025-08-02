@@ -2,12 +2,35 @@ name: Keep Render Server Alive
 
 on:
   schedule:
-    - cron: '*/5 * * * *' # co 10 minut
+    - cron: '*/5 * * * *' # co 5 minut - bardzo często
   workflow_dispatch:
 
 jobs:
   ping:
     runs-on: ubuntu-latest
     steps:
-      - name: Send HTTP request to Render backend
-        run: curl -s qitchen-backend-5kql.onrender.com > /dev/null
+      - name: Comprehensive server ping
+        run: |
+          echo "=== Starting comprehensive server ping ==="
+          echo "Time: $(date)"
+          
+          # Multiple ping attempts to different endpoints
+          echo "1. Basic connectivity test..."
+          curl -s -o /dev/null -w "Basic ping: %{http_code}\n" https://qitchen-backend-5kql.onrender.com/api/reservations
+          
+          echo "2. API endpoint tests..."
+          curl -s -o /dev/null -w "Reservations API: %{http_code}\n" https://qitchen-backend-5kql.onrender.com/api/reservations
+          curl -s -o /dev/null -w "Table Types API: %{http_code}\n" https://qitchen-backend-5kql.onrender.com/api/table-types
+          curl -s -o /dev/null -w "Restaurant API: %{http_code}\n" https://qitchen-backend-5kql.onrender.com/api/restaurant
+          
+          echo "3. Auth endpoint test..."
+          curl -s -o /dev/null -w "Auth endpoint: %{http_code}\n" -X POST https://qitchen-backend-5kql.onrender.com/api/auth/login
+          
+          echo "4. Multiple rapid requests to simulate activity..."
+          for i in {1..3}; do
+            echo "  Request $i:"
+            curl -s -o /dev/null -w "    Status: %{http_code}, Time: %{time_total}s\n" https://qitchen-backend-5kql.onrender.com/api/reservations
+            sleep 0.5
+          done
+          
+          echo "=== Server ping completed successfully ==="

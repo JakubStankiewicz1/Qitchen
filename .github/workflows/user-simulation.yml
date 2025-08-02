@@ -1,0 +1,80 @@
+name: User Activity Simulation
+
+on:
+  schedule:
+    - cron: '*/12 * * * *' # co 12 minut
+  workflow_dispatch:
+
+jobs:
+  simulate-users:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Simulate user browsing
+        run: |
+          echo "=== Simulating User Activity ==="
+          echo "Time: $(date)"
+          
+          # Simulate a user browsing the restaurant website
+          echo "1. User visits restaurant page..."
+          curl -s -o /dev/null -w "Restaurant info: %{http_code}\n" https://qitchen-backend-5kql.onrender.com/api/restaurant
+          
+          echo "2. User checks available table types..."
+          curl -s -o /dev/null -w "Table types: %{http_code}\n" https://qitchen-backend-5kql.onrender.com/api/table-types
+          
+          echo "3. User views recent reservations..."
+          curl -s -o /dev/null -w "Recent reservations: %{http_code}\n" https://qitchen-backend-5kql.onrender.com/api/reservations/recent
+          
+          echo "4. User checks reservation statistics..."
+          curl -s -o /dev/null -w "Reservation stats: %{http_code}\n" https://qitchen-backend-5kql.onrender.com/api/reservations/stats
+          
+      - name: Simulate admin activity
+        run: |
+          echo "5. Admin attempts to login..."
+          login_response=$(curl -s -w "%{http_code}" -X POST \
+            -H "Content-Type: application/json" \
+            -d '{"username":"admin","password":"admin"}' \
+            https://qitchen-backend-5kql.onrender.com/api/auth/login)
+          
+          echo "Login attempt result: $login_response"
+          
+          echo "6. Admin checks all reservations..."
+          curl -s -o /dev/null -w "All reservations: %{http_code}\n" https://qitchen-backend-5kql.onrender.com/api/reservations
+          
+      - name: Simulate reservation creation attempt
+        run: |
+          echo "7. Simulating reservation creation attempt..."
+          
+          # Try to create a test reservation (will fail without proper auth but keeps server active)
+          reservation_data='{
+            "name": "Test User",
+            "email": "test@example.com",
+            "phoneNumber": "123456789",
+            "numberOfGuests": 2,
+            "reservationTime": "2024-12-25T18:00:00",
+            "tableType": "2-person"
+          }'
+          
+          create_response=$(curl -s -w "%{http_code}" -X POST \
+            -H "Content-Type: application/json" \
+            -d "$reservation_data" \
+            https://qitchen-backend-5kql.onrender.com/api/reservations)
+          
+          echo "Reservation creation attempt: $create_response"
+          
+      - name: Final activity check
+        run: |
+          echo "8. Final activity check..."
+          
+          # Make a final round of requests
+          endpoints=(
+            "/api/reservations"
+            "/api/table-types"
+            "/api/restaurant"
+          )
+          
+          for endpoint in "${endpoints[@]}"; do
+            status=$(curl -s -o /dev/null -w "%{http_code}" "https://qitchen-backend-5kql.onrender.com$endpoint")
+            echo "  $endpoint: $status"
+          done
+          
+          echo "=== User Activity Simulation Completed ===" 
